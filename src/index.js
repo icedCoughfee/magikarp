@@ -1,42 +1,84 @@
-const { GraphQLServer } = require('graphql-yoga')
-const fetch = require('node-fetch')
+const { GraphQLServer } = require("graphql-yoga");
+const fetch = require("node-fetch");
 
-const baseURL = `https://rest-demo-hyxkwbnhaz.now.sh`
+const baseURL = `https://pokeapi.co/api/v2`;
 
 const resolvers = {
+  // Query will house our "Root Resolvers" or entry points into the API
+  // Any queries on the same level as the "Root Resolver" will simply be resolvers that can resolve references to that type deeper than the root.
+  // For example a property value with a list of ParticularType can be resolved by GraphQL given the ParticularType resolver on the same level as the root.
   Query: {
-    users: () => {
-      return fetch(`${baseURL}/users`).then(res => res.json())
+    // BERRIES
+    AllBerries: () => getAllConnections("/berry"),
+    Berry: (parent, args) => {
+      return getByIdOrName("/berry", args);
     },
-    user: (parent, args) => {
-      const { id } = args
-      return fetch(`${baseURL}/users/${id}`).then(res => res.json())
+    AllBerryFirmness: () => getAllConnections("/berry-firmness"),
+    BerryFirmness: (parent, args) => {
+      return getByIdOrName("/berry-firmness", args);
     },
-    posts: () => {
-      return fetch(`${baseURL}/posts`).then(res => res.json())
+    AllBerryFlavors: () => getAllConnections("/berry-flavor"),
+    BerryFlavor: (parent, args) => {
+      return getByIdOrName("/berry-flavor", args);
     },
-    post: (parent, args) => {
-      const { id } = args
-      return fetch(`${baseURL}/posts/${id}`).then(res => res.json())
-    },
-  },
-  Post: {
-    author: parent => {
-      const { id } = parent
-      return fetch(`${baseURL}/posts/${id}/user`).then(res => res.json())
+    // CONTESTS
+    AllContestTypes: () => getAllConnections("/contest-type"),
+    ContestType: (parent, args) => {
+      return getByIdOrName("/contest-type", args);
     }
   },
-  User: {
-    posts: parent => {
-      const { id } = parent
-      return fetch(`${baseURL}/users/${id}/posts`).then(res => res.json())
-    }
+  BerryConnection: {
+    node: obj => getNode(obj)
+  },
+  BerryFirmnessConnection: {
+    node: obj => getNode(obj)
+  },
+  BerryFlavorsConnection: {
+    node: obj => getNode(obj)
+  },
+  ContestTypeConnection: {
+    node: obj => getNode(obj)
   }
-}
+};
+
+// common resolve function for all "nodes"
+const getNode = obj => {
+  try {
+    return fetch(obj.url)
+      .then(res => res.json())
+      .catch(err => console.log(err));
+  } catch (err) {
+    return Promise.reject(err);
+  }
+};
+
+// calls that return Connections (reference list {name, url})
+const getAllConnections = urlPath => {
+  try {
+    return fetch(`${baseURL}/${urlPath}`)
+      .then(res => res.json())
+      .then(res => res.results)
+      .catch(err => console.log(err));
+  } catch (err) {
+    return Promise.reject(err);
+  }
+};
+
+const getByIdOrName = (urlPath, args) => {
+  const { id, name } = args;
+  try {
+    if (!id && !name) {
+      throw new Error("Please provide the Pokemon Id (Int) or Name (String)");
+    }
+    return fetch(`${baseURL}/${urlPath}/${id || name}`).then(res => res.json());
+  } catch (err) {
+    return Promise.reject(err);
+  }
+};
 
 const server = new GraphQLServer({
-  typeDefs: './src/schema.graphql',
-  resolvers,
-})
+  typeDefs: "./src/schema.graphql",
+  resolvers
+});
 
-server.start(() => console.log(`Server is running on http://localhost:4000`))
+server.start(() => console.log(`Server is running on http://localhost:4000`));

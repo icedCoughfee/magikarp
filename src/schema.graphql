@@ -1,20 +1,881 @@
 type Query {
-  users: [User!]!
-  user(id: ID!): User
-  posts: [Post!]!
-  post(id: ID!): Post
+  AllBerries: [BerryConnection!]!
+  Berry(id: Int, name: String): Berry
+  AllBerryFirmness: [BerryFirmnessConnection!]!
+  BerryFirmness(id: Int, name: String): BerryFirmness
+  AllBerryFlavors: [BerryFlavorsConnection!]!
+  BerryFlavor(id: Int, name: String): BerryFlavor
+  AllContestTypes: [ContestTypeConnection!]!
+  ContestType(id: Int, name: String): ContestType
 }
 
-type User {
+# Connections
+type BerryConnection {
+  name: String
+  url: String
+  node: Berry
+}
+
+type BerryFirmnessConnection {
+  name: String
+  url: String
+  node: BerryFirmness
+}
+
+type BerryFlavorsConnection {
+  name: String
+  url: String
+  node: BerryFlavor
+}
+
+type ContestTypeConnection {
+  name: String!
+  url: String!
+  node: ContestType!
+}
+
+# Common
+type Language {
   id: ID!
   name: String!
-  posts: [Post!]!
+  official: Boolean!
+  iso639: String!
+  iso3166: String!
+  names: [Name!]!
 }
 
-type Post {
-  id: ID!
-  title: String!
-  content: String!
-  published: Boolean!
-  author: User!
+type APIResource {
+  url: String!
+}
+
+type NamedAPIResource {
+  name: String!
+  url: String!
+}
+
+type Name {
+  name: String!
+  language: Language!
+}
+
+type Description {
+  description: String!
+  language: Language!
+}
+
+type Effect {
+  effect: String!
+  language: Language!
+}
+
+type Encounter {
+  min_level: Int!
+  max_level: Int!
+  condition_values: [EncounterConditionValue!]!
+  chance: Int!
+  method: EncounterMethod!
+}
+
+type FlavorText {
+  flavor_text: String!
+  language: Language!
+  version: Version!
+}
+
+type GenerationGameIndex {
+  game_index: Int!
+  generation: Generation!
+}
+
+type MachineVersionDetail {
+  machine: Machine!
+  version_group: VersionGroup!
+}
+
+type VerboseEffect {
+  effect: String!
+  short_effect: String!
+  language: Language!
+}
+
+type VersionEncounterDetail {
+  version: Version!
+  max_chance: Int!
+  encounter_details: Encounter!
+}
+
+type VersionGameIndex {
+  game_index: Int!
+  version: Version!
+}
+
+type VersionGroupFlavorText {
+  text: String!
+  language: Language!
+  version_group: VersionGroup!
+}
+
+# Berries
+type Berry {
+  id: Int
+  name: String
+  growth_time: Int
+  max_harvest: Int
+  natural_gift_power: Int
+  size: Int
+  smoothness: Int
+  soil_dryness: Int
+  firmness: BerryFirmness
+  flavors: [BerryFlavorMap]
+  item: Item
+  natural_gift_type: Type
+}
+
+type BerryFlavorMap {
+  id: Int!
+  name: String!
+  berries: [FlavorBerryMap!]!
+  contest_type: ContestType!
+  names: [Name!]!
+}
+
+type BerryFirmness {
+  id: Int!
+  name: String!
+  berries: [BerryConnection!]!
+  names: [Name!]!
+}
+
+type BerryFlavor {
+  id: Int!
+  name: String!
+  berries: [FlavorBerryMap!]!
+  contest_type: ContestType!
+  names: [Name!]!
+}
+
+type FlavorBerryMap {
+  potency: Int!
+  berry: Berry!
+}
+
+# Contests
+type ContestType {
+  id: Int!
+  name: String!
+  berry_flavor: BerryFlavor!
+  names: [ContestName!]!
+}
+
+type ContestName {
+  name: String!
+  color: String!
+  language: Language!
+}
+
+type ContestEffect {
+  id: Int!
+  appeal: Int!
+  jam: Int!
+  effect_entries: [Effect!]!
+  flavor_text_entries: [FlavorText!]!
+}
+
+type SuperContestEffect {
+  id: Int!
+  appeal: Int!
+  flavor_text_entries: [FlavorText!]!
+  moves: [Move!]!
+}
+
+# Encounters
+type EncounterMethod {
+  id: Int!
+  name: String!
+  order: Int!
+  names: [Name!]!
+}
+
+type EncounterCondition {
+  id: Int!
+  name: String!
+  names: [Name!]!
+  values: [EncounterConditionValue!]!
+}
+
+type EncounterConditionValue {
+  id: Int!
+  name: String!
+  condition: EncounterCondition!
+  names: [Name]!
+}
+
+#Evolution
+type EvolutionChain {
+  id: Int!
+  baby_trigger_item: Item!
+  chain: ChainLink!
+}
+
+type ChainLink {
+  is_baby: Boolean!
+  species: PokemonSpecies!
+  evolution_details: [EvolutionDetail!]!
+  evolves_to: [ChainLink!]!
+}
+
+type EvolutionDetail {
+  item: Item!
+  trigger: EvolutionTrigger!
+  gender: Int!
+  held_item: Item!
+  known_move: Move!
+  known_move_type: Type!
+  location: Location!
+  min_level: Int!
+  min_happiness: Int!
+  min_beauty: Int!
+  min_affection: Int!
+  needs_overworld_rain: Boolean!
+  party_species: PokemonSpecies!
+  party_type: Type!
+  relative_physical_stats: Int!
+  time_of_day: String!
+  trade_species: PokemonSpecies!
+  turn_upside_down: Boolean!
+}
+
+type EvolutionTrigger {
+  id: Int!
+  name: String!
+  names: [Name]!
+  pokemon_species: [PokemonSpecies!]!
+}
+
+# Games
+type Generation {
+  id: Int!
+  name: String!
+  abilities: [Ability!]!
+  names: [Name!]!
+  main_region: Region!
+  moves: [Move!]!
+  pokemon_species: [PokemonSpecies!]!
+  types: [Type!]!
+  version_groups: [VersionGroup!]!
+}
+
+type Pokedex {
+  id: Int!
+  name: String!
+  is_main_series: Boolean!
+  descriptions: [Description!]!
+  names: [Name!]!
+  pokemon_entries: [PokemonEntry]!
+  region: Region!
+  version_groups: [VersionGroup]!
+}
+
+type PokemonEntry {
+  entry_number: Int!
+  pokemon_species: PokemonSpecies!
+}
+
+type Version {
+  id: Int!
+  name: String!
+  names: [Name!]!
+  version_group: VersionGroup!
+}
+
+type VersionGroup {
+  id: Int!
+  name: String!
+  order: Int!
+  generation: Generation!
+  move_learn_methods: [MoveLearnMethod]!
+  pokedexes: [Pokedex!]!
+  regions: [Region!]!
+  versions: [Version!]!
+}
+
+# Items
+type Item {
+  id: Int!
+  name: String!
+  cost: Int!
+  fling_power: Int!
+  fling_effect: ItemFlingEffect!
+  attributes: [ItemAttribute!]!
+  category: ItemCategory!
+  effect_entries: [VerboseEffect]!
+  flavor_text_entries: [VersionGroupFlavorText!]!
+  game_indices: [GenerationGameIndex!]!
+  names: [Name!]!
+  sprites: ItemSprites!
+  held_by_pokemon: [ItemHolderPokemon!]!
+  baby_trigger_for: EvolutionChain!
+  machines: [MachineVersionDetail!]!
+}
+
+type ItemSprites {
+  default: String!
+}
+
+type ItemHolderPokemon {
+  pokemon: String!
+  version_details: [ItemHolderPokemonVersionDetail!]!
+}
+
+type ItemHolderPokemonVersionDetail {
+  rarity: String!
+  version: Version!
+}
+
+type ItemAttribute {
+  id: Int!
+  name: String!
+  items: [Item!]!
+  names: [Name!]!
+  descriptions: [Description!]!
+}
+
+type ItemCategory {
+  id: Int!
+  name: String!
+  items: [Item!]!
+  names: [Name!]!
+  pocket: ItemPocket!
+}
+
+type ItemFlingEffect {
+  id: Int!
+  name: String!
+  effect_entries: [Effect!]!
+  items: [Item!]!
+}
+
+type ItemPocket {
+  id: Int!
+  name: String!
+  categories: [ItemCategory!]!
+  names: [Name!]!
+}
+
+# Locations
+type Location {
+  id: Int!
+  name: String!
+  region: Region!
+  names: [Name!]!
+  game_indices: [GenerationGameIndex!]!
+  areas: [LocationArea]!
+}
+
+type LocationArea {
+  id: Int!
+  name: String!
+  game_index: Int!
+  encounter_method_rates: [EncounterMethodRate!]!
+  location: Location!
+  names: [Name!]!
+  pokemon_encounters: [PokemonEncounter!]!
+}
+
+type EncounterMethodRate {
+  encounter_method: EncounterMethod!
+  version_details: [EncounterVersionDetails!]!
+}
+
+type EncounterVersionDetails {
+  rate: Int!
+  version: Version!
+}
+
+type PokemonEncounter {
+  pokemon: Pokemon!
+  version_details: [VersionEncounterDetail!]!
+}
+
+type PalParkArea {
+  id: Int!
+  name: String!
+  names: [Name!]!
+  pokemon_encounters: [PalParkEncounterSpecies]!
+}
+
+type PalParkEncounterSpecies {
+  base_score: Int!
+  rate: Int!
+  pokemon_species: PokemonSpecies!
+}
+
+type Region {
+  id: Int!
+  name: String!
+  names: [Name!]!
+  locations: [Location!]!
+  main_generation: Generation!
+  pokedexes: [Pokedex!]!
+  version_groups: [VersionGroup]!
+}
+
+# Machines
+type Machine {
+  id: Int!
+  item: Item!
+  move: Move!
+  version_group: VersionGroup!
+}
+
+# Moves
+type Move {
+  id: Int!
+  name: String!
+  accuracy: Int!
+  effect_chance: Int!
+  pp: Int!
+  priority: Int!
+  power: Int!
+  contest_combos: ContestComboSets!
+  contest_type: ContestType!
+  contest_effect: ContestEffect!
+  damage_class: MoveDamageClass!
+  effect_entries: [VerboseEffect!]!
+  effect_changes: [AbilityEffectChange!]!
+  flavor_text_entries: [MoveFlavorText!]!
+  generation: Generation!
+  machines: [MachineVersionDetail!]!
+  meta: MoveMetaData!
+  names: [Name!]!
+  past_values: [PastMoveStatValues!]!
+  stat_changes: [MoveStatChange]!
+  super_contest_effect: SuperContestEffect!
+  target: MoveTarget!
+  type: Type!
+}
+
+type ContestComboSets {
+  normal: ContestComboDetail!
+  super: ContestComboDetail!
+}
+
+type ContestComboDetail {
+  use_before: [Move]!
+  use_after: [Move]!
+}
+
+type MoveFlavorText {
+  flavor_text: String!
+  language: [Move!]!
+  version_group: [Move!]!
+}
+
+type MoveMetaData {
+  ailment: MoveAilment!
+  category: Move!
+  min_hits: Int!
+  max_hits: Int!
+  min_turns: Int!
+  max_turns: Int!
+  drain: Int!
+  healing: Int!
+  crit_rate: Int!
+  ailment_chance: Int!
+  flinch_chance: Int!
+  stat_chance: Int!
+}
+
+type MoveStatChange {
+  change: Int!
+  stat: Stat!
+}
+
+type PastMoveStatValues {
+  accuracy: Int!
+  effect_chance: Int!
+  power: Int!
+  pp: Int!
+  effect_entries: [VerboseEffect!]!
+  type: Type!
+  version_group: VersionGroup!
+}
+
+type MoveAilment {
+  id: Int!
+  name: String!
+  moves: [Move!]!
+  names: [Name!]!
+}
+
+type MoveBattleStyle {
+  id: Int!
+  name: String!
+  names: [Name!]!
+}
+
+type ModelName {
+  id: Int!
+  name: String!
+  moves: [Move!]!
+  descriptions: [Description!]!
+}
+
+type MoveDamageClass {
+  id: Int!
+  name: String!
+  descriptions: [Description!]!
+  moves: [Move!]!
+  names: [Name!]!
+}
+
+type MoveLearnMethod {
+  id: Int!
+  name: String!
+  descriptions: [Description!]!
+  names: [Name!]!
+  version_groups: [VersionGroup]!
+}
+
+type MoveTarget {
+  id: Int!
+  name: String!
+  descriptions: [Description!]!
+  moves: [Move!]!
+  names: [Name!]!
+}
+
+# Pokemon
+type Ability {
+  id: Int!
+  name: String!
+  is_main_series: Boolean!
+  generation: Generation!
+  names: [Name!]!
+  effect_entries: [VerboseEffect!]!
+  effect_changes: [AbilityEffectChange!]!
+  flavor_text_entries: [AbilityFlavorText]!
+  pokemon: [AbilityPokemon]!
+}
+
+type AbilityEffectChange {
+  effect_entries: [Effect!]!
+  version_group: VersionGroup!
+}
+
+type AbilityFlavorText {
+  flavor_text: String!
+  language: Language!
+  version_group: VersionGroup!
+}
+
+type AbilityPokemon {
+  is_hidden: Boolean!
+  slot: Int!
+  pokemon: Pokemon!
+}
+
+type Characteristic {
+  id: Int!
+  gene_modulo: Int!
+  possible_values: [Int!]!
+}
+
+type EggGroup {
+  id: Int!
+  name: String!
+  names: [Name!]!
+  pokemon_species: [PokemonSpecies!]!
+}
+
+type Gender {
+  id: Int!
+  name: String!
+  pokemon_species_details: [PokemonSpeciesGender!]!
+  required_for_evolution: [PokemonSpecies!]!
+}
+
+type PokemonSpeciesGender {
+  rate: Int!
+  pokemon_species: [PokemonSpecies!]!
+}
+
+type GrowthRate {
+  id: Int!
+  name: String!
+  formula: String!
+  descriptions: [Description!]!
+  levels: [GrowthRateExperienceLevel]!
+  pokemon_species: [PokemonSpecies!]!
+}
+
+type GrowthRateExperienceLevel {
+  level: Int!
+  experience: Int!
+}
+
+type Nature {
+  id: Int!
+  name: String!
+  decreased_stat: Stat!
+  increased_stat: Stat!
+  hates_flavor: BerryFlavor!
+  likes_flavor: BerryFlavor!
+  pokeathlon_stat_changes: NatureStatChange!
+  move_battle_style_preferences: MoveBattleStylePreference!
+  names: [Name!]!
+}
+
+type NatureStatChange {
+  max_change: Int!
+  pokeathlon_stat: PokeathlonStat!
+}
+
+type MoveBattleStylePreference {
+  low_hp_preference: Int!
+  high_hp_preference: Int!
+  move_battle_style: MoveBattleStyle!
+}
+
+type PokeathlonStat {
+  id: Int!
+  name: String!
+  names: [Name!]!
+  affecting_natures: NaturePokeathlonStatAffectSets!
+}
+
+type NaturePokeathlonStatAffectSets {
+  increase: [NaturePokeathlonStatAffect!]!
+  decrease: [NaturePokeathlonStatAffect!]!
+}
+
+type NaturePokeathlonStatAffect {
+  max_change: Int!
+  nature: Nature!
+}
+
+type Pokemon {
+  id: Int!
+  name: String!
+  base_experience: Int!
+  height: Int!
+  is_default: Boolean!
+  order: Int!
+  weight: Int!
+  abilities: [PokemonAbility!]!
+  forms: [PokemonForm!]!
+  game_indices: [VersionGameIndex!]!
+  held_items: [PokemonHeldItem!]!
+  location_area_encounters: String!
+  moves: [PokemonMove!]!
+  sprites: PokemonSprites!
+  species: PokemonSpecies!
+  stats: [PokemonStat!]!
+  types: [PokemonType!]!
+}
+
+type PokemonAbility {
+  is_hidden: Boolean!
+  slot: Int!
+  ability: Ability!
+}
+
+type PokemonType {
+  slot: Int!
+  type: Type!
+}
+
+type PokemonHeldItem {
+  item: Item!
+  version_details: [PokemonHeldItemVersion!]!
+}
+
+type PokemonHeldItemVersion {
+  version: Version!
+  rarity: Int!
+}
+
+type PokemonMove {
+  move: Move!
+  version_group_details: [PokemonMoveVersion!]!
+}
+
+type PokemonMoveVersion {
+  move_learn_method: MoveLearnMethod!
+  version_group: VersionGroup!
+  level_learned_at: Int!
+}
+
+type PokemonStat {
+  stat: Stat!
+  effort: Int!
+  base_stat: Int!
+}
+
+type PokemonSprites {
+  front_default: String!
+  front_shinyXXX: String!
+  front_female: String!
+  front_shiny_female: String!
+  back_default: String!
+  back_shiny: String!
+  back_female: String!
+  back_shiny_female: String!
+}
+
+type LocationAreaEncounter {
+  location_area: LocationArea!
+  version_details: [VersionEncounterDetail!]!
+}
+
+type PokemonColor {
+  id: Int!
+  name: String!
+  names: [Name!]!
+  pokemon_species: [PokemonSpecies!]!
+}
+
+type PokemonForm {
+  id: Int!
+  name: String!
+  order: Int!
+  form_order: Int!
+  is_default: Boolean!
+  is_battle_only: Boolean!
+  is_mega: Boolean!
+  form_name: String!
+  pokemon: Pokemon!
+  sprites: PokemonFormSprites!
+  version_group: VersionGroup!
+  names: [Name!]!
+  form_names: [Name!]!
+}
+
+type PokemonFormSprites {
+  front_default: String!
+  front_shiny: String!
+  back_default: String!
+  back_shiny: String!
+}
+
+type PokemonHabitat {
+  id: Int!
+  name: String!
+  names: [Name!]!
+  pokemon_species: [PokemonSpecies!]!
+}
+
+type PokemonShape {
+  id: Int!
+  name: String!
+  awesome_names: [AwesomeName!]!
+  names: [Name!]!
+  pokemon_species: [PokemonSpecies!]!
+}
+
+type AwesomeName {
+  awesome_name: String!
+  language: Language!
+}
+
+type PokemonSpecies {
+  id: Int!
+  name: String!
+  order: Int!
+  gender_rate: Int!
+  capture_rate: Int!
+  base_happiness: Int!
+  is_baby: Boolean!
+  hatch_counter: Int!
+  has_gender_differences: Boolean!
+  forms_switchable: Boolean!
+  growth_rate: GrowthRate!
+  pokedex_numbers: [PokemonSpeciesDexEntry!]!
+  egg_groups: [EggGroup!]!
+  color: PokemonColor!
+  shape: PokemonShape!
+  evolves_from_species: PokemonSpecies!
+  evolution_chain: EvolutionChain!
+  habitat: PokemonHabitat!
+  generation: Generation!
+  names: [Name!]!
+  pal_park_encounters: [PalParkEncounterArea!]!
+  flavor_text_entries: [FlavorText!]!
+  form_descriptions: [Description]!
+  genera: [Genus!]!
+  varieties: [PokemonSpeciesVariety!]!
+}
+
+type Genus {
+  genus: String!
+  language: Language!
+}
+
+type PokemonSpeciesDexEntry {
+  entry_number: Int!
+  pokedex: Pokedex!
+}
+
+type PalParkEncounterArea {
+  base_score: Int!
+  rate: Int!
+  area: PalParkArea!
+}
+
+type PokemonSpeciesVariety {
+  is_default: Boolean!
+  pokemon: Pokemon!
+}
+
+type Stat {
+  id: Int!
+  name: String!
+  game_index: Int!
+  is_battle_only: Boolean!
+  affecting_moves: MoveStatAffectSets!
+  affecting_natures: NatureStatAffectSets!
+  characteristics: Characteristic!
+  move_damage_class: MoveDamageClass!
+  names: [Name!]!
+}
+
+type MoveStatAffectSets {
+  increase: [MoveStatAffect!]!
+  decrease: [MoveStatAffect!]!
+}
+
+type MoveStatAffect {
+  change: Int!
+  move: Move!
+}
+
+type NatureStatAffectSets {
+  increase: [Nature!]!
+  decrease: [Nature!]!
+}
+
+type Type {
+  id: Int!
+  name: String!
+  damage_relations: TypeRelations!
+  game_indices: [GenerationGameIndex!]!
+  generation: Generation!
+  move_damage_class: MoveDamageClass!
+  names: [Name!]!
+  pokemon: [TypePokemon!]!
+  moves: [Move!]!
+}
+
+type TypePokemon {
+  slot: Int!
+  pokemon: Pokemon!
+}
+
+type TypeRelations {
+  no_damage_to: Type!
+  half_damage_to: Type!
+  double_damage_to: Type!
+  no_damage_from: Type!
+  half_damage_from: Type!
+  double_damage_from: Type!
 }
