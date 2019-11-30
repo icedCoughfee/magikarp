@@ -9,36 +9,36 @@ const resolvers = {
   // For example a property value with a list of ParticularType can be resolved by GraphQL given the ParticularType resolver on the same level as the root.
   Query: {
     // BERRIES
-    AllBerries: () => getAllConnections("/berry"),
-    Berry: (parent, args) => {
+    getAllBerries: () => getAllConnections("/berry"),
+    getBerry: (parent, args) => {
       return getByIdOrName("/berry", args);
     },
-    AllBerryFirmness: () => getAllConnections("/berry-firmness"),
-    BerryFirmness: (parent, args) => {
+    getAllBerryFirmness: () => getAllConnections("/berry-firmness"),
+    getBerryFirmness: (parent, args) => {
       return getByIdOrName("/berry-firmness", args);
     },
-    AllBerryFlavors: () => getAllConnections("/berry-flavor"),
-    BerryFlavor: (parent, args) => {
+    getAllBerryFlavors: () => getAllConnections("/berry-flavor"),
+    getBerryFlavor: (parent, args) => {
       return getByIdOrName("/berry-flavor", args);
     },
     // CONTESTS
-    AllContestTypes: () => getAllConnections("/contest-type"),
-    ContestType: (parent, args) => {
+    getAllContestTypes: () => getAllConnections("/contest-type"),
+    getContestType: (parent, args) => {
       return getByIdOrName("/contest-type", args);
-    }
+    },
   },
   BerryConnection: {
-    node: obj => getNode(obj)
+    node: obj => getNode(obj),
   },
   BerryFirmnessConnection: {
-    node: obj => getNode(obj)
+    node: obj => getNode(obj),
   },
-  BerryFlavorsConnection: {
-    node: obj => getNode(obj)
+  BerryFlavorConnection: {
+    node: obj => getNode(obj),
   },
   ContestTypeConnection: {
-    node: obj => getNode(obj)
-  }
+    node: obj => getNode(obj),
+  },
 };
 
 // common resolve function for all "nodes"
@@ -78,7 +78,7 @@ const getByIdOrName = (urlPath, args) => {
 
 const server = new GraphQLServer({
   typeDefs: "./src/schema.graphql",
-  resolvers
+  resolvers,
 });
 
 server.start(() => console.log(`Server is running on http://localhost:4000`));

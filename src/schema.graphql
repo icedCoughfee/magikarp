@@ -1,12 +1,13 @@
 type Query {
-  AllBerries: [BerryConnection!]!
-  Berry(id: Int, name: String): Berry
-  AllBerryFirmness: [BerryFirmnessConnection!]!
-  BerryFirmness(id: Int, name: String): BerryFirmness
-  AllBerryFlavors: [BerryFlavorsConnection!]!
-  BerryFlavor(id: Int, name: String): BerryFlavor
-  AllContestTypes: [ContestTypeConnection!]!
-  ContestType(id: Int, name: String): ContestType
+  getAllBerries: [BerryConnection!]!
+  getBerry(id: Int, name: String): Berry
+  getAllBerryFirmness: [BerryFirmnessConnection!]!
+  getBerryFirmness(id: Int, name: String): BerryFirmness
+  getAllBerryFlavors: [BerryFlavorConnection!]!
+  getBerryFlavor(id: Int, name: String): BerryFlavor
+
+  getAllContestTypes: [ContestTypeConnection!]!
+  getContestType(id: Int, name: String): ContestType
 }
 
 # Connections
@@ -22,7 +23,7 @@ type BerryFirmnessConnection {
   node: BerryFirmness
 }
 
-type BerryFlavorsConnection {
+type BerryFlavorConnection {
   name: String
   url: String
   node: BerryFlavor
@@ -125,18 +126,15 @@ type Berry {
   size: Int
   smoothness: Int
   soil_dryness: Int
-  firmness: BerryFirmness
+  firmness: BerryFirmnessConnection
   flavors: [BerryFlavorMap]
   item: Item
   natural_gift_type: Type
 }
 
 type BerryFlavorMap {
-  id: Int!
-  name: String!
-  berries: [FlavorBerryMap!]!
-  contest_type: ContestType!
-  names: [Name!]!
+  potency: Int
+  flavor: BerryFlavorConnection
 }
 
 type BerryFirmness {
@@ -150,20 +148,20 @@ type BerryFlavor {
   id: Int!
   name: String!
   berries: [FlavorBerryMap!]!
-  contest_type: ContestType!
+  contest_type: ContestTypeConnection!
   names: [Name!]!
 }
 
 type FlavorBerryMap {
-  potency: Int!
-  berry: Berry!
+  potency: Int
+  berry: BerryConnection
 }
 
 # Contests
 type ContestType {
   id: Int!
   name: String!
-  berry_flavor: BerryFlavor!
+  berry_flavor: BerryFlavorConnection!
   names: [ContestName!]!
 }
 
