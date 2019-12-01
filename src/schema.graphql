@@ -65,7 +65,7 @@ type NamedAPIResource {
 
 type Name {
   name: String!
-  language: Language!
+  language: LanguageConnection!
 }
 
 type Description {
