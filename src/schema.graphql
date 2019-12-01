@@ -1,14 +1,17 @@
 type Query {
+  # BERRIES
   getAllBerries: [BerryConnection!]!
   getBerry(id: Int, name: String): Berry
   getAllBerryFirmness: [BerryFirmnessConnection!]!
   getBerryFirmness(id: Int, name: String): BerryFirmness
   getAllBerryFlavors: [BerryFlavorConnection!]!
   getBerryFlavor(id: Int, name: String): BerryFlavor
-
+  # CONTESTS
   getAllContestTypes: [ContestTypeConnection!]!
   getContestType(id: Int, name: String): ContestType
-
+  getAllContestEffects: [ContestEffectConnection!]!
+  getContestEffect(id: Int, name: String): ContestEffect
+  # COMMON
   getAllLanguages: [LanguageConnection!]!
   getLanguage(id: Int, name: String): Language
 }
@@ -36,6 +39,11 @@ type ContestTypeConnection {
   name: String!
   url: String!
   node: ContestType!
+}
+
+type ContestEffectConnection {
+  url: String!
+  node: ContestEffect!
 }
 
 type LanguageConnection {

@@ -26,6 +26,10 @@ const resolvers = {
     getContestType: (parent, args) => {
       return getByIdOrName("/contest-type", args);
     },
+    getAllContestEffects: () => getAllConnections("/contest-effect"),
+    getContestEffect: (parent, args) => {
+      return getByIdOrName("/contest-effect", args);
+    },
     // LANGUAGES
     getAllLanguages: () => getAllConnections("/language"),
     getLanguage: (parent, args) => {
@@ -42,6 +46,9 @@ const resolvers = {
     node: obj => getNode(obj)
   },
   ContestTypeConnection: {
+    node: obj => getNode(obj)
+  },
+  ContestEffectConnection: {
     node: obj => getNode(obj)
   },
   LanguageConnection: {
