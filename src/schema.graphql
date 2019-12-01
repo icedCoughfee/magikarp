@@ -70,12 +70,12 @@ type Name {
 
 type Description {
   description: String!
-  language: Language!
+  language: LanguageConnection!
 }
 
 type Effect {
   effect: String!
-  language: Language!
+  language: LanguageConnection!
 }
 
 type Encounter {
@@ -88,7 +88,7 @@ type Encounter {
 
 type FlavorText {
   flavor_text: String!
-  language: Language!
+  language: LanguageConnection!
   version: Version!
 }
 
@@ -105,7 +105,7 @@ type MachineVersionDetail {
 type VerboseEffect {
   effect: String!
   short_effect: String!
-  language: Language!
+  language: LanguageConnection!
 }
 
 type VersionEncounterDetail {
@@ -121,7 +121,7 @@ type VersionGameIndex {
 
 type VersionGroupFlavorText {
   text: String!
-  language: Language!
+  language: LanguageConnection!
   version_group: VersionGroup!
 }
 
@@ -177,7 +177,7 @@ type ContestType {
 type ContestName {
   name: String!
   color: String!
-  language: Language!
+  language: LanguageConnection!
 }
 
 type ContestEffect {
@@ -572,7 +572,7 @@ type AbilityEffectChange {
 
 type AbilityFlavorText {
   flavor_text: String!
-  language: Language!
+  language: LanguageConnection!
   version_group: VersionGroup!
 }
 
@@ -782,7 +782,7 @@ type PokemonShape {
 
 type AwesomeName {
   awesome_name: String!
-  language: Language!
+  language: LanguageConnection!
 }
 
 type PokemonSpecies {
@@ -815,7 +815,7 @@ type PokemonSpecies {
 
 type Genus {
   genus: String!
-  language: Language!
+  language: LanguageConnection!
 }
 
 type PokemonSpeciesDexEntry {
