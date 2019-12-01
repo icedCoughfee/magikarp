@@ -26,19 +26,27 @@ const resolvers = {
     getContestType: (parent, args) => {
       return getByIdOrName("/contest-type", args);
     },
+    // LANGUAGES
+    getAllLanguages: () => getAllConnections("/language"),
+    getLanguage: (parent, args) => {
+      return getByIdOrName("/language", args);
+    }
   },
   BerryConnection: {
-    node: obj => getNode(obj),
+    node: obj => getNode(obj)
   },
   BerryFirmnessConnection: {
-    node: obj => getNode(obj),
+    node: obj => getNode(obj)
   },
   BerryFlavorConnection: {
-    node: obj => getNode(obj),
+    node: obj => getNode(obj)
   },
   ContestTypeConnection: {
-    node: obj => getNode(obj),
+    node: obj => getNode(obj)
   },
+  LanguageConnection: {
+    node: obj => getNode(obj)
+  }
 };
 
 // common resolve function for all "nodes"
@@ -78,7 +86,7 @@ const getByIdOrName = (urlPath, args) => {
 
 const server = new GraphQLServer({
   typeDefs: "./src/schema.graphql",
-  resolvers,
+  resolvers
 });
 
 server.start(() => console.log(`Server is running on http://localhost:4000`));

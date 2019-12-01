@@ -8,6 +8,9 @@ type Query {
 
   getAllContestTypes: [ContestTypeConnection!]!
   getContestType(id: Int, name: String): ContestType
+
+  getAllLanguages: [LanguageConnection!]!
+  getLanguage(id: Int, name: String): Language
 }
 
 # Connections
@@ -33,6 +36,12 @@ type ContestTypeConnection {
   name: String!
   url: String!
   node: ContestType!
+}
+
+type LanguageConnection {
+  name: String!
+  url: String!
+  node: Language!
 }
 
 # Common
