@@ -30,6 +30,10 @@ const resolvers = {
     getContestEffect: (parent, args) => {
       return getByIdOrName("/contest-effect", args);
     },
+    getAllSuperContestEffects: () => getAllConnections("/super-contest-effect"),
+    getSuperContestEffect: (parent, args) => {
+      return getByIdOrName("/super-contest-effect", args);
+    },
     // LANGUAGES
     getAllLanguages: () => getAllConnections("/language"),
     getLanguage: (parent, args) => {
@@ -49,6 +53,9 @@ const resolvers = {
     node: obj => getNode(obj)
   },
   ContestEffectConnection: {
+    node: obj => getNode(obj)
+  },
+  SuperContestEffectConnection: {
     node: obj => getNode(obj)
   },
   LanguageConnection: {

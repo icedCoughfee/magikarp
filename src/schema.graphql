@@ -11,6 +11,8 @@ type Query {
   getContestType(id: Int, name: String): ContestType
   getAllContestEffects: [ContestEffectConnection!]!
   getContestEffect(id: Int, name: String): ContestEffect
+  getAllSuperContestEffects: [SuperContestEffectConnection!]!
+  getSuperContestEffect(id: Int, name: String): SuperContestEffect
   # COMMON
   getAllLanguages: [LanguageConnection!]!
   getLanguage(id: Int, name: String): Language
@@ -44,6 +46,11 @@ type ContestTypeConnection {
 type ContestEffectConnection {
   url: String!
   node: ContestEffect!
+}
+
+type SuperContestEffectConnection {
+  url: String!
+  node: SuperContestEffect!
 }
 
 type LanguageConnection {
