@@ -71,6 +71,10 @@ const resolvers = {
     getVersionGroup: (parent, args) => {
       return getByIdOrName("/version-group", args);
     },
+    getAllItems: () => getAllConnections("/item"),
+    getItem: (parent, args) => {
+      return getByIdOrName("/item", args);
+    },
     // LANGUAGES
     getAllLanguages: () => getAllConnections("/language"),
     getLanguage: (parent, args) => {
@@ -120,6 +124,9 @@ const resolvers = {
     node: obj => getNode(obj)
   },
   VersionGroupConnection: {
+    node: obj => getNode(obj)
+  },
+  ItemConnection: {
     node: obj => getNode(obj)
   },
   LanguageConnection: {

@@ -34,6 +34,9 @@ type Query {
   getVersion(id: Int, name: String): Version
   getAllVersionGroups: [VersionGroupConnection!]!
   getVersionGroup(id: Int, name: String): VersionGroup
+  # ITEMS
+  getAllItems: [ItemConnection!]!
+  getItem(id: Int, name: String): Item
   # COMMON
   getAllLanguages: [LanguageConnection!]!
   getLanguage(id: Int, name: String): Language
@@ -125,6 +128,12 @@ type VersionGroupConnection {
   name: String!
   url: String!
   node: VersionGroup!
+}
+
+type ItemConnection {
+  name: String!
+  url: String!
+  node: Item!
 }
 
 type LanguageConnection {
@@ -226,7 +235,7 @@ type Berry {
   soil_dryness: Int
   firmness: BerryFirmnessConnection
   flavors: [BerryFlavorMap]
-  item: Item
+  item: ItemConnection
   natural_gift_type: Type
 }
 
@@ -309,7 +318,7 @@ type EncounterConditionValue {
 #Evolution
 type EvolutionChain {
   id: Int!
-  baby_trigger_item: Item!
+  baby_trigger_item: ItemConnection!
   chain: ChainLink!
 }
 
@@ -321,10 +330,10 @@ type ChainLink {
 }
 
 type EvolutionDetail {
-  item: Item!
+  item: ItemConnection!
   trigger: EvolutionTriggerConnection!
   gender: Int!
-  held_item: Item!
+  held_item: ItemConnection!
   known_move: Move!
   known_move_type: Type!
   location: Location!
@@ -431,7 +440,7 @@ type ItemHolderPokemonVersionDetail {
 type ItemAttribute {
   id: Int!
   name: String!
-  items: [Item!]!
+  items: [ItemConnection!]!
   names: [Name!]!
   descriptions: [Description!]!
 }
@@ -439,7 +448,7 @@ type ItemAttribute {
 type ItemCategory {
   id: Int!
   name: String!
-  items: [Item!]!
+  items: [ItemConnection!]!
   names: [Name!]!
   pocket: ItemPocket!
 }
@@ -448,7 +457,7 @@ type ItemFlingEffect {
   id: Int!
   name: String!
   effect_entries: [Effect!]!
-  items: [Item!]!
+  items: [ItemConnection!]!
 }
 
 type ItemPocket {
@@ -519,7 +528,7 @@ type Region {
 # Machines
 type Machine {
   id: Int!
-  item: Item!
+  item: ItemConnection!
   move: Move!
   version_group: VersionGroupConnection!
 }
@@ -782,7 +791,7 @@ type PokemonType {
 }
 
 type PokemonHeldItem {
-  item: Item!
+  item: ItemConnection!
   version_details: [PokemonHeldItemVersion!]!
 }
 
