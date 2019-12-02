@@ -61,16 +61,19 @@ type SuperContestEffectConnection {
 }
 
 type EncounterMethodConnection {
+  name: String!
   url: String!
   node: EncounterMethod!
 }
 
 type EncounterConditionConnection {
+  name: String!
   url: String!
   node: EncounterCondition!
 }
 
 type EncounterConditionValueConnection {
+  name: String!
   url: String!
   node: EncounterConditionValue!
 }
