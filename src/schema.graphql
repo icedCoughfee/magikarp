@@ -54,7 +54,10 @@ type Query {
   getPalParkArea(id: Int, name: String): PalParkArea
   getAllRegions: [RegionConnection!]!
   getRegion(id: Int, name: String): Region
-  # COMMON
+  # MACHINES
+  getAllMachines: [MachineConnection!]!
+  getMachine(id: Int): Machine
+  # COMMONa
   getAllLanguages: [LanguageConnection!]!
   getLanguage(id: Int, name: String): Language
 }
@@ -201,6 +204,12 @@ type RegionConnection {
   node: Region!
 }
 
+type MachineConnection {
+  name: String!
+  url: String!
+  node: Machine!
+}
+
 type LanguageConnection {
   name: String!
   url: String!
@@ -261,7 +270,7 @@ type GenerationGameIndex {
 }
 
 type MachineVersionDetail {
-  machine: Machine!
+  machine: MachineConnection!
   version_group: VersionGroupConnection!
 }
 

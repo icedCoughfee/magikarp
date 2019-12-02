@@ -107,6 +107,10 @@ const resolvers = {
     getRegion: (parent, args) => {
       return getByIdOrName("/region", args);
     },
+    getAllMachines: () => getAllConnections("/machine"),
+    getMachine: (parent, args) => {
+      return getByIdOrName("/machine", args);
+    },
     // LANGUAGES
     getAllLanguages: () => getAllConnections("/language"),
     getLanguage: (parent, args) => {
@@ -183,6 +187,9 @@ const resolvers = {
     node: obj => getNode(obj)
   },
   RegionConnection: {
+    node: obj => getNode(obj)
+  },
+  MachineConnection: {
     node: obj => getNode(obj)
   },
   LanguageConnection: {
