@@ -63,6 +63,10 @@ const resolvers = {
     getPokedex: (parent, args) => {
       return getByIdOrName("/pokedex", args);
     },
+    getAllVersions: () => getAllConnections("/version"),
+    getVersion: (parent, args) => {
+      return getByIdOrName("/version", args);
+    },
     // LANGUAGES
     getAllLanguages: () => getAllConnections("/language"),
     getLanguage: (parent, args) => {
@@ -106,6 +110,9 @@ const resolvers = {
     node: obj => getNode(obj)
   },
   PokedexConnection: {
+    node: obj => getNode(obj)
+  },
+  VersionConnection: {
     node: obj => getNode(obj)
   },
   LanguageConnection: {

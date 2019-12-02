@@ -30,6 +30,8 @@ type Query {
   getGeneration(id: Int, name: String): Generation
   getAllPokedexes: [PokedexConnection!]!
   getPokedex(id: Int, name: String): Pokedex
+  getAllVersions: [VersionConnection!]!
+  getVersion(id: Int, name: String): Version
   # COMMON
   getAllLanguages: [LanguageConnection!]!
   getLanguage(id: Int, name: String): Language
@@ -111,6 +113,12 @@ type PokedexConnection {
   node: Pokedex!
 }
 
+type VersionConnection {
+  name: String!
+  url: String!
+  node: Version!
+}
+
 type LanguageConnection {
   name: String!
   url: String!
@@ -162,7 +170,7 @@ type Encounter {
 type FlavorText {
   flavor_text: String!
   language: LanguageConnection!
-  version: Version!
+  version: VersionConnection!
 }
 
 type GenerationGameIndex {
@@ -182,14 +190,14 @@ type VerboseEffect {
 }
 
 type VersionEncounterDetail {
-  version: Version!
+  version: VersionConnection!
   max_chance: Int!
   encounter_details: Encounter!
 }
 
 type VersionGameIndex {
   game_index: Int!
-  version: Version!
+  version: VersionConnection!
 }
 
 type VersionGroupFlavorText {
@@ -376,7 +384,7 @@ type VersionGroup {
   move_learn_methods: [MoveLearnMethod]!
   pokedexes: [Pokedex!]!
   regions: [Region!]!
-  versions: [Version!]!
+  versions: [VersionConnection!]!
 }
 
 # Items
@@ -409,7 +417,7 @@ type ItemHolderPokemon {
 
 type ItemHolderPokemonVersionDetail {
   rarity: String!
-  version: Version!
+  version: VersionConnection!
 }
 
 type ItemAttribute {
@@ -469,7 +477,7 @@ type EncounterMethodRate {
 
 type EncounterVersionDetails {
   rate: Int!
-  version: Version!
+  version: VersionConnection!
 }
 
 type PokemonEncounter {
@@ -771,7 +779,7 @@ type PokemonHeldItem {
 }
 
 type PokemonHeldItemVersion {
-  version: Version!
+  version: VersionConnection!
   rarity: Int!
 }
 
