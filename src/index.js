@@ -115,6 +115,10 @@ const resolvers = {
     getMove: (parent, args) => {
       return getByIdOrName("/move", args);
     },
+    getAllMoveAilments: () => getAllConnections("/move-ailment"),
+    getMoveAilment: (parent, args) => {
+      return getByIdOrName("/move-ailment", args);
+    },
     // LANGUAGES
     getAllLanguages: () => getAllConnections("/language"),
     getLanguage: (parent, args) => {
@@ -197,6 +201,9 @@ const resolvers = {
     node: obj => getNode(obj)
   },
   MoveConnection: {
+    node: obj => getNode(obj)
+  },
+  MoveAilmentConnection: {
     node: obj => getNode(obj)
   },
   LanguageConnection: {

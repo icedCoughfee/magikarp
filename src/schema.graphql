@@ -60,7 +60,9 @@ type Query {
   # MOVES
   getAllMoves: [MoveConnection!]!
   getMove(id: Int, name: String): Move
-  # COMMONa
+  getAllMoveAilments: [MoveAilmentConnection!]!
+  getMoveAilment(id: Int, name: String): MoveAilment
+  # COMMON
   getAllLanguages: [LanguageConnection!]!
   getLanguage(id: Int, name: String): Language
 }
@@ -217,6 +219,12 @@ type MoveConnection {
   name: String!
   url: String!
   node: Move!
+}
+
+type MoveAilmentConnection {
+  name: String!
+  url: String!
+  node: MoveAilment!
 }
 
 type LanguageConnection {
@@ -660,7 +668,7 @@ type MoveFlavorText {
 }
 
 type MoveMetaData {
-  ailment: MoveAilment!
+  ailment: MoveAilmentConnection!
   category: MoveConnection!
   min_hits: Int!
   max_hits: Int!
