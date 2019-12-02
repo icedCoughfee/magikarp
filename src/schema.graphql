@@ -25,6 +25,9 @@ type Query {
   getEvolutionChain(id: Int, name: String): EvolutionChain
   getAllEvolutionTriggers: [EvolutionTriggerConnection!]!
   getEvolutionTrigger(id: Int, name: String): EvolutionTrigger
+  # GAMES
+  getAllGenerations: [GenerationConnection!]!
+  getGeneration(id: Int, name: String): Generation
   # COMMON
   getAllLanguages: [LanguageConnection!]!
   getLanguage(id: Int, name: String): Language
@@ -94,6 +97,12 @@ type EvolutionTriggerConnection {
   node: EvolutionTrigger!
 }
 
+type GenerationConnection {
+  name: String!
+  url: String!
+  node: Generation!
+}
+
 type LanguageConnection {
   name: String!
   url: String!
@@ -150,7 +159,7 @@ type FlavorText {
 
 type GenerationGameIndex {
   game_index: Int!
-  generation: Generation!
+  generation: GenerationConnection!
 }
 
 type MachineVersionDetail {
@@ -355,7 +364,7 @@ type VersionGroup {
   id: Int!
   name: String!
   order: Int!
-  generation: Generation!
+  generation: GenerationConnection!
   move_learn_methods: [MoveLearnMethod]!
   pokedexes: [Pokedex!]!
   regions: [Region!]!
@@ -478,7 +487,7 @@ type Region {
   name: String!
   names: [Name!]!
   locations: [Location!]!
-  main_generation: Generation!
+  main_generation: GenerationConnection!
   pokedexes: [Pokedex!]!
   version_groups: [VersionGroup]!
 }
@@ -507,7 +516,7 @@ type Move {
   effect_entries: [VerboseEffect!]!
   effect_changes: [AbilityEffectChange!]!
   flavor_text_entries: [MoveFlavorText!]!
-  generation: Generation!
+  generation: GenerationConnection!
   machines: [MachineVersionDetail!]!
   meta: MoveMetaData!
   names: [Name!]!
@@ -613,7 +622,7 @@ type Ability {
   id: Int!
   name: String!
   is_main_series: Boolean!
-  generation: Generation!
+  generation: GenerationConnection!
   names: [Name!]!
   effect_entries: [VerboseEffect!]!
   effect_changes: [AbilityEffectChange!]!
@@ -860,7 +869,7 @@ type PokemonSpecies {
   evolves_from_species: PokemonSpecies!
   evolution_chain: EvolutionChain!
   habitat: PokemonHabitat!
-  generation: Generation!
+  generation: GenerationConnection!
   names: [Name!]!
   pal_park_encounters: [PalParkEncounterArea!]!
   flavor_text_entries: [FlavorText!]!
@@ -922,7 +931,7 @@ type Type {
   name: String!
   damage_relations: TypeRelations!
   game_indices: [GenerationGameIndex!]!
-  generation: Generation!
+  generation: GenerationConnection!
   move_damage_class: MoveDamageClass!
   names: [Name!]!
   pokemon: [TypePokemon!]!

@@ -55,6 +55,10 @@ const resolvers = {
     getEvolutionTrigger: (parent, args) => {
       return getByIdOrName("/evolution-trigger", args);
     },
+    getAllGenerations: () => getAllConnections("/generation"),
+    getGeneration: (parent, args) => {
+      return getByIdOrName("/generation", args);
+    },
     // LANGUAGES
     getAllLanguages: () => getAllConnections("/language"),
     getLanguage: (parent, args) => {
@@ -92,6 +96,9 @@ const resolvers = {
     node: obj => getNode(obj)
   },
   EvolutionTriggerConnection: {
+    node: obj => getNode(obj)
+  },
+  GenerationConnection: {
     node: obj => getNode(obj)
   },
   LanguageConnection: {
