@@ -123,6 +123,10 @@ const resolvers = {
     getMoveBattleStyle: (parent, args) => {
       return getByIdOrName("/move-battle-style", args);
     },
+    getAllMoveCategories: () => getAllConnections("/move-category"),
+    getMoveCategory: (parent, args) => {
+      return getByIdOrName("/move-category", args);
+    },
     // LANGUAGES
     getAllLanguages: () => getAllConnections("/language"),
     getLanguage: (parent, args) => {
@@ -211,6 +215,9 @@ const resolvers = {
     node: obj => getNode(obj)
   },
   MoveBattleStyleConnection: {
+    node: obj => getNode(obj)
+  },
+  MoveCategoryConnection: {
     node: obj => getNode(obj)
   },
   LanguageConnection: {

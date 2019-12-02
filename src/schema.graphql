@@ -64,6 +64,8 @@ type Query {
   getMoveAilment(id: Int, name: String): MoveAilment
   getAllMoveBattleStyles: [MoveBattleStyleConnection!]!
   getMoveBattleStyle(id: Int, name: String): MoveBattleStyle
+  getAllMoveCategories: [MoveCategoryConnection!]!
+  getMoveCategory(id: Int, name: String): ModelName
   # COMMON
   getAllLanguages: [LanguageConnection!]!
   getLanguage(id: Int, name: String): Language
@@ -233,6 +235,12 @@ type MoveBattleStyleConnection {
   name: String!
   url: String!
   node: MoveBattleStyle!
+}
+
+type MoveCategoryConnection {
+  name: String!
+  url: String!
+  node: ModelName!
 }
 
 type LanguageConnection {
@@ -721,7 +729,7 @@ type MoveBattleStyle {
 type ModelName {
   id: Int!
   name: String!
-  moves: [MoveConnection!]!
+  moves: [MoveConnection]
   descriptions: [Description!]!
 }
 
