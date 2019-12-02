@@ -52,6 +52,8 @@ type Query {
   getLocationArea(id: Int, name: String): LocationArea
   getAllPalParkAreas: [PalParkAreaConnection!]!
   getPalParkArea(id: Int, name: String): PalParkArea
+  getAllRegions: [RegionConnection!]!
+  getRegion(id: Int, name: String): Region
   # COMMON
   getAllLanguages: [LanguageConnection!]!
   getLanguage(id: Int, name: String): Language
@@ -191,6 +193,12 @@ type PalParkAreaConnection {
   name: String!
   url: String!
   node: PalParkArea!
+}
+
+type RegionConnection {
+  name: String!
+  url: String!
+  node: Region!
 }
 
 type LanguageConnection {
@@ -420,7 +428,7 @@ type Generation {
   name: String!
   abilities: [Ability!]!
   names: [Name!]!
-  main_region: Region!
+  main_region: RegionConnection!
   moves: [Move!]!
   pokemon_species: [PokemonSpecies!]!
   types: [Type!]!
@@ -434,7 +442,7 @@ type Pokedex {
   descriptions: [Description!]!
   names: [Name!]!
   pokemon_entries: [PokemonEntry]!
-  region: Region!
+  region: RegionConnection!
   version_groups: [VersionGroupConnection]!
 }
 
@@ -457,7 +465,7 @@ type VersionGroup {
   generation: GenerationConnection!
   move_learn_methods: [MoveLearnMethod]!
   pokedexes: [PokedexConnection!]!
-  regions: [Region!]!
+  regions: [RegionConnection!]!
   versions: [VersionConnection!]!
 }
 
@@ -528,7 +536,7 @@ type ItemPocket {
 type Location {
   id: Int!
   name: String!
-  region: Region!
+  region: RegionConnection!
   names: [Name!]!
   game_indices: [GenerationGameIndex!]!
   areas: [LocationAreaConnection]!
