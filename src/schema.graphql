@@ -32,6 +32,8 @@ type Query {
   getPokedex(id: Int, name: String): Pokedex
   getAllVersions: [VersionConnection!]!
   getVersion(id: Int, name: String): Version
+  getAllVersionGroups: [VersionGroupConnection!]!
+  getVersionGroup(id: Int, name: String): VersionGroup
   # COMMON
   getAllLanguages: [LanguageConnection!]!
   getLanguage(id: Int, name: String): Language
@@ -119,6 +121,12 @@ type VersionConnection {
   node: Version!
 }
 
+type VersionGroupConnection {
+  name: String!
+  url: String!
+  node: VersionGroup!
+}
+
 type LanguageConnection {
   name: String!
   url: String!
@@ -180,7 +188,7 @@ type GenerationGameIndex {
 
 type MachineVersionDetail {
   machine: Machine!
-  version_group: VersionGroup!
+  version_group: VersionGroupConnection!
 }
 
 type VerboseEffect {
@@ -203,7 +211,7 @@ type VersionGameIndex {
 type VersionGroupFlavorText {
   text: String!
   language: LanguageConnection!
-  version_group: VersionGroup!
+  version_group: VersionGroupConnection!
 }
 
 # Berries
@@ -350,7 +358,7 @@ type Generation {
   moves: [Move!]!
   pokemon_species: [PokemonSpecies!]!
   types: [Type!]!
-  version_groups: [VersionGroup!]!
+  version_groups: [VersionGroupConnection!]!
 }
 
 type Pokedex {
@@ -361,7 +369,7 @@ type Pokedex {
   names: [Name!]!
   pokemon_entries: [PokemonEntry]!
   region: Region!
-  version_groups: [VersionGroup]!
+  version_groups: [VersionGroupConnection]!
 }
 
 type PokemonEntry {
@@ -373,7 +381,7 @@ type Version {
   id: Int!
   name: String!
   names: [Name!]!
-  version_group: VersionGroup!
+  version_group: VersionGroupConnection!
 }
 
 type VersionGroup {
@@ -505,7 +513,7 @@ type Region {
   locations: [Location!]!
   main_generation: GenerationConnection!
   pokedexes: [PokedexConnection!]!
-  version_groups: [VersionGroup]!
+  version_groups: [VersionGroupConnection]!
 }
 
 # Machines
@@ -513,7 +521,7 @@ type Machine {
   id: Int!
   item: Item!
   move: Move!
-  version_group: VersionGroup!
+  version_group: VersionGroupConnection!
 }
 
 # Moves
@@ -586,7 +594,7 @@ type PastMoveStatValues {
   pp: Int!
   effect_entries: [VerboseEffect!]!
   type: Type!
-  version_group: VersionGroup!
+  version_group: VersionGroupConnection!
 }
 
 type MoveAilment {
@@ -622,7 +630,7 @@ type MoveLearnMethod {
   name: String!
   descriptions: [Description!]!
   names: [Name!]!
-  version_groups: [VersionGroup]!
+  version_groups: [VersionGroupConnection]!
 }
 
 type MoveTarget {
@@ -648,13 +656,13 @@ type Ability {
 
 type AbilityEffectChange {
   effect_entries: [Effect!]!
-  version_group: VersionGroup!
+  version_group: VersionGroupConnection!
 }
 
 type AbilityFlavorText {
   flavor_text: String!
   language: LanguageConnection!
-  version_group: VersionGroup!
+  version_group: VersionGroupConnection!
 }
 
 type AbilityPokemon {
@@ -790,7 +798,7 @@ type PokemonMove {
 
 type PokemonMoveVersion {
   move_learn_method: MoveLearnMethod!
-  version_group: VersionGroup!
+  version_group: VersionGroupConnection!
   level_learned_at: Int!
 }
 
@@ -834,7 +842,7 @@ type PokemonForm {
   form_name: String!
   pokemon: Pokemon!
   sprites: PokemonFormSprites!
-  version_group: VersionGroup!
+  version_group: VersionGroupConnection!
   names: [Name!]!
   form_names: [Name!]!
 }
