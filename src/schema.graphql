@@ -57,6 +57,9 @@ type Query {
   # MACHINES
   getAllMachines: [MachineConnection!]!
   getMachine(id: Int): Machine
+  # MOVES
+  getAllMoves: [MoveConnection!]!
+  getMove(id: Int, name: String): Move
   # COMMONa
   getAllLanguages: [LanguageConnection!]!
   getLanguage(id: Int, name: String): Language
@@ -208,6 +211,12 @@ type MachineConnection {
   name: String!
   url: String!
   node: Machine!
+}
+
+type MoveConnection {
+  name: String!
+  url: String!
+  node: Move!
 }
 
 type LanguageConnection {
@@ -364,7 +373,7 @@ type SuperContestEffect {
   id: Int!
   appeal: Int!
   flavor_text_entries: [FlavorText!]!
-  moves: [Move!]!
+  moves: [MoveConnection!]!
 }
 
 # Encounters
@@ -408,7 +417,7 @@ type EvolutionDetail {
   trigger: EvolutionTriggerConnection!
   gender: Int!
   held_item: ItemConnection!
-  known_move: Move!
+  known_move: MoveConnection!
   known_move_type: Type!
   location: LocationConnection!
   min_level: Int!
@@ -438,7 +447,7 @@ type Generation {
   abilities: [Ability!]!
   names: [Name!]!
   main_region: RegionConnection!
-  moves: [Move!]!
+  moves: [MoveConnection!]!
   pokemon_species: [PokemonSpecies!]!
   types: [Type!]!
   version_groups: [VersionGroupConnection!]!
@@ -603,7 +612,7 @@ type Region {
 type Machine {
   id: Int!
   item: ItemConnection!
-  move: Move!
+  move: MoveConnection!
   version_group: VersionGroupConnection!
 }
 
@@ -611,11 +620,11 @@ type Machine {
 type Move {
   id: Int!
   name: String!
-  accuracy: Int!
-  effect_chance: Int!
-  pp: Int!
-  priority: Int!
-  power: Int!
+  accuracy: Int
+  effect_chance: Int
+  pp: Int
+  priority: Int
+  power: Int
   contest_combos: ContestComboSets!
   contest_type: ContestType!
   contest_effect: ContestEffect!
@@ -640,19 +649,19 @@ type ContestComboSets {
 }
 
 type ContestComboDetail {
-  use_before: [Move]!
-  use_after: [Move]!
+  use_before: [MoveConnection]!
+  use_after: [MoveConnection]!
 }
 
 type MoveFlavorText {
   flavor_text: String!
-  language: [Move!]!
-  version_group: [Move!]!
+  language: [MoveConnection!]!
+  version_group: [MoveConnection!]!
 }
 
 type MoveMetaData {
   ailment: MoveAilment!
-  category: Move!
+  category: MoveConnection!
   min_hits: Int!
   max_hits: Int!
   min_turns: Int!
@@ -683,7 +692,7 @@ type PastMoveStatValues {
 type MoveAilment {
   id: Int!
   name: String!
-  moves: [Move!]!
+  moves: [MoveConnection!]!
   names: [Name!]!
 }
 
@@ -696,7 +705,7 @@ type MoveBattleStyle {
 type ModelName {
   id: Int!
   name: String!
-  moves: [Move!]!
+  moves: [MoveConnection!]!
   descriptions: [Description!]!
 }
 
@@ -704,7 +713,7 @@ type MoveDamageClass {
   id: Int!
   name: String!
   descriptions: [Description!]!
-  moves: [Move!]!
+  moves: [MoveConnection!]!
   names: [Name!]!
 }
 
@@ -720,7 +729,7 @@ type MoveTarget {
   id: Int!
   name: String!
   descriptions: [Description!]!
-  moves: [Move!]!
+  moves: [MoveConnection!]!
   names: [Name!]!
 }
 
@@ -875,7 +884,7 @@ type PokemonHeldItemVersion {
 }
 
 type PokemonMove {
-  move: Move!
+  move: MoveConnection!
   version_group_details: [PokemonMoveVersion!]!
 }
 
@@ -1025,7 +1034,7 @@ type MoveStatAffectSets {
 
 type MoveStatAffect {
   change: Int!
-  move: Move!
+  move: MoveConnection!
 }
 
 type NatureStatAffectSets {
@@ -1042,7 +1051,7 @@ type Type {
   move_damage_class: MoveDamageClass!
   names: [Name!]!
   pokemon: [TypePokemon!]!
-  moves: [Move!]!
+  moves: [MoveConnection!]!
 }
 
 type TypePokemon {

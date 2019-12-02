@@ -111,6 +111,10 @@ const resolvers = {
     getMachine: (parent, args) => {
       return getByIdOrName("/machine", args);
     },
+    getAllMoves: () => getAllConnections("/move"),
+    getMove: (parent, args) => {
+      return getByIdOrName("/move", args);
+    },
     // LANGUAGES
     getAllLanguages: () => getAllConnections("/language"),
     getLanguage: (parent, args) => {
@@ -190,6 +194,9 @@ const resolvers = {
     node: obj => getNode(obj)
   },
   MachineConnection: {
+    node: obj => getNode(obj)
+  },
+  MoveConnection: {
     node: obj => getNode(obj)
   },
   LanguageConnection: {
