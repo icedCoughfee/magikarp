@@ -34,6 +34,10 @@ const resolvers = {
     getSuperContestEffect: (parent, args) => {
       return getByIdOrName("/super-contest-effect", args);
     },
+    getAllEncounterMethods: () => getAllConnections("/encounter-method"),
+    getEncounterMethod: (parent, args) => {
+      return getByIdOrName("/encounter-method", args);
+    },
     // LANGUAGES
     getAllLanguages: () => getAllConnections("/language"),
     getLanguage: (parent, args) => {
@@ -56,6 +60,9 @@ const resolvers = {
     node: obj => getNode(obj)
   },
   SuperContestEffectConnection: {
+    node: obj => getNode(obj)
+  },
+  EncounterMethodConnection: {
     node: obj => getNode(obj)
   },
   LanguageConnection: {
