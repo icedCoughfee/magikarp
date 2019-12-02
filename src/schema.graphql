@@ -382,7 +382,7 @@ type VersionGroup {
   order: Int!
   generation: GenerationConnection!
   move_learn_methods: [MoveLearnMethod]!
-  pokedexes: [Pokedex!]!
+  pokedexes: [PokedexConnection!]!
   regions: [Region!]!
   versions: [VersionConnection!]!
 }
@@ -504,7 +504,7 @@ type Region {
   names: [Name!]!
   locations: [Location!]!
   main_generation: GenerationConnection!
-  pokedexes: [Pokedex!]!
+  pokedexes: [PokedexConnection!]!
   version_groups: [VersionGroup]!
 }
 
@@ -901,7 +901,7 @@ type Genus {
 
 type PokemonSpeciesDexEntry {
   entry_number: Int!
-  pokedex: Pokedex!
+  pokedex: PokedexConnection!
 }
 
 type PalParkEncounterArea {
