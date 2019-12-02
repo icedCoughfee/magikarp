@@ -47,6 +47,10 @@ const resolvers = {
     getEncounterConditionValue: (parent, args) => {
       return getByIdOrName("/encounter-condition-value", args);
     },
+    getAllEvolutionChains: () => getAllConnections("/evolution-chain"),
+    getEvolutionChain: (parent, args) => {
+      return getByIdOrName("/evolution-chain", args);
+    },
     // LANGUAGES
     getAllLanguages: () => getAllConnections("/language"),
     getLanguage: (parent, args) => {
@@ -78,6 +82,9 @@ const resolvers = {
     node: obj => getNode(obj)
   },
   EncounterConditionValueConnection: {
+    node: obj => getNode(obj)
+  },
+  EvolutionChainConnection: {
     node: obj => getNode(obj)
   },
   LanguageConnection: {
