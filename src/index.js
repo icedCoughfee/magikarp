@@ -38,6 +38,10 @@ const resolvers = {
     getEncounterMethod: (parent, args) => {
       return getByIdOrName("/encounter-method", args);
     },
+    getAllEncounterConditions: () => getAllConnections("/encounter-condition"),
+    getEncounterCondition: (parent, args) => {
+      return getByIdOrName("/encounter-condition", args);
+    },
     // LANGUAGES
     getAllLanguages: () => getAllConnections("/language"),
     getLanguage: (parent, args) => {
@@ -63,6 +67,9 @@ const resolvers = {
     node: obj => getNode(obj)
   },
   EncounterMethodConnection: {
+    node: obj => getNode(obj)
+  },
+  EncounterConditionConnection: {
     node: obj => getNode(obj)
   },
   LanguageConnection: {

@@ -13,8 +13,11 @@ type Query {
   getContestEffect(id: Int, name: String): ContestEffect
   getAllSuperContestEffects: [SuperContestEffectConnection!]!
   getSuperContestEffect(id: Int, name: String): SuperContestEffect
+  # ENCOUNTERS
   getAllEncounterMethods: [EncounterMethodConnection!]!
   getEncounterMethod(id: Int, name: String): EncounterMethod
+  getAllEncounterConditions: [EncounterConditionConnection!]!
+  getEncounterCondition(id: Int, name: String): EncounterCondition
   # COMMON
   getAllLanguages: [LanguageConnection!]!
   getLanguage(id: Int, name: String): Language
@@ -58,6 +61,11 @@ type SuperContestEffectConnection {
 type EncounterMethodConnection {
   url: String!
   node: EncounterMethod!
+}
+
+type EncounterConditionConnection {
+  url: String!
+  node: EncounterCondition!
 }
 
 type LanguageConnection {
