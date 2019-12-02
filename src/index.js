@@ -87,6 +87,10 @@ const resolvers = {
     getItemFlingEffect: (parent, args) => {
       return getByIdOrName("/item-fling-effect", args);
     },
+    getAllItemPockets: () => getAllConnections("/item-pocket"),
+    getItemPocket: (parent, args) => {
+      return getByIdOrName("/item-pocket", args);
+    },
     // LANGUAGES
     getAllLanguages: () => getAllConnections("/language"),
     getLanguage: (parent, args) => {
@@ -148,6 +152,9 @@ const resolvers = {
     node: obj => getNode(obj)
   },
   ItemFlingEffectConnection: {
+    node: obj => getNode(obj)
+  },
+  ItemPocketConnection: {
     node: obj => getNode(obj)
   },
   LanguageConnection: {
