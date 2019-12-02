@@ -91,6 +91,10 @@ const resolvers = {
     getItemPocket: (parent, args) => {
       return getByIdOrName("/item-pocket", args);
     },
+    getAllLocations: () => getAllConnections("/location"),
+    getLocation: (parent, args) => {
+      return getByIdOrName("/location", args);
+    },
     // LANGUAGES
     getAllLanguages: () => getAllConnections("/language"),
     getLanguage: (parent, args) => {
@@ -155,6 +159,9 @@ const resolvers = {
     node: obj => getNode(obj)
   },
   ItemPocketConnection: {
+    node: obj => getNode(obj)
+  },
+  LocationConnection: {
     node: obj => getNode(obj)
   },
   LanguageConnection: {

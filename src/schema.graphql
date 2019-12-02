@@ -45,6 +45,9 @@ type Query {
   getItemFlingEffect(id: Int, name: String): ItemFlingEffect
   getAllItemPockets: [ItemPocketConnection!]!
   getItemPocket(id: Int, name: String): ItemPocket
+  # LOCATIONS
+  getAllLocations: [LocationConnection!]!
+  getLocation(id: Int, name: String): Location
   # COMMON
   getAllLanguages: [LanguageConnection!]!
   getLanguage(id: Int, name: String): Language
@@ -166,6 +169,12 @@ type ItemPocketConnection {
   name: String!
   url: String!
   node: ItemPocket!
+}
+
+type LocationConnection {
+  name: String!
+  url: String!
+  node: Location!
 }
 
 type LanguageConnection {
@@ -368,7 +377,7 @@ type EvolutionDetail {
   held_item: ItemConnection!
   known_move: Move!
   known_move_type: Type!
-  location: Location!
+  location: LocationConnection!
   min_level: Int!
   min_happiness: Int!
   min_beauty: Int!
@@ -514,7 +523,7 @@ type LocationArea {
   name: String!
   game_index: Int!
   encounter_method_rates: [EncounterMethodRate!]!
-  location: Location!
+  location: LocationConnection!
   names: [Name!]!
   pokemon_encounters: [PokemonEncounter!]!
 }
@@ -551,7 +560,7 @@ type Region {
   id: Int!
   name: String!
   names: [Name!]!
-  locations: [Location!]!
+  locations: [LocationConnection!]!
   main_generation: GenerationConnection!
   pokedexes: [PokedexConnection!]!
   version_groups: [VersionGroupConnection]!
