@@ -23,6 +23,8 @@ type Query {
   # EVOLUTION
   getAllEvolutionChains: [EvolutionChainConnection!]!
   getEvolutionChain(id: Int, name: String): EvolutionChain
+  getAllEvolutionTriggers: [EvolutionTriggerConnection!]!
+  getEvolutionTrigger(id: Int, name: String): EvolutionTrigger
   # COMMON
   getAllLanguages: [LanguageConnection!]!
   getLanguage(id: Int, name: String): Language
@@ -84,6 +86,12 @@ type EncounterConditionValueConnection {
 type EvolutionChainConnection {
   url: String!
   node: EvolutionChain!
+}
+
+type EvolutionTriggerConnection {
+  name: String!
+  url: String!
+  node: EvolutionTrigger!
 }
 
 type LanguageConnection {
@@ -281,7 +289,7 @@ type ChainLink {
 
 type EvolutionDetail {
   item: Item!
-  trigger: EvolutionTrigger!
+  trigger: EvolutionTriggerConnection!
   gender: Int!
   held_item: Item!
   known_move: Move!
