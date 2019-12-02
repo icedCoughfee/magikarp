@@ -75,6 +75,10 @@ const resolvers = {
     getItem: (parent, args) => {
       return getByIdOrName("/item", args);
     },
+    getAllItemAttributes: () => getAllConnections("/item-attribute"),
+    getItemAttribute: (parent, args) => {
+      return getByIdOrName("/item-attribute", args);
+    },
     // LANGUAGES
     getAllLanguages: () => getAllConnections("/language"),
     getLanguage: (parent, args) => {
@@ -127,6 +131,9 @@ const resolvers = {
     node: obj => getNode(obj)
   },
   ItemConnection: {
+    node: obj => getNode(obj)
+  },
+  ItemAttributeConnection: {
     node: obj => getNode(obj)
   },
   LanguageConnection: {

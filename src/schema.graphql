@@ -37,6 +37,8 @@ type Query {
   # ITEMS
   getAllItems: [ItemConnection!]!
   getItem(id: Int, name: String): Item
+  getAllItemAttributes: [ItemAttributeConnection!]!
+  getItemAttribute(id: Int, name: String): ItemAttribute
   # COMMON
   getAllLanguages: [LanguageConnection!]!
   getLanguage(id: Int, name: String): Language
@@ -134,6 +136,12 @@ type ItemConnection {
   name: String!
   url: String!
   node: Item!
+}
+
+type ItemAttributeConnection {
+  name: String!
+  url: String!
+  node: ItemAttribute!
 }
 
 type LanguageConnection {
@@ -411,7 +419,7 @@ type Item {
   cost: Int!
   fling_power: Int!
   fling_effect: ItemFlingEffect!
-  attributes: [ItemAttribute!]!
+  attributes: [ItemAttributeConnection!]!
   category: ItemCategory!
   effect_entries: [VerboseEffect]!
   flavor_text_entries: [VersionGroupFlavorText!]!
