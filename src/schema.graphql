@@ -18,6 +18,8 @@ type Query {
   getEncounterMethod(id: Int, name: String): EncounterMethod
   getAllEncounterConditions: [EncounterConditionConnection!]!
   getEncounterCondition(id: Int, name: String): EncounterCondition
+  getAllEncounterConditionValues: [EncounterConditionValueConnection!]!
+  getEncounterConditionValue(id: Int, name: String): EncounterConditionValue
   # COMMON
   getAllLanguages: [LanguageConnection!]!
   getLanguage(id: Int, name: String): Language
@@ -68,6 +70,11 @@ type EncounterConditionConnection {
   node: EncounterCondition!
 }
 
+type EncounterConditionValueConnection {
+  url: String!
+  node: EncounterConditionValue!
+}
+
 type LanguageConnection {
   name: String!
   url: String!
@@ -111,7 +118,7 @@ type Effect {
 type Encounter {
   min_level: Int!
   max_level: Int!
-  condition_values: [EncounterConditionValue!]!
+  condition_values: [EncounterConditionValueConnection!]!
   chance: Int!
   method: EncounterMethodConnection!
 }
@@ -237,7 +244,7 @@ type EncounterCondition {
   id: Int!
   name: String!
   names: [Name!]!
-  values: [EncounterConditionValue!]!
+  values: [EncounterConditionValueConnection!]!
 }
 
 type EncounterConditionValue {
