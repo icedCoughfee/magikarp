@@ -95,6 +95,10 @@ const resolvers = {
     getLocation: (parent, args) => {
       return getByIdOrName("/location", args);
     },
+    getAllLocationAreas: () => getAllConnections("/location-area"),
+    getLocationArea: (parent, args) => {
+      return getByIdOrName("/location-area", args);
+    },
     // LANGUAGES
     getAllLanguages: () => getAllConnections("/language"),
     getLanguage: (parent, args) => {
@@ -162,6 +166,9 @@ const resolvers = {
     node: obj => getNode(obj)
   },
   LocationConnection: {
+    node: obj => getNode(obj)
+  },
+  LocationAreaConnection: {
     node: obj => getNode(obj)
   },
   LanguageConnection: {

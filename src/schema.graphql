@@ -48,6 +48,8 @@ type Query {
   # LOCATIONS
   getAllLocations: [LocationConnection!]!
   getLocation(id: Int, name: String): Location
+  getAllLocationAreas: [LocationAreaConnection!]!
+  getLocationArea(id: Int, name: String): LocationArea
   # COMMON
   getAllLanguages: [LanguageConnection!]!
   getLanguage(id: Int, name: String): Language
@@ -175,6 +177,12 @@ type LocationConnection {
   name: String!
   url: String!
   node: Location!
+}
+
+type LocationAreaConnection {
+  name: String!
+  url: String!
+  node: LocationArea!
 }
 
 type LanguageConnection {
@@ -515,7 +523,7 @@ type Location {
   region: Region!
   names: [Name!]!
   game_indices: [GenerationGameIndex!]!
-  areas: [LocationArea]!
+  areas: [LocationAreaConnection]!
 }
 
 type LocationArea {
@@ -870,7 +878,7 @@ type PokemonSprites {
 }
 
 type LocationAreaEncounter {
-  location_area: LocationArea!
+  location_area: LocationAreaConnection!
   version_details: [VersionEncounterDetail!]!
 }
 
