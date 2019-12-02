@@ -28,6 +28,8 @@ type Query {
   # GAMES
   getAllGenerations: [GenerationConnection!]!
   getGeneration(id: Int, name: String): Generation
+  getAllPokedexes: [PokedexConnection!]!
+  getPokedex(id: Int, name: String): Pokedex
   # COMMON
   getAllLanguages: [LanguageConnection!]!
   getLanguage(id: Int, name: String): Language
@@ -101,6 +103,12 @@ type GenerationConnection {
   name: String!
   url: String!
   node: Generation!
+}
+
+type PokedexConnection {
+  name: String!
+  url: String!
+  node: Pokedex!
 }
 
 type LanguageConnection {

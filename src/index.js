@@ -59,6 +59,10 @@ const resolvers = {
     getGeneration: (parent, args) => {
       return getByIdOrName("/generation", args);
     },
+    getAllPokedexes: () => getAllConnections("/pokedex"),
+    getPokedex: (parent, args) => {
+      return getByIdOrName("/pokedex", args);
+    },
     // LANGUAGES
     getAllLanguages: () => getAllConnections("/language"),
     getLanguage: (parent, args) => {
@@ -99,6 +103,9 @@ const resolvers = {
     node: obj => getNode(obj)
   },
   GenerationConnection: {
+    node: obj => getNode(obj)
+  },
+  PokedexConnection: {
     node: obj => getNode(obj)
   },
   LanguageConnection: {
