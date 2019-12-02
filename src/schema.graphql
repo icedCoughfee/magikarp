@@ -113,7 +113,7 @@ type Encounter {
   max_level: Int!
   condition_values: [EncounterConditionValue!]!
   chance: Int!
-  method: EncounterMethod!
+  method: EncounterMethodConnection!
 }
 
 type FlavorText {
@@ -243,7 +243,7 @@ type EncounterCondition {
 type EncounterConditionValue {
   id: Int!
   name: String!
-  condition: EncounterCondition!
+  condition: EncounterConditionConnection!
   names: [Name]!
 }
 
@@ -420,7 +420,7 @@ type LocationArea {
 }
 
 type EncounterMethodRate {
-  encounter_method: EncounterMethod!
+  encounter_method: EncounterMethodConnection!
   version_details: [EncounterVersionDetails!]!
 }
 
