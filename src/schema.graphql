@@ -62,6 +62,8 @@ type Query {
   getMove(id: Int, name: String): Move
   getAllMoveAilments: [MoveAilmentConnection!]!
   getMoveAilment(id: Int, name: String): MoveAilment
+  getAllMoveBattleStyles: [MoveBattleStyleConnection!]!
+  getMoveBattleStyle(id: Int, name: String): MoveBattleStyle
   # COMMON
   getAllLanguages: [LanguageConnection!]!
   getLanguage(id: Int, name: String): Language
@@ -225,6 +227,12 @@ type MoveAilmentConnection {
   name: String!
   url: String!
   node: MoveAilment!
+}
+
+type MoveBattleStyleConnection {
+  name: String!
+  url: String!
+  node: MoveBattleStyle!
 }
 
 type LanguageConnection {
@@ -830,7 +838,7 @@ type NatureStatChange {
 type MoveBattleStylePreference {
   low_hp_preference: Int!
   high_hp_preference: Int!
-  move_battle_style: MoveBattleStyle!
+  move_battle_style: MoveBattleStyleConnection!
 }
 
 type PokeathlonStat {
