@@ -41,6 +41,8 @@ type Query {
   getItemAttribute(id: Int, name: String): ItemAttribute
   getAllItemCategories: [ItemCategoryConnection!]!
   getItemCategory(id: Int, name: String): ItemCategory
+  getAllItemFlingEffects: [ItemFlingEffectConnection!]!
+  getItemFlingEffect(id: Int, name: String): ItemFlingEffect
   # COMMON
   getAllLanguages: [LanguageConnection!]!
   getLanguage(id: Int, name: String): Language
@@ -150,6 +152,12 @@ type ItemCategoryConnection {
   name: String!
   url: String!
   node: ItemCategory!
+}
+
+type ItemFlingEffectConnection {
+  name: String!
+  url: String!
+  node: ItemFlingEffect!
 }
 
 type LanguageConnection {
@@ -426,7 +434,7 @@ type Item {
   name: String!
   cost: Int!
   fling_power: Int!
-  fling_effect: ItemFlingEffect!
+  fling_effect: ItemFlingEffectConnection!
   attributes: [ItemAttributeConnection!]!
   category: ItemCategoryConnection!
   effect_entries: [VerboseEffect]!
