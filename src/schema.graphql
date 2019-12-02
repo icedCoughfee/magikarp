@@ -50,6 +50,8 @@ type Query {
   getLocation(id: Int, name: String): Location
   getAllLocationAreas: [LocationAreaConnection!]!
   getLocationArea(id: Int, name: String): LocationArea
+  getAllPalParkAreas: [PalParkAreaConnection!]!
+  getPalParkArea(id: Int, name: String): PalParkArea
   # COMMON
   getAllLanguages: [LanguageConnection!]!
   getLanguage(id: Int, name: String): Language
@@ -183,6 +185,12 @@ type LocationAreaConnection {
   name: String!
   url: String!
   node: LocationArea!
+}
+
+type PalParkAreaConnection {
+  name: String!
+  url: String!
+  node: PalParkArea!
 }
 
 type LanguageConnection {
@@ -973,7 +981,7 @@ type PokemonSpeciesDexEntry {
 type PalParkEncounterArea {
   base_score: Int!
   rate: Int!
-  area: PalParkArea!
+  area: PalParkAreaConnection!
 }
 
 type PokemonSpeciesVariety {

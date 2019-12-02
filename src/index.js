@@ -99,6 +99,10 @@ const resolvers = {
     getLocationArea: (parent, args) => {
       return getByIdOrName("/location-area", args);
     },
+    getAllPalParkAreas: () => getAllConnections("/pal-park-area"),
+    getPalParkArea: (parent, args) => {
+      return getByIdOrName("/pal-park-area", args);
+    },
     // LANGUAGES
     getAllLanguages: () => getAllConnections("/language"),
     getLanguage: (parent, args) => {
@@ -169,6 +173,9 @@ const resolvers = {
     node: obj => getNode(obj)
   },
   LocationAreaConnection: {
+    node: obj => getNode(obj)
+  },
+  PalParkAreaConnection: {
     node: obj => getNode(obj)
   },
   LanguageConnection: {
