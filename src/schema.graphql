@@ -39,6 +39,8 @@ type Query {
   getItem(id: Int, name: String): Item
   getAllItemAttributes: [ItemAttributeConnection!]!
   getItemAttribute(id: Int, name: String): ItemAttribute
+  getAllItemCategories: [ItemCategoryConnection!]!
+  getItemCategory(id: Int, name: String): ItemCategory
   # COMMON
   getAllLanguages: [LanguageConnection!]!
   getLanguage(id: Int, name: String): Language
@@ -142,6 +144,12 @@ type ItemAttributeConnection {
   name: String!
   url: String!
   node: ItemAttribute!
+}
+
+type ItemCategoryConnection {
+  name: String!
+  url: String!
+  node: ItemCategory!
 }
 
 type LanguageConnection {
@@ -420,7 +428,7 @@ type Item {
   fling_power: Int!
   fling_effect: ItemFlingEffect!
   attributes: [ItemAttributeConnection!]!
-  category: ItemCategory!
+  category: ItemCategoryConnection!
   effect_entries: [VerboseEffect]!
   flavor_text_entries: [VersionGroupFlavorText!]!
   game_indices: [GenerationGameIndex!]!
@@ -471,7 +479,7 @@ type ItemFlingEffect {
 type ItemPocket {
   id: Int!
   name: String!
-  categories: [ItemCategory!]!
+  categories: [ItemCategoryConnection!]!
   names: [Name!]!
 }
 
