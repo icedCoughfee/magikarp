@@ -139,6 +139,10 @@ const resolvers = {
     getMoveTarget: (parent, args) => {
       return getByIdOrName("/move-target", args);
     },
+    getAllAbilities: () => getAllConnections("/ability"),
+    getAbility: (parent, args) => {
+      return getByIdOrName("/ability", args);
+    },
     // LANGUAGES
     getAllLanguages: () => getAllConnections("/language"),
     getLanguage: (parent, args) => {
@@ -239,6 +243,9 @@ const resolvers = {
     node: obj => getNode(obj)
   },
   MoveTargetConnection: {
+    node: obj => getNode(obj)
+  },
+  AbilityConnection: {
     node: obj => getNode(obj)
   },
   LanguageConnection: {

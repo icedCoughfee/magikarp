@@ -72,6 +72,9 @@ type Query {
   getMoveLearnMethod(id: Int, name: String): MoveLearnMethod
   getAllMoveTargets: [MoveTargetConnection!]!
   getMoveTarget(id: Int, name: String): MoveTarget
+  # POKEMON
+  getAllAbilities: [AbilityConnection!]!
+  getAbility(id: Int, name: String): Ability
   # COMMON
   getAllLanguages: [LanguageConnection!]!
   getLanguage(id: Int, name: String): Language
@@ -265,6 +268,12 @@ type MoveTargetConnection {
   name: String!
   url: String!
   node: MoveTarget!
+}
+
+type AbilityConnection {
+  name: String!
+  url: String!
+  node: Ability!
 }
 
 type LanguageConnection {
@@ -492,7 +501,7 @@ type EvolutionTrigger {
 type Generation {
   id: Int!
   name: String!
-  abilities: [Ability!]!
+  abilities: [AbilityConnection!]!
   names: [Name!]!
   main_region: RegionConnection!
   moves: [MoveConnection!]!
@@ -913,7 +922,7 @@ type Pokemon {
 type PokemonAbility {
   is_hidden: Boolean!
   slot: Int!
-  ability: Ability!
+  ability: AbilityConnection!
 }
 
 type PokemonType {
