@@ -66,6 +66,8 @@ type Query {
   getMoveBattleStyle(id: Int, name: String): MoveBattleStyle
   getAllMoveCategories: [MoveCategoryConnection!]!
   getMoveCategory(id: Int, name: String): ModelName
+  getAllMoveDamageClasses: [MoveDamageClassConnection!]!
+  getMoveDamageClass(id: Int, name: String): MoveDamageClass
   # COMMON
   getAllLanguages: [LanguageConnection!]!
   getLanguage(id: Int, name: String): Language
@@ -241,6 +243,12 @@ type MoveCategoryConnection {
   name: String!
   url: String!
   node: ModelName!
+}
+
+type MoveDamageClassConnection {
+  name: String!
+  url: String!
+  node: MoveDamageClass!
 }
 
 type LanguageConnection {
@@ -652,7 +660,7 @@ type Move {
   contest_combos: ContestComboSets!
   contest_type: ContestType!
   contest_effect: ContestEffect!
-  damage_class: MoveDamageClass!
+  damage_class: MoveDamageClassConnection!
   effect_entries: [VerboseEffect!]!
   effect_changes: [AbilityEffectChange!]!
   flavor_text_entries: [MoveFlavorText!]!
@@ -1047,7 +1055,7 @@ type Stat {
   affecting_moves: MoveStatAffectSets!
   affecting_natures: NatureStatAffectSets!
   characteristics: Characteristic!
-  move_damage_class: MoveDamageClass!
+  move_damage_class: MoveDamageClassConnection!
   names: [Name!]!
 }
 
@@ -1072,7 +1080,7 @@ type Type {
   damage_relations: TypeRelations!
   game_indices: [GenerationGameIndex!]!
   generation: GenerationConnection!
-  move_damage_class: MoveDamageClass!
+  move_damage_class: MoveDamageClassConnection!
   names: [Name!]!
   pokemon: [TypePokemon!]!
   moves: [MoveConnection!]!

@@ -127,6 +127,10 @@ const resolvers = {
     getMoveCategory: (parent, args) => {
       return getByIdOrName("/move-category", args);
     },
+    getAllMoveDamageClasses: () => getAllConnections("/move-damage-class"),
+    getMoveDamageClass: (parent, args) => {
+      return getByIdOrName("/move-damage-class", args);
+    },
     // LANGUAGES
     getAllLanguages: () => getAllConnections("/language"),
     getLanguage: (parent, args) => {
@@ -218,6 +222,9 @@ const resolvers = {
     node: obj => getNode(obj)
   },
   MoveCategoryConnection: {
+    node: obj => getNode(obj)
+  },
+  MoveDamageClassConnection: {
     node: obj => getNode(obj)
   },
   LanguageConnection: {
