@@ -70,6 +70,8 @@ type Query {
   getMoveDamageClass(id: Int, name: String): MoveDamageClass
   getAllMoveLearnMethods: [MoveLearnMethodConnection!]!
   getMoveLearnMethod(id: Int, name: String): MoveLearnMethod
+  getAllMoveTargets: [MoveTargetConnection!]!
+  getMoveTarget(id: Int, name: String): MoveTarget
   # COMMON
   getAllLanguages: [LanguageConnection!]!
   getLanguage(id: Int, name: String): Language
@@ -257,6 +259,12 @@ type MoveLearnMethodConnection {
   name: String!
   url: String!
   node: MoveLearnMethod!
+}
+
+type MoveTargetConnection {
+  name: String!
+  url: String!
+  node: MoveTarget!
 }
 
 type LanguageConnection {
@@ -679,7 +687,7 @@ type Move {
   past_values: [PastMoveStatValues!]!
   stat_changes: [MoveStatChange]!
   super_contest_effect: SuperContestEffect!
-  target: MoveTarget!
+  target: MoveTargetConnection!
   type: Type!
 }
 

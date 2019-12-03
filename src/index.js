@@ -135,6 +135,10 @@ const resolvers = {
     getMoveLearnMethod: (parent, args) => {
       return getByIdOrName("/move-learn-method", args);
     },
+    getAllMoveTargets: () => getAllConnections("/move-target"),
+    getMoveTarget: (parent, args) => {
+      return getByIdOrName("/move-target", args);
+    },
     // LANGUAGES
     getAllLanguages: () => getAllConnections("/language"),
     getLanguage: (parent, args) => {
@@ -232,6 +236,9 @@ const resolvers = {
     node: obj => getNode(obj)
   },
   MoveLearnMethodConnection: {
+    node: obj => getNode(obj)
+  },
+  MoveTargetConnection: {
     node: obj => getNode(obj)
   },
   LanguageConnection: {
