@@ -68,6 +68,8 @@ type Query {
   getMoveCategory(id: Int, name: String): ModelName
   getAllMoveDamageClasses: [MoveDamageClassConnection!]!
   getMoveDamageClass(id: Int, name: String): MoveDamageClass
+  getAllMoveLearnMethods: [MoveLearnMethodConnection!]!
+  getMoveLearnMethod(id: Int, name: String): MoveLearnMethod
   # COMMON
   getAllLanguages: [LanguageConnection!]!
   getLanguage(id: Int, name: String): Language
@@ -249,6 +251,12 @@ type MoveDamageClassConnection {
   name: String!
   url: String!
   node: MoveDamageClass!
+}
+
+type MoveLearnMethodConnection {
+  name: String!
+  url: String!
+  node: MoveLearnMethod!
 }
 
 type LanguageConnection {
@@ -513,7 +521,7 @@ type VersionGroup {
   name: String!
   order: Int!
   generation: GenerationConnection!
-  move_learn_methods: [MoveLearnMethod]!
+  move_learn_methods: [MoveLearnMethodConnection]!
   pokedexes: [PokedexConnection!]!
   regions: [RegionConnection!]!
   versions: [VersionConnection!]!
@@ -921,7 +929,7 @@ type PokemonMove {
 }
 
 type PokemonMoveVersion {
-  move_learn_method: MoveLearnMethod!
+  move_learn_method: MoveLearnMethodConnection!
   version_group: VersionGroupConnection!
   level_learned_at: Int!
 }

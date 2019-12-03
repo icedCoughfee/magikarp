@@ -131,6 +131,10 @@ const resolvers = {
     getMoveDamageClass: (parent, args) => {
       return getByIdOrName("/move-damage-class", args);
     },
+    getAllMoveLearnMethods: () => getAllConnections("/move-learn-method"),
+    getMoveLearnMethod: (parent, args) => {
+      return getByIdOrName("/move-learn-method", args);
+    },
     // LANGUAGES
     getAllLanguages: () => getAllConnections("/language"),
     getLanguage: (parent, args) => {
@@ -225,6 +229,9 @@ const resolvers = {
     node: obj => getNode(obj)
   },
   MoveDamageClassConnection: {
+    node: obj => getNode(obj)
+  },
+  MoveLearnMethodConnection: {
     node: obj => getNode(obj)
   },
   LanguageConnection: {
