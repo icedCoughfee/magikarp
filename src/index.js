@@ -143,6 +143,10 @@ const resolvers = {
     getAbility: (parent, args) => {
       return getByIdOrName("/ability", args);
     },
+    getAllCharacteristics: () => getAllConnections("/characteristic"),
+    getCharacteristic: (parent, args) => {
+      return getByIdOrName("/characteristic", args);
+    },
     // LANGUAGES
     getAllLanguages: () => getAllConnections("/language"),
     getLanguage: (parent, args) => {
@@ -246,6 +250,9 @@ const resolvers = {
     node: obj => getNode(obj)
   },
   AbilityConnection: {
+    node: obj => getNode(obj)
+  },
+  CharacteristicConnection: {
     node: obj => getNode(obj)
   },
   LanguageConnection: {

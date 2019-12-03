@@ -75,6 +75,8 @@ type Query {
   # POKEMON
   getAllAbilities: [AbilityConnection!]!
   getAbility(id: Int, name: String): Ability
+  getAllCharacteristics: [CharacteristicConnection!]!
+  getCharacteristic(id: Int, name: String): Characteristic
   # COMMON
   getAllLanguages: [LanguageConnection!]!
   getLanguage(id: Int, name: String): Language
@@ -274,6 +276,12 @@ type AbilityConnection {
   name: String!
   url: String!
   node: Ability!
+}
+
+type CharacteristicConnection {
+  name: String!
+  url: String!
+  node: Characteristic!
 }
 
 type LanguageConnection {
@@ -824,6 +832,8 @@ type Characteristic {
   id: Int!
   gene_modulo: Int!
   possible_values: [Int!]!
+  # highest_stat: StatConnection
+  descriptions: [Description]
 }
 
 type EggGroup {
@@ -1079,7 +1089,7 @@ type Stat {
   is_battle_only: Boolean!
   affecting_moves: MoveStatAffectSets!
   affecting_natures: NatureStatAffectSets!
-  characteristics: Characteristic!
+  characteristics: CharacteristicConnection!
   move_damage_class: MoveDamageClassConnection!
   names: [Name!]!
 }
