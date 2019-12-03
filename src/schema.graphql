@@ -77,6 +77,35 @@ type Query {
   getAbility(id: Int, name: String): Ability
   getAllCharacteristics: [CharacteristicConnection!]!
   getCharacteristic(id: Int, name: String): Characteristic
+  getAllEggGroups: [EggGroupConnection!]!
+  getEggGroup(id: Int, name: String): EggGroup
+  getAllGenders: [GenderConnection!]!
+  getGender(id: Int, name: String): Gender
+  getAllGrowthRates: [GrowthRateConnection!]!
+  getGrowthRate(id: Int, name: String): GrowthRate
+  getAllNatures: [NatureConnection!]!
+  getNature(id: Int, name: String): Nature
+  getAllPokeathlonStats: [PokeathlonStatConnection!]!
+  getPokeathlonStat(id: Int, name: String): PokeathlonStat
+  getAllPokemon: [PokemonConnection!]!
+  getPokemon(id: Int, name: String): Pokemon
+  getAllPokemonColors: [PokemonColorConnection!]!
+  getPokemonColor(id: Int, name: String): PokemonColor
+  getAllPokemonForms: [PokemonFormConnection!]!
+  getPokemonForm(id: Int, name: String): PokemonForm
+  getAllPokemonHabitats: [PokemonHabitatConnection!]!
+  getPokemonHabitat(id: Int, name: String): PokemonHabitat
+  getAllPokemonShapes: [PokemonShapeConnection!]!
+  getPokemonShape(id: Int, name: String): PokemonShape
+  getAllPokemonSpecies: [PokemonSpeciesConnection!]!
+  getPokemonSpecies(id: Int, name: String): PokemonSpecies
+  # STATS
+  getAllStats: [StatConnection!]!
+  getStat(id: Int, name: String): Stat
+  #TYPES
+  getAllTypes: [TypeConnection!]!
+  getType(id: Int, name: String): Type
+
   # COMMON
   getAllLanguages: [LanguageConnection!]!
   getLanguage(id: Int, name: String): Language
@@ -284,6 +313,84 @@ type CharacteristicConnection {
   node: Characteristic!
 }
 
+type EggGroupConnection {
+  name: String!
+  url: String!
+  node: EggGroup!
+}
+
+type GenderConnection {
+  name: String!
+  url: String!
+  node: Gender!
+}
+
+type GrowthRateConnection {
+  name: String!
+  url: String!
+  node: GrowthRate!
+}
+
+type NatureConnection {
+  name: String!
+  url: String!
+  node: Nature!
+}
+
+type PokeathlonStatConnection {
+  name: String!
+  url: String!
+  node: PokeathlonStat!
+}
+
+type PokemonConnection {
+  name: String!
+  url: String!
+  node: Pokemon!
+}
+
+type PokemonColorConnection {
+  name: String!
+  url: String!
+  node: PokemonColor!
+}
+
+type PokemonFormConnection {
+  name: String!
+  url: String!
+  node: PokemonForm!
+}
+
+type PokemonHabitatConnection {
+  name: String!
+  url: String!
+  node: PokemonHabitat!
+}
+
+type PokemonShapeConnection {
+  name: String!
+  url: String!
+  node: PokemonShape!
+}
+
+type PokemonSpeciesConnection {
+  name: String!
+  url: String!
+  node: PokemonSpecies!
+}
+
+type StatConnection {
+  name: String!
+  url: String!
+  node: Stat!
+}
+
+type TypeConnection {
+  name: String!
+  url: String!
+  node: Type!
+}
+
 type LanguageConnection {
   name: String!
   url: String!
@@ -384,7 +491,7 @@ type Berry {
   firmness: BerryFirmnessConnection
   flavors: [BerryFlavorMap]
   item: ItemConnection
-  natural_gift_type: Type
+  natural_gift_type: TypeConnection
 }
 
 type BerryFlavorMap {
@@ -472,7 +579,7 @@ type EvolutionChain {
 
 type ChainLink {
   is_baby: Boolean!
-  species: PokemonSpecies!
+  species: PokemonSpeciesConnection!
   evolution_details: [EvolutionDetail!]!
   evolves_to: [ChainLink!]!
 }
@@ -483,18 +590,18 @@ type EvolutionDetail {
   gender: Int!
   held_item: ItemConnection!
   known_move: MoveConnection!
-  known_move_type: Type!
+  known_move_type: TypeConnection!
   location: LocationConnection!
   min_level: Int!
   min_happiness: Int!
   min_beauty: Int!
   min_affection: Int!
   needs_overworld_rain: Boolean!
-  party_species: PokemonSpecies!
-  party_type: Type!
+  party_species: PokemonSpeciesConnection!
+  party_type: TypeConnection!
   relative_physical_stats: Int!
   time_of_day: String!
-  trade_species: PokemonSpecies!
+  trade_species: PokemonSpeciesConnection!
   turn_upside_down: Boolean!
 }
 
@@ -502,7 +609,7 @@ type EvolutionTrigger {
   id: Int!
   name: String!
   names: [Name]!
-  pokemon_species: [PokemonSpecies!]!
+  pokemon_species: [PokemonSpeciesConnection!]!
 }
 
 # Games
@@ -513,8 +620,8 @@ type Generation {
   names: [Name!]!
   main_region: RegionConnection!
   moves: [MoveConnection!]!
-  pokemon_species: [PokemonSpecies!]!
-  types: [Type!]!
+  pokemon_species: [PokemonSpeciesConnection!]!
+  types: [TypeConnection!]!
   version_groups: [VersionGroupConnection!]!
 }
 
@@ -531,7 +638,7 @@ type Pokedex {
 
 type PokemonEntry {
   entry_number: Int!
-  pokemon_species: PokemonSpecies!
+  pokemon_species: PokemonSpeciesConnection!
 }
 
 type Version {
@@ -646,7 +753,7 @@ type EncounterVersionDetails {
 }
 
 type PokemonEncounter {
-  pokemon: Pokemon!
+  pokemon: PokemonConnection!
   version_details: [VersionEncounterDetail!]!
 }
 
@@ -660,7 +767,7 @@ type PalParkArea {
 type PalParkEncounterSpecies {
   base_score: Int!
   rate: Int!
-  pokemon_species: PokemonSpecies!
+  pokemon_species: PokemonSpeciesConnection!
 }
 
 type Region {
@@ -705,7 +812,7 @@ type Move {
   stat_changes: [MoveStatChange]!
   super_contest_effect: SuperContestEffect!
   target: MoveTargetConnection!
-  type: Type!
+  type: TypeConnection!
 }
 
 type ContestComboSets {
@@ -741,7 +848,7 @@ type MoveMetaData {
 
 type MoveStatChange {
   change: Int!
-  stat: Stat!
+  stat: StatConnection!
 }
 
 type PastMoveStatValues {
@@ -750,7 +857,7 @@ type PastMoveStatValues {
   power: Int!
   pp: Int!
   effect_entries: [VerboseEffect!]!
-  type: Type!
+  type: TypeConnection!
   version_group: VersionGroupConnection!
 }
 
@@ -825,14 +932,14 @@ type AbilityFlavorText {
 type AbilityPokemon {
   is_hidden: Boolean!
   slot: Int!
-  pokemon: Pokemon!
+  pokemon: PokemonConnection!
 }
 
 type Characteristic {
   id: Int!
   gene_modulo: Int!
   possible_values: [Int!]!
-  # highest_stat: StatConnection
+  highest_stat: StatConnection
   descriptions: [Description]
 }
 
@@ -840,19 +947,19 @@ type EggGroup {
   id: Int!
   name: String!
   names: [Name!]!
-  pokemon_species: [PokemonSpecies!]!
+  pokemon_species: [PokemonSpeciesConnection!]!
 }
 
 type Gender {
   id: Int!
   name: String!
   pokemon_species_details: [PokemonSpeciesGender!]!
-  required_for_evolution: [PokemonSpecies!]!
+  required_for_evolution: [PokemonSpeciesConnection!]!
 }
 
 type PokemonSpeciesGender {
   rate: Int!
-  pokemon_species: [PokemonSpecies!]!
+  pokemon_species: [PokemonSpeciesConnection!]!
 }
 
 type GrowthRate {
@@ -861,7 +968,7 @@ type GrowthRate {
   formula: String!
   descriptions: [Description!]!
   levels: [GrowthRateExperienceLevel]!
-  pokemon_species: [PokemonSpecies!]!
+  pokemon_species: [PokemonSpeciesConnection!]!
 }
 
 type GrowthRateExperienceLevel {
@@ -872,8 +979,8 @@ type GrowthRateExperienceLevel {
 type Nature {
   id: Int!
   name: String!
-  decreased_stat: Stat!
-  increased_stat: Stat!
+  decreased_stat: StatConnection
+  increased_stat: StatConnection
   hates_flavor: BerryFlavor!
   likes_flavor: BerryFlavor!
   pokeathlon_stat_changes: NatureStatChange!
@@ -883,7 +990,7 @@ type Nature {
 
 type NatureStatChange {
   max_change: Int!
-  pokeathlon_stat: PokeathlonStat!
+  pokeathlon_stat: PokeathlonStatConnection!
 }
 
 type MoveBattleStylePreference {
@@ -906,7 +1013,7 @@ type NaturePokeathlonStatAffectSets {
 
 type NaturePokeathlonStatAffect {
   max_change: Int!
-  nature: Nature!
+  nature: NatureConnection!
 }
 
 type Pokemon {
@@ -918,13 +1025,13 @@ type Pokemon {
   order: Int!
   weight: Int!
   abilities: [PokemonAbility!]!
-  forms: [PokemonForm!]!
+  forms: [PokemonFormConnection!]!
   game_indices: [VersionGameIndex!]!
   held_items: [PokemonHeldItem!]!
   location_area_encounters: String!
   moves: [PokemonMove!]!
   sprites: PokemonSprites!
-  species: PokemonSpecies!
+  species: PokemonSpeciesConnection!
   stats: [PokemonStat!]!
   types: [PokemonType!]!
 }
@@ -937,7 +1044,7 @@ type PokemonAbility {
 
 type PokemonType {
   slot: Int!
-  type: Type!
+  type: TypeConnection!
 }
 
 type PokemonHeldItem {
@@ -962,7 +1069,7 @@ type PokemonMoveVersion {
 }
 
 type PokemonStat {
-  stat: Stat!
+  stat: StatConnection!
   effort: Int!
   base_stat: Int!
 }
@@ -987,7 +1094,7 @@ type PokemonColor {
   id: Int!
   name: String!
   names: [Name!]!
-  pokemon_species: [PokemonSpecies!]!
+  pokemon_species: [PokemonSpeciesConnection!]!
 }
 
 type PokemonForm {
@@ -999,7 +1106,7 @@ type PokemonForm {
   is_battle_only: Boolean!
   is_mega: Boolean!
   form_name: String!
-  pokemon: Pokemon!
+  pokemon: PokemonConnection!
   sprites: PokemonFormSprites!
   version_group: VersionGroupConnection!
   names: [Name!]!
@@ -1017,7 +1124,7 @@ type PokemonHabitat {
   id: Int!
   name: String!
   names: [Name!]!
-  pokemon_species: [PokemonSpecies!]!
+  pokemon_species: [PokemonSpeciesConnection!]!
 }
 
 type PokemonShape {
@@ -1025,7 +1132,7 @@ type PokemonShape {
   name: String!
   awesome_names: [AwesomeName!]!
   names: [Name!]!
-  pokemon_species: [PokemonSpecies!]!
+  pokemon_species: [PokemonSpeciesConnection!]!
 }
 
 type AwesomeName {
@@ -1044,14 +1151,14 @@ type PokemonSpecies {
   hatch_counter: Int!
   has_gender_differences: Boolean!
   forms_switchable: Boolean!
-  growth_rate: GrowthRate!
+  growth_rate: GrowthRateConnection!
   pokedex_numbers: [PokemonSpeciesDexEntry!]!
-  egg_groups: [EggGroup!]!
-  color: PokemonColor!
-  shape: PokemonShape!
-  evolves_from_species: PokemonSpecies!
+  egg_groups: [EggGroupConnection!]!
+  color: PokemonColorConnection!
+  shape: PokemonShapeConnection!
+  evolves_from_species: PokemonSpeciesConnection!
   evolution_chain: EvolutionChain!
-  habitat: PokemonHabitat!
+  habitat: PokemonHabitatConnection!
   generation: GenerationConnection!
   names: [Name!]!
   pal_park_encounters: [PalParkEncounterArea!]!
@@ -1079,7 +1186,7 @@ type PalParkEncounterArea {
 
 type PokemonSpeciesVariety {
   is_default: Boolean!
-  pokemon: Pokemon!
+  pokemon: PokemonConnection!
 }
 
 type Stat {
@@ -1105,8 +1212,8 @@ type MoveStatAffect {
 }
 
 type NatureStatAffectSets {
-  increase: [Nature!]!
-  decrease: [Nature!]!
+  increase: [NatureConnection!]!
+  decrease: [NatureConnection!]!
 }
 
 type Type {
@@ -1123,14 +1230,14 @@ type Type {
 
 type TypePokemon {
   slot: Int!
-  pokemon: Pokemon!
+  pokemon: PokemonConnection!
 }
 
 type TypeRelations {
-  no_damage_to: Type!
-  half_damage_to: Type!
-  double_damage_to: Type!
-  no_damage_from: Type!
-  half_damage_from: Type!
-  double_damage_from: Type!
+  no_damage_to: TypeConnection!
+  half_damage_to: TypeConnection!
+  double_damage_to: TypeConnection!
+  no_damage_from: TypeConnection!
+  half_damage_from: TypeConnection!
+  double_damage_from: TypeConnection!
 }
