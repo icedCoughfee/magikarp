@@ -1,0 +1,53 @@
+type Query {
+  getAllContestTypes: [ContestTypeConnection!]!
+  getContestType(id: Int, name: String): ContestType
+  getAllContestEffects: [ContestEffectConnection!]!
+  getContestEffect(id: Int, name: String): ContestEffect
+  getAllSuperContestEffects: [SuperContestEffectConnection!]!
+  getSuperContestEffect(id: Int, name: String): SuperContestEffect
+}
+
+type ContestType {
+  id: Int!
+  name: String!
+  berry_flavor: BerryFlavorConnection!
+  names: [ContestName!]!
+}
+
+type ContestName {
+  name: String!
+  color: String!
+  language: LanguageConnection!
+}
+
+type ContestEffect {
+  id: Int!
+  appeal: Int!
+  jam: Int!
+  effect_entries: [Effect!]!
+  flavor_text_entries: [FlavorText!]!
+}
+
+type SuperContestEffect {
+  id: Int!
+  appeal: Int!
+  flavor_text_entries: [FlavorText!]!
+  moves: [MoveConnection!]!
+}
+
+# CONNECTORS
+type ContestTypeConnection {
+  name: String!
+  url: String!
+  node: ContestType!
+}
+
+type ContestEffectConnection {
+  url: String!
+  node: ContestEffect!
+}
+
+type SuperContestEffectConnection {
+  url: String!
+  node: SuperContestEffect!
+}

@@ -1,0 +1,81 @@
+type Query {
+  getAllGenerations: [GenerationConnection!]!
+  getGeneration(id: Int, name: String): Generation
+  getAllPokedexes: [PokedexConnection!]!
+  getPokedex(id: Int, name: String): Pokedex
+  getAllVersions: [VersionConnection!]!
+  getVersion(id: Int, name: String): Version
+  getAllVersionGroups: [VersionGroupConnection!]!
+  getVersionGroup(id: Int, name: String): VersionGroup
+}
+
+type Generation {
+  id: Int!
+  name: String!
+  abilities: [AbilityConnection!]!
+  names: [Name!]!
+  main_region: RegionConnection!
+  moves: [MoveConnection!]!
+  pokemon_species: [PokemonSpeciesConnection!]!
+  types: [TypeConnection!]!
+  version_groups: [VersionGroupConnection!]!
+}
+
+type Pokedex {
+  id: Int!
+  name: String!
+  is_main_series: Boolean!
+  descriptions: [Description!]!
+  names: [Name!]!
+  pokemon_entries: [PokemonEntry]!
+  region: RegionConnection!
+  version_groups: [VersionGroupConnection]!
+}
+
+type PokemonEntry {
+  entry_number: Int!
+  pokemon_species: PokemonSpeciesConnection!
+}
+
+type Version {
+  id: Int!
+  name: String!
+  names: [Name!]!
+  version_group: VersionGroupConnection!
+}
+
+type VersionGroup {
+  id: Int!
+  name: String!
+  order: Int!
+  generation: GenerationConnection!
+  move_learn_methods: [MoveLearnMethodConnection]!
+  pokedexes: [PokedexConnection!]!
+  regions: [RegionConnection!]!
+  versions: [VersionConnection!]!
+}
+
+# CONNECTORS
+type GenerationConnection {
+  name: String!
+  url: String!
+  node: Generation!
+}
+
+type PokedexConnection {
+  name: String!
+  url: String!
+  node: Pokedex!
+}
+
+type VersionConnection {
+  name: String!
+  url: String!
+  node: Version!
+}
+
+type VersionGroupConnection {
+  name: String!
+  url: String!
+  node: VersionGroup!
+}

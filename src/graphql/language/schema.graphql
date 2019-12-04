@@ -1,0 +1,20 @@
+type Query {
+  getAllLanguages: [LanguageConnection!]!
+  getLanguage(id: Int, name: String): Language
+}
+
+type Language {
+  id: ID!
+  name: String!
+  official: Boolean!
+  iso639: String!
+  iso3166: String!
+  names: [Name!]!
+}
+
+# CONNECTORS
+type LanguageConnection {
+  name: String!
+  url: String!
+  node: Language!
+}

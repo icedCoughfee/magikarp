@@ -1,0 +1,18 @@
+type Query {
+  getAllMachines: [MachineConnection!]!
+  getMachine(id: Int): Machine
+}
+
+type Machine {
+  id: Int!
+  item: ItemConnection!
+  move: MoveConnection!
+  version_group: VersionGroupConnection!
+}
+
+# CONNECTORS
+type MachineConnection {
+  name: String!
+  url: String!
+  node: Machine!
+}

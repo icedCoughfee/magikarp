@@ -1,0 +1,38 @@
+type Query {
+  getAllStats: [StatConnection!]!
+  getStat(id: Int, name: String): Stat
+}
+
+type Stat {
+  id: Int!
+  name: String!
+  game_index: Int!
+  is_battle_only: Boolean!
+  affecting_moves: MoveStatAffectSets!
+  affecting_natures: NatureStatAffectSets!
+  characteristics: CharacteristicConnection!
+  move_damage_class: MoveDamageClassConnection!
+  names: [Name!]!
+}
+
+type MoveStatAffectSets {
+  increase: [MoveStatAffect!]!
+  decrease: [MoveStatAffect!]!
+}
+
+type MoveStatAffect {
+  change: Int!
+  move: MoveConnection!
+}
+
+type NatureStatAffectSets {
+  increase: [NatureConnection!]!
+  decrease: [NatureConnection!]!
+}
+
+# CONNECTORS
+type StatConnection {
+  name: String!
+  url: String!
+  node: Stat!
+}

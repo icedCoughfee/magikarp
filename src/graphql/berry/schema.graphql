@@ -1,0 +1,67 @@
+type Query {
+  getAllBerries: [BerryConnection!]!
+  getBerry(id: Int, name: String): Berry
+  getAllBerryFirmness: [BerryFirmnessConnection!]!
+  getBerryFirmness(id: Int, name: String): BerryFirmness
+  getAllBerryFlavors: [BerryFlavorConnection!]!
+  getBerryFlavor(id: Int, name: String): BerryFlavor
+}
+
+type Berry {
+  id: Int
+  name: String
+  growth_time: Int
+  max_harvest: Int
+  natural_gift_power: Int
+  size: Int
+  smoothness: Int
+  soil_dryness: Int
+  firmness: BerryFirmnessConnection
+  flavors: [BerryFlavorMap]
+  item: ItemConnection
+  natural_gift_type: TypeConnection
+}
+
+type BerryFlavorMap {
+  potency: Int
+  flavor: BerryFlavorConnection
+}
+
+type BerryFirmness {
+  id: Int!
+  name: String!
+  berries: [BerryConnection!]!
+  names: [Name!]!
+}
+
+type BerryFlavor {
+  id: Int!
+  name: String!
+  berries: [FlavorBerryMap!]!
+  contest_type: ContestTypeConnection!
+  names: [Name!]!
+}
+
+type FlavorBerryMap {
+  potency: Int
+  berry: BerryConnection
+}
+
+# CONNECTORS
+type BerryConnection {
+  name: String
+  url: String
+  node: Berry
+}
+
+type BerryFirmnessConnection {
+  name: String
+  url: String
+  node: BerryFirmness
+}
+
+type BerryFlavorConnection {
+  name: String
+  url: String
+  node: BerryFlavor
+}
