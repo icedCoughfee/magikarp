@@ -8,6 +8,8 @@ const {
   resolver
 } = glue('src/graphql');
 
+require("./logging/schemaLogger")(schema)
+
 const server = new GraphQLServer({
   typeDefs: schema,
   resolvers: resolver
