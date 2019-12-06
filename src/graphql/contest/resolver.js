@@ -6,15 +6,15 @@ const {
 
 exports.resolver = {
     Query: {
-        getAllContestTypes: () => getAllConnections("/contest-type"),
+        getAllContestTypes: (parent, args) => getAllConnections("/contest-type", args),
         getContestType: (parent, args) => {
             return getByIdOrName("/contest-type", args);
         },
-        getAllContestEffects: () => getAllConnections("/contest-effect"),
+        getAllContestEffects: (parent, args) => getAllConnections("/contest-effect", args),
         getContestEffect: (parent, args) => {
             return getByIdOrName("/contest-effect", args);
         },
-        getAllSuperContestEffects: () => getAllConnections("/super-contest-effect"),
+        getAllSuperContestEffects: (parent, args) => getAllConnections("/super-contest-effect", args),
         getSuperContestEffect: (parent, args) => {
             return getByIdOrName("/super-contest-effect", args);
         }

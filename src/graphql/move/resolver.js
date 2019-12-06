@@ -6,31 +6,31 @@ const {
 
 exports.resolver = {
     Query: {
-        getAllMoves: () => getAllConnections("/move"),
+        getAllMoves: (parent, args) => getAllConnections("/move", args),
         getMove: (parent, args) => {
             return getByIdOrName("/move", args);
         },
-        getAllMoveAilments: () => getAllConnections("/move-ailment"),
+        getAllMoveAilments: (parent, args) => getAllConnections("/move-ailment", args),
         getMoveAilment: (parent, args) => {
             return getByIdOrName("/move-ailment", args);
         },
-        getAllMoveBattleStyles: () => getAllConnections("/move-battle-style"),
+        getAllMoveBattleStyles: (parent, args) => getAllConnections("/move-battle-style", args),
         getMoveBattleStyle: (parent, args) => {
             return getByIdOrName("/move-battle-style", args);
         },
-        getAllMoveCategories: () => getAllConnections("/move-category"),
+        getAllMoveCategories: (parent, args) => getAllConnections("/move-category", args),
         getMoveCategory: (parent, args) => {
             return getByIdOrName("/move-category", args);
         },
-        getAllMoveDamageClasses: () => getAllConnections("/move-damage-class"),
+        getAllMoveDamageClasses: (parent, args) => getAllConnections("/move-damage-class", args),
         getMoveDamageClass: (parent, args) => {
             return getByIdOrName("/move-damage-class", args);
         },
-        getAllMoveLearnMethods: () => getAllConnections("/move-learn-method"),
+        getAllMoveLearnMethods: (parent, args) => getAllConnections("/move-learn-method", args),
         getMoveLearnMethod: (parent, args) => {
             return getByIdOrName("/move-learn-method", args);
         },
-        getAllMoveTargets: () => getAllConnections("/move-target"),
+        getAllMoveTargets: (parent, args) => getAllConnections("/move-target", args),
         getMoveTarget: (parent, args) => {
             return getByIdOrName("/move-target", args);
         }

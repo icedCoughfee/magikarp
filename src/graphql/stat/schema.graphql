@@ -1,5 +1,5 @@
 type Query {
-  getAllStats: [StatConnection!]!
+  getAllStats(limit: Int, offset: Int): [StatConnection!]!
   getStat(id: Int, name: String): Stat
 }
 

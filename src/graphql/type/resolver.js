@@ -6,7 +6,7 @@ const {
 
 exports.resolver = {
     Query: {
-        getAllTypes: () => getAllConnections("/type"),
+        getAllTypes: (parent, args) => getAllConnections("/type", args),
         getType: (parent, args) => {
             return getByIdOrName("/type", args);
         }

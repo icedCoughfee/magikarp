@@ -1,9 +1,12 @@
 type Query {
-  getAllContestTypes: [ContestTypeConnection!]!
+  getAllContestTypes(limit: Int, offset: Int): [ContestTypeConnection!]!
   getContestType(id: Int, name: String): ContestType
-  getAllContestEffects: [ContestEffectConnection!]!
+  getAllContestEffects(limit: Int, offset: Int): [ContestEffectConnection!]!
   getContestEffect(id: Int, name: String): ContestEffect
-  getAllSuperContestEffects: [SuperContestEffectConnection!]!
+  getAllSuperContestEffects(
+    limit: Int
+    offset: Int
+  ): [SuperContestEffectConnection!]!
   getSuperContestEffect(id: Int, name: String): SuperContestEffect
 }
 

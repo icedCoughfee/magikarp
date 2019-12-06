@@ -1,5 +1,5 @@
 type Query {
-  getAllMachines: [MachineConnection!]!
+  getAllMachines(limit: Int, offset: Int): [MachineConnection!]!
   getMachine(id: Int): Machine
 }
 

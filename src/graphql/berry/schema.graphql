@@ -1,9 +1,9 @@
 type Query {
-  getAllBerries: [BerryConnection!]!
+  getAllBerries(limit: Int, offset: Int): [BerryConnection!]!
   getBerry(id: Int, name: String): Berry
-  getAllBerryFirmness: [BerryFirmnessConnection!]!
+  getAllBerryFirmness(limit: Int, offset: Int): [BerryFirmnessConnection!]!
   getBerryFirmness(id: Int, name: String): BerryFirmness
-  getAllBerryFlavors: [BerryFlavorConnection!]!
+  getAllBerryFlavors(limit: Int, offset: Int): [BerryFlavorConnection!]!
   getBerryFlavor(id: Int, name: String): BerryFlavor
 }
 

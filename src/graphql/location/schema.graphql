@@ -1,11 +1,11 @@
 type Query {
-  getAllLocations: [LocationConnection!]!
+  getAllLocations(limit: Int, offset: Int): [LocationConnection!]!
   getLocation(id: Int, name: String): Location
-  getAllLocationAreas: [LocationAreaConnection!]!
+  getAllLocationAreas(limit: Int, offset: Int): [LocationAreaConnection!]!
   getLocationArea(id: Int, name: String): LocationArea
-  getAllPalParkAreas: [PalParkAreaConnection!]!
+  getAllPalParkAreas(limit: Int, offset: Int): [PalParkAreaConnection!]!
   getPalParkArea(id: Int, name: String): PalParkArea
-  getAllRegions: [RegionConnection!]!
+  getAllRegions(limit: Int, offset: Int): [RegionConnection!]!
   getRegion(id: Int, name: String): Region
 }
 

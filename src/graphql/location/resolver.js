@@ -6,23 +6,23 @@ const {
 
 exports.resolver = {
     Query: {
-        getAllLocations: () => getAllConnections("/location"),
+        getAllLocations: (parent, args) => getAllConnections("/location", args),
         getLocation: (parent, args) => {
             return getByIdOrName("/location", args);
         },
-        getAllLocationAreas: () => getAllConnections("/location-area"),
+        getAllLocationAreas: (parent, args) => getAllConnections("/location-area", args),
         getLocationArea: (parent, args) => {
             return getByIdOrName("/location-area", args);
         },
-        getAllPalParkAreas: () => getAllConnections("/pal-park-area"),
+        getAllPalParkAreas: (parent, args) => getAllConnections("/pal-park-area", args),
         getPalParkArea: (parent, args) => {
             return getByIdOrName("/pal-park-area", args);
         },
-        getAllRegions: () => getAllConnections("/region"),
+        getAllRegions: (parent, args) => getAllConnections("/region", args),
         getRegion: (parent, args) => {
             return getByIdOrName("/region", args);
         },
-        getAllMachines: () => getAllConnections("/machine"),
+        getAllMachines: (parent, args) => getAllConnections("/machine", args),
         getMachine: (parent, args) => {
             return getByIdOrName("/machine", args);
         }

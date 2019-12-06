@@ -1,7 +1,10 @@
 type Query {
-  getAllEvolutionChains: [EvolutionChainConnection!]!
+  getAllEvolutionChains(limit: Int, offset: Int): [EvolutionChainConnection!]!
   getEvolutionChain(id: Int, name: String): EvolutionChain
-  getAllEvolutionTriggers: [EvolutionTriggerConnection!]!
+  getAllEvolutionTriggers(
+    limit: Int
+    offset: Int
+  ): [EvolutionTriggerConnection!]!
   getEvolutionTrigger(id: Int, name: String): EvolutionTrigger
 }
 

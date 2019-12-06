@@ -6,23 +6,23 @@ const {
 
 exports.resolver = {
     Query: {
-        getAllItems: () => getAllConnections("/item"),
+        getAllItems: (parent, args) => getAllConnections("/item", args),
         getItem: (parent, args) => {
             return getByIdOrName("/item", args);
         },
-        getAllItemAttributes: () => getAllConnections("/item-attribute"),
+        getAllItemAttributes: (parent, args) => getAllConnections("/item-attribute", args),
         getItemAttribute: (parent, args) => {
             return getByIdOrName("/item-attribute", args);
         },
-        getAllItemCategories: () => getAllConnections("/item-category"),
+        getAllItemCategories: (parent, args) => getAllConnections("/item-category", args),
         getItemCategory: (parent, args) => {
             return getByIdOrName("/item-category", args);
         },
-        getAllItemFlingEffects: () => getAllConnections("/item-fling-effect"),
+        getAllItemFlingEffects: (parent, args) => getAllConnections("/item-fling-effect", args),
         getItemFlingEffect: (parent, args) => {
             return getByIdOrName("/item-fling-effect", args);
         },
-        getAllItemPockets: () => getAllConnections("/item-pocket"),
+        getAllItemPockets: (parent, args) => getAllConnections("/item-pocket", args),
         getItemPocket: (parent, args) => {
             return getByIdOrName("/item-pocket", args);
         }

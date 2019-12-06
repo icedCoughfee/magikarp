@@ -1,13 +1,13 @@
 type Query {
-  getAllItems: [ItemConnection!]!
+  getAllItems(limit: Int, offset: Int): [ItemConnection!]!
   getItem(id: Int, name: String): Item
-  getAllItemAttributes: [ItemAttributeConnection!]!
+  getAllItemAttributes(limit: Int, offset: Int): [ItemAttributeConnection!]!
   getItemAttribute(id: Int, name: String): ItemAttribute
-  getAllItemCategories: [ItemCategoryConnection!]!
+  getAllItemCategories(limit: Int, offset: Int): [ItemCategoryConnection!]!
   getItemCategory(id: Int, name: String): ItemCategory
-  getAllItemFlingEffects: [ItemFlingEffectConnection!]!
+  getAllItemFlingEffects(limit: Int, offset: Int): [ItemFlingEffectConnection!]!
   getItemFlingEffect(id: Int, name: String): ItemFlingEffect
-  getAllItemPockets: [ItemPocketConnection!]!
+  getAllItemPockets(limit: Int, offset: Int): [ItemPocketConnection!]!
   getItemPocket(id: Int, name: String): ItemPocket
 }
 

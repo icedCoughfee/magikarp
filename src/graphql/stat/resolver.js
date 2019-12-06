@@ -6,7 +6,7 @@ const {
 
 exports.resolver = {
     Query: {
-        getAllStats: () => getAllConnections("/stat"),
+        getAllStats: (parent, args) => getAllConnections("/stat", args),
         getStat: (parent, args) => {
             return getByIdOrName("/stat", args);
         }

@@ -1,29 +1,29 @@
 type Query {
-  getAllAbilities: [AbilityConnection!]!
+  getAllAbilities(limit: Int, offset: Int): [AbilityConnection!]!
   getAbility(id: Int, name: String): Ability
-  getAllCharacteristics: [CharacteristicConnection!]!
+  getAllCharacteristics(limit: Int, offset: Int): [CharacteristicConnection!]!
   getCharacteristic(id: Int, name: String): Characteristic
-  getAllEggGroups: [EggGroupConnection!]!
+  getAllEggGroups(limit: Int, offset: Int): [EggGroupConnection!]!
   getEggGroup(id: Int, name: String): EggGroup
-  getAllGenders: [GenderConnection!]!
+  getAllGenders(limit: Int, offset: Int): [GenderConnection!]!
   getGender(id: Int, name: String): Gender
-  getAllGrowthRates: [GrowthRateConnection!]!
+  getAllGrowthRates(limit: Int, offset: Int): [GrowthRateConnection!]!
   getGrowthRate(id: Int, name: String): GrowthRate
-  getAllNatures: [NatureConnection!]!
+  getAllNatures(limit: Int, offset: Int): [NatureConnection!]!
   getNature(id: Int, name: String): Nature
-  getAllPokeathlonStats: [PokeathlonStatConnection!]!
+  getAllPokeathlonStats(limit: Int, offset: Int): [PokeathlonStatConnection!]!
   getPokeathlonStat(id: Int, name: String): PokeathlonStat
-  getAllPokemon: [PokemonConnection!]!
+  getAllPokemon(limit: Int, offset: Int): [PokemonConnection!]!
   getPokemon(id: Int, name: String): Pokemon
-  getAllPokemonColors: [PokemonColorConnection!]!
+  getAllPokemonColors(limit: Int, offset: Int): [PokemonColorConnection!]!
   getPokemonColor(id: Int, name: String): PokemonColor
-  getAllPokemonForms: [PokemonFormConnection!]!
+  getAllPokemonForms(limit: Int, offset: Int): [PokemonFormConnection!]!
   getPokemonForm(id: Int, name: String): PokemonForm
-  getAllPokemonHabitats: [PokemonHabitatConnection!]!
+  getAllPokemonHabitats(limit: Int, offset: Int): [PokemonHabitatConnection!]!
   getPokemonHabitat(id: Int, name: String): PokemonHabitat
-  getAllPokemonShapes: [PokemonShapeConnection!]!
+  getAllPokemonShapes(limit: Int, offset: Int): [PokemonShapeConnection!]!
   getPokemonShape(id: Int, name: String): PokemonShape
-  getAllPokemonSpecies: [PokemonSpeciesConnection!]!
+  getAllPokemonSpecies(limit: Int, offset: Int): [PokemonSpeciesConnection!]!
   getPokemonSpecies(id: Int, name: String): PokemonSpecies
 }
 

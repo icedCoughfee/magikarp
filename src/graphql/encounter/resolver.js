@@ -6,16 +6,16 @@ const {
 
 exports.resolver = {
     Query: {
-        getAllEncounterMethods: () => getAllConnections("/encounter-method"),
+        getAllEncounterMethods: (parent, args) => getAllConnections("/encounter-method", args),
         getEncounterMethod: (parent, args) => {
             return getByIdOrName("/encounter-method", args);
         },
-        getAllEncounterConditions: () => getAllConnections("/encounter-condition"),
+        getAllEncounterConditions: (parent, args) => getAllConnections("/encounter-condition", args),
         getEncounterCondition: (parent, args) => {
             return getByIdOrName("/encounter-condition", args);
         },
-        getAllEncounterConditionValues: () =>
-            getAllConnections("/encounter-condition-value"),
+        getAllEncounterConditionValues: (parent, args) =>
+            getAllConnections("/encounter-condition-value", args),
         getEncounterConditionValue: (parent, args) => {
             return getByIdOrName("/encounter-condition-value", args);
         }

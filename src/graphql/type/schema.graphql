@@ -1,5 +1,5 @@
 type Query {
-  getAllTypes: [TypeConnection!]!
+  getAllTypes(limit: Int, offset: Int): [TypeConnection!]!
   getType(id: Int, name: String): Type
 }
 

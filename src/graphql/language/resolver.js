@@ -6,7 +6,7 @@ const {
 
 exports.resolver = {
     Query: {
-        getAllLanguages: () => getAllConnections("/language"),
+        getAllLanguages: (parent, args) => getAllConnections("/language", args),
         getLanguage: (parent, args) => {
             return getByIdOrName("/language", args);
         }

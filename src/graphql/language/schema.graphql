@@ -1,5 +1,5 @@
 type Query {
-  getAllLanguages: [LanguageConnection!]!
+  getAllLanguages(limit: Int, offset: Int): [LanguageConnection!]!
   getLanguage(id: Int, name: String): Language
 }
 

@@ -1,9 +1,15 @@
 type Query {
-  getAllEncounterMethods: [EncounterMethodConnection!]!
+  getAllEncounterMethods(limit: Int, offset: Int): [EncounterMethodConnection!]!
   getEncounterMethod(id: Int, name: String): EncounterMethod
-  getAllEncounterConditions: [EncounterConditionConnection!]!
+  getAllEncounterConditions(
+    limit: Int
+    offset: Int
+  ): [EncounterConditionConnection!]!
   getEncounterCondition(id: Int, name: String): EncounterCondition
-  getAllEncounterConditionValues: [EncounterConditionValueConnection!]!
+  getAllEncounterConditionValues(
+    limit: Int
+    offset: Int
+  ): [EncounterConditionValueConnection!]!
   getEncounterConditionValue(id: Int, name: String): EncounterConditionValue
 }
 

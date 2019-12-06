@@ -6,17 +6,9 @@ const {
 
 exports.resolver = {
     Query: {
-        getAllBerries: () => getAllConnections("/berry"),
-        getBerry: (parent, args) => {
-            return getByIdOrName("/berry", args);
-        },
-        getAllBerryFirmness: () => getAllConnections("/berry-firmness"),
-        getBerryFirmness: (parent, args) => {
-            return getByIdOrName("/berry-firmness", args);
-        },
-        getAllBerryFlavors: () => getAllConnections("/berry-flavor"),
-        getBerryFlavor: (parent, args) => {
-            return getByIdOrName("/berry-flavor", args);
+        getAllMachines: (parent, args) => getAllConnections("/machine", args),
+        getMachine: (parent, args) => {
+            return getByIdOrName("/machine", args);
         }
     },
     MachineConnection: {

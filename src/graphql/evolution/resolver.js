@@ -6,11 +6,11 @@ const {
 
 exports.resolver = {
     Query: {
-        getAllEvolutionChains: () => getAllConnections("/evolution-chain"),
+        getAllEvolutionChains: (parent, args) => getAllConnections("/evolution-chain", args),
         getEvolutionChain: (parent, args) => {
             return getByIdOrName("/evolution-chain", args);
         },
-        getAllEvolutionTriggers: () => getAllConnections("/evolution-trigger"),
+        getAllEvolutionTriggers: (parent, args) => getAllConnections("/evolution-trigger", args),
         getEvolutionTrigger: (parent, args) => {
             return getByIdOrName("/evolution-trigger", args);
         }

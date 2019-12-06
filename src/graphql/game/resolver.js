@@ -6,19 +6,19 @@ const {
 
 exports.resolver = {
     Query: {
-        getAllGenerations: () => getAllConnections("/generation"),
+        getAllGenerations: (parent, args) => getAllConnections("/generation", args),
         getGeneration: (parent, args) => {
             return getByIdOrName("/generation", args);
         },
-        getAllPokedexes: () => getAllConnections("/pokedex"),
+        getAllPokedexes: (parent, args) => getAllConnections("/pokedex", args),
         getPokedex: (parent, args) => {
             return getByIdOrName("/pokedex", args);
         },
-        getAllVersions: () => getAllConnections("/version"),
+        getAllVersions: (parent, args) => getAllConnections("/version", args),
         getVersion: (parent, args) => {
             return getByIdOrName("/version", args);
         },
-        getAllVersionGroups: () => getAllConnections("/version-group"),
+        getAllVersionGroups: (parent, args) => getAllConnections("/version-group", args),
         getVersionGroup: (parent, args) => {
             return getByIdOrName("/version-group", args);
         }

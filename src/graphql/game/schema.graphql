@@ -1,11 +1,11 @@
 type Query {
-  getAllGenerations: [GenerationConnection!]!
+  getAllGenerations(limit: Int, offset: Int): [GenerationConnection!]!
   getGeneration(id: Int, name: String): Generation
-  getAllPokedexes: [PokedexConnection!]!
+  getAllPokedexes(limit: Int, offset: Int): [PokedexConnection!]!
   getPokedex(id: Int, name: String): Pokedex
-  getAllVersions: [VersionConnection!]!
+  getAllVersions(limit: Int, offset: Int): [VersionConnection!]!
   getVersion(id: Int, name: String): Version
-  getAllVersionGroups: [VersionGroupConnection!]!
+  getAllVersionGroups(limit: Int, offset: Int): [VersionGroupConnection!]!
   getVersionGroup(id: Int, name: String): VersionGroup
 }
 

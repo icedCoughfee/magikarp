@@ -1,17 +1,20 @@
 type Query {
-  getAllMoves: [MoveConnection!]!
+  getAllMoves(limit: Int, offset: Int): [MoveConnection!]!
   getMove(id: Int, name: String): Move
-  getAllMoveAilments: [MoveAilmentConnection!]!
+  getAllMoveAilments(limit: Int, offset: Int): [MoveAilmentConnection!]!
   getMoveAilment(id: Int, name: String): MoveAilment
-  getAllMoveBattleStyles: [MoveBattleStyleConnection!]!
+  getAllMoveBattleStyles(limit: Int, offset: Int): [MoveBattleStyleConnection!]!
   getMoveBattleStyle(id: Int, name: String): MoveBattleStyle
-  getAllMoveCategories: [MoveCategoryConnection!]!
+  getAllMoveCategories(limit: Int, offset: Int): [MoveCategoryConnection!]!
   getMoveCategory(id: Int, name: String): ModelName
-  getAllMoveDamageClasses: [MoveDamageClassConnection!]!
+  getAllMoveDamageClasses(
+    limit: Int
+    offset: Int
+  ): [MoveDamageClassConnection!]!
   getMoveDamageClass(id: Int, name: String): MoveDamageClass
-  getAllMoveLearnMethods: [MoveLearnMethodConnection!]!
+  getAllMoveLearnMethods(limit: Int, offset: Int): [MoveLearnMethodConnection!]!
   getMoveLearnMethod(id: Int, name: String): MoveLearnMethod
-  getAllMoveTargets: [MoveTargetConnection!]!
+  getAllMoveTargets(limit: Int, offset: Int): [MoveTargetConnection!]!
   getMoveTarget(id: Int, name: String): MoveTarget
 }
 

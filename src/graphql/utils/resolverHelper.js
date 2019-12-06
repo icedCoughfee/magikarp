@@ -13,9 +13,20 @@ const getNode = obj => {
 };
 
 // calls that return Connections (reference list {name, url})
-const getAllConnections = urlPath => {
+const getAllConnections = (urlPath, args) => {
+    let pagination = "";
+    if (args) {
+        const {
+            limit,
+            offset
+        } = args;
+        if (limit && offset) {
+            pagination = `?limit=${limit}&offset=${offset}`
+        }
+    }
+
     try {
-        return fetch(`${baseURL}/${urlPath}`)
+        return fetch(`${baseURL}/${urlPath}${pagination}`)
             .then(res => res.json())
             .then(res => res.results)
             .catch(err => console.log(err));
