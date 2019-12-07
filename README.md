@@ -12,3 +12,11 @@ cd magikarp
 npm install
 npm run dev
 ```
+
+## Nodemon
+
+Nodemon is set with the verbose option for development but can be turned off by updating flag in configs/nodemon.json. Official Nodemon [documentation](https://github.com/remy/nodemon) houses additional options and specifications.
+
+```sh
+{ verbose: false }
+```
