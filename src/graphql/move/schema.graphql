@@ -24,8 +24,8 @@ type Move {
   priority: Int
   power: Int
   contest_combos: ContestComboSets
-  contest_type: ContestType
-  contest_effect: ContestEffect
+  contest_type: ContestTypeConnection
+  contest_effect: ContestEffectConnection
   damage_class: MoveDamageClassConnection
   effect_entries: [VerboseEffect]!
   effect_changes: [AbilityEffectChange]!
@@ -47,8 +47,8 @@ type ContestComboSets {
 }
 
 type ContestComboDetail {
-  use_before: [MoveConnection]!
-  use_after: [MoveConnection]!
+  use_before: [MoveConnection]
+  use_after: [MoveConnection]
 }
 
 type MoveFlavorText {
