@@ -80,7 +80,7 @@ type Gender {
 
 type PokemonSpeciesGender {
   rate: Int
-  pokemon_species: [PokemonSpeciesConnection]!
+  pokemon_species: PokemonSpeciesConnection!
 }
 
 type GrowthRate {
