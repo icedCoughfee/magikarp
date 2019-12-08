@@ -1,54 +1,54 @@
 type Query {
-  getAllEncounterMethods(limit: Int, offset: Int): [EncounterMethodConnection!]!
+  getAllEncounterMethods(limit: Int, offset: Int): [EncounterMethodConnection]!
   getEncounterMethod(id: Int, name: String): EncounterMethod
   getAllEncounterConditions(
     limit: Int
     offset: Int
-  ): [EncounterConditionConnection!]!
+  ): [EncounterConditionConnection]!
   getEncounterCondition(id: Int, name: String): EncounterCondition
   getAllEncounterConditionValues(
     limit: Int
     offset: Int
-  ): [EncounterConditionValueConnection!]!
+  ): [EncounterConditionValueConnection]!
   getEncounterConditionValue(id: Int, name: String): EncounterConditionValue
 }
 
 type EncounterMethod {
-  id: Int!
-  name: String!
-  order: Int!
-  names: [Name!]!
+  id: Int
+  name: String
+  order: Int
+  names: [Name]!
 }
 
 type EncounterCondition {
-  id: Int!
-  name: String!
-  names: [Name!]!
-  values: [EncounterConditionValueConnection!]!
+  id: Int
+  name: String
+  names: [Name]!
+  values: [EncounterConditionValueConnection]!
 }
 
 type EncounterConditionValue {
-  id: Int!
-  name: String!
-  condition: EncounterConditionConnection!
+  id: Int
+  name: String
+  condition: EncounterConditionConnection
   names: [Name]!
 }
 
 # CONNECTORS
 type EncounterMethodConnection {
-  name: String!
-  url: String!
-  node: EncounterMethod!
+  name: String
+  url: String
+  node: EncounterMethod
 }
 
 type EncounterConditionConnection {
-  name: String!
-  url: String!
-  node: EncounterCondition!
+  name: String
+  url: String
+  node: EncounterCondition
 }
 
 type EncounterConditionValueConnection {
-  name: String!
-  url: String!
-  node: EncounterConditionValue!
+  name: String
+  url: String
+  node: EncounterConditionValue
 }

@@ -1,37 +1,37 @@
 type Query {
-  getAllTypes(limit: Int, offset: Int): [TypeConnection!]!
+  getAllTypes(limit: Int, offset: Int): [TypeConnection]!
   getType(id: Int, name: String): Type
 }
 
 type Type {
-  id: Int!
-  name: String!
-  damage_relations: TypeRelations!
-  game_indices: [GenerationGameIndex!]!
-  generation: GenerationConnection!
-  move_damage_class: MoveDamageClassConnection!
-  names: [Name!]!
-  pokemon: [TypePokemon!]!
-  moves: [MoveConnection!]!
+  id: Int
+  name: String
+  damage_relations: TypeRelations
+  game_indices: [GenerationGameIndex]!
+  generation: GenerationConnection
+  move_damage_class: MoveDamageClassConnection
+  names: [Name]!
+  pokemon: [TypePokemon]!
+  moves: [MoveConnection]!
 }
 
 type TypePokemon {
-  slot: Int!
-  pokemon: PokemonConnection!
+  slot: Int
+  pokemon: PokemonConnection
 }
 
 type TypeRelations {
-  no_damage_to: TypeConnection!
-  half_damage_to: TypeConnection!
-  double_damage_to: TypeConnection!
-  no_damage_from: TypeConnection!
-  half_damage_from: TypeConnection!
-  double_damage_from: TypeConnection!
+  no_damage_to: TypeConnection
+  half_damage_to: TypeConnection
+  double_damage_to: TypeConnection
+  no_damage_from: TypeConnection
+  half_damage_from: TypeConnection
+  double_damage_from: TypeConnection
 }
 
 # CONNECTORS
 type TypeConnection {
-  name: String!
-  url: String!
-  node: Type!
+  name: String
+  url: String
+  node: Type
 }

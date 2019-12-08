@@ -1,56 +1,56 @@
 type Query {
-  getAllContestTypes(limit: Int, offset: Int): [ContestTypeConnection!]!
+  getAllContestTypes(limit: Int, offset: Int): [ContestTypeConnection]!
   getContestType(id: Int, name: String): ContestType
-  getAllContestEffects(limit: Int, offset: Int): [ContestEffectConnection!]!
+  getAllContestEffects(limit: Int, offset: Int): [ContestEffectConnection]!
   getContestEffect(id: Int, name: String): ContestEffect
   getAllSuperContestEffects(
     limit: Int
     offset: Int
-  ): [SuperContestEffectConnection!]!
+  ): [SuperContestEffectConnection]!
   getSuperContestEffect(id: Int, name: String): SuperContestEffect
 }
 
 type ContestType {
-  id: Int!
-  name: String!
-  berry_flavor: BerryFlavorConnection!
-  names: [ContestName!]!
+  id: Int
+  name: String
+  berry_flavor: BerryFlavorConnection
+  names: [ContestName]!
 }
 
 type ContestName {
-  name: String!
-  color: String!
-  language: LanguageConnection!
+  name: String
+  color: String
+  language: LanguageConnection
 }
 
 type ContestEffect {
-  id: Int!
-  appeal: Int!
-  jam: Int!
-  effect_entries: [Effect!]!
-  flavor_text_entries: [FlavorText!]!
+  id: Int
+  appeal: Int
+  jam: Int
+  effect_entries: [Effect]!
+  flavor_text_entries: [FlavorText]!
 }
 
 type SuperContestEffect {
-  id: Int!
-  appeal: Int!
-  flavor_text_entries: [FlavorText!]!
-  moves: [MoveConnection!]!
+  id: Int
+  appeal: Int
+  flavor_text_entries: [FlavorText]!
+  moves: [MoveConnection]!
 }
 
 # CONNECTORS
 type ContestTypeConnection {
-  name: String!
-  url: String!
-  node: ContestType!
+  name: String
+  url: String
+  node: ContestType
 }
 
 type ContestEffectConnection {
-  url: String!
-  node: ContestEffect!
+  url: String
+  node: ContestEffect
 }
 
 type SuperContestEffectConnection {
-  url: String!
-  node: SuperContestEffect!
+  url: String
+  node: SuperContestEffect
 }

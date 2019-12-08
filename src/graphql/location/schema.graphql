@@ -1,92 +1,92 @@
 type Query {
-  getAllLocations(limit: Int, offset: Int): [LocationConnection!]!
+  getAllLocations(limit: Int, offset: Int): [LocationConnection]!
   getLocation(id: Int, name: String): Location
-  getAllLocationAreas(limit: Int, offset: Int): [LocationAreaConnection!]!
+  getAllLocationAreas(limit: Int, offset: Int): [LocationAreaConnection]!
   getLocationArea(id: Int, name: String): LocationArea
-  getAllPalParkAreas(limit: Int, offset: Int): [PalParkAreaConnection!]!
+  getAllPalParkAreas(limit: Int, offset: Int): [PalParkAreaConnection]!
   getPalParkArea(id: Int, name: String): PalParkArea
-  getAllRegions(limit: Int, offset: Int): [RegionConnection!]!
+  getAllRegions(limit: Int, offset: Int): [RegionConnection]!
   getRegion(id: Int, name: String): Region
 }
 
 type Location {
-  id: Int!
-  name: String!
-  region: RegionConnection!
-  names: [Name!]!
-  game_indices: [GenerationGameIndex!]!
+  id: Int
+  name: String
+  region: RegionConnection
+  names: [Name]!
+  game_indices: [GenerationGameIndex]!
   areas: [LocationAreaConnection]!
 }
 
 type LocationArea {
-  id: Int!
-  name: String!
-  game_index: Int!
-  encounter_method_rates: [EncounterMethodRate!]!
-  location: LocationConnection!
-  names: [Name!]!
-  pokemon_encounters: [PokemonEncounter!]!
+  id: Int
+  name: String
+  game_index: Int
+  encounter_method_rates: [EncounterMethodRate]!
+  location: LocationConnection
+  names: [Name]!
+  pokemon_encounters: [PokemonEncounter]!
 }
 
 type EncounterMethodRate {
-  encounter_method: EncounterMethodConnection!
-  version_details: [EncounterVersionDetails!]!
+  encounter_method: EncounterMethodConnection
+  version_details: [EncounterVersionDetails]!
 }
 
 type EncounterVersionDetails {
-  rate: Int!
-  version: VersionConnection!
+  rate: Int
+  version: VersionConnection
 }
 
 type PokemonEncounter {
-  pokemon: PokemonConnection!
-  version_details: [VersionEncounterDetail!]!
+  pokemon: PokemonConnection
+  version_details: [VersionEncounterDetail]!
 }
 
 type PalParkArea {
-  id: Int!
-  name: String!
-  names: [Name!]!
+  id: Int
+  name: String
+  names: [Name]!
   pokemon_encounters: [PalParkEncounterSpecies]!
 }
 
 type PalParkEncounterSpecies {
-  base_score: Int!
-  rate: Int!
-  pokemon_species: PokemonSpeciesConnection!
+  base_score: Int
+  rate: Int
+  pokemon_species: PokemonSpeciesConnection
 }
 
 type Region {
-  id: Int!
-  name: String!
-  names: [Name!]!
-  locations: [LocationConnection!]!
-  main_generation: GenerationConnection!
-  pokedexes: [PokedexConnection!]!
+  id: Int
+  name: String
+  names: [Name]!
+  locations: [LocationConnection]!
+  main_generation: GenerationConnection
+  pokedexes: [PokedexConnection]!
   version_groups: [VersionGroupConnection]!
 }
 
 # CONNECTORS
 type LocationConnection {
-  name: String!
-  url: String!
-  node: Location!
+  name: String
+  url: String
+  node: Location
 }
 
 type LocationAreaConnection {
-  name: String!
-  url: String!
-  node: LocationArea!
+  name: String
+  url: String
+  node: LocationArea
 }
 
 type PalParkAreaConnection {
-  name: String!
-  url: String!
-  node: PalParkArea!
+  name: String
+  url: String
+  node: PalParkArea
 }
 
 type RegionConnection {
-  name: String!
-  url: String!
-  node: Region!
+  name: String
+  url: String
+  node: Region
 }

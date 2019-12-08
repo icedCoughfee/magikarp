@@ -1,52 +1,49 @@
 type Query {
-  getAllMoves(limit: Int, offset: Int): [MoveConnection!]!
+  getAllMoves(limit: Int, offset: Int): [MoveConnection]!
   getMove(id: Int, name: String): Move
-  getAllMoveAilments(limit: Int, offset: Int): [MoveAilmentConnection!]!
+  getAllMoveAilments(limit: Int, offset: Int): [MoveAilmentConnection]!
   getMoveAilment(id: Int, name: String): MoveAilment
-  getAllMoveBattleStyles(limit: Int, offset: Int): [MoveBattleStyleConnection!]!
+  getAllMoveBattleStyles(limit: Int, offset: Int): [MoveBattleStyleConnection]!
   getMoveBattleStyle(id: Int, name: String): MoveBattleStyle
-  getAllMoveCategories(limit: Int, offset: Int): [MoveCategoryConnection!]!
+  getAllMoveCategories(limit: Int, offset: Int): [MoveCategoryConnection]!
   getMoveCategory(id: Int, name: String): ModelName
-  getAllMoveDamageClasses(
-    limit: Int
-    offset: Int
-  ): [MoveDamageClassConnection!]!
+  getAllMoveDamageClasses(limit: Int, offset: Int): [MoveDamageClassConnection]!
   getMoveDamageClass(id: Int, name: String): MoveDamageClass
-  getAllMoveLearnMethods(limit: Int, offset: Int): [MoveLearnMethodConnection!]!
+  getAllMoveLearnMethods(limit: Int, offset: Int): [MoveLearnMethodConnection]!
   getMoveLearnMethod(id: Int, name: String): MoveLearnMethod
-  getAllMoveTargets(limit: Int, offset: Int): [MoveTargetConnection!]!
+  getAllMoveTargets(limit: Int, offset: Int): [MoveTargetConnection]!
   getMoveTarget(id: Int, name: String): MoveTarget
 }
 
 type Move {
-  id: Int!
-  name: String!
+  id: Int
+  name: String
   accuracy: Int
   effect_chance: Int
   pp: Int
   priority: Int
   power: Int
-  contest_combos: ContestComboSets!
-  contest_type: ContestType!
-  contest_effect: ContestEffect!
-  damage_class: MoveDamageClassConnection!
-  effect_entries: [VerboseEffect!]!
-  effect_changes: [AbilityEffectChange!]!
-  flavor_text_entries: [MoveFlavorText!]!
-  generation: GenerationConnection!
-  machines: [MachineVersionDetail!]!
-  meta: MoveMetaData!
-  names: [Name!]!
-  past_values: [PastMoveStatValues!]!
+  contest_combos: ContestComboSets
+  contest_type: ContestType
+  contest_effect: ContestEffect
+  damage_class: MoveDamageClassConnection
+  effect_entries: [VerboseEffect]!
+  effect_changes: [AbilityEffectChange]!
+  flavor_text_entries: [MoveFlavorText]!
+  generation: GenerationConnection
+  machines: [MachineVersionDetail]!
+  meta: MoveMetaData
+  names: [Name]!
+  past_values: [PastMoveStatValues]!
   stat_changes: [MoveStatChange]!
-  super_contest_effect: SuperContestEffect!
-  target: MoveTargetConnection!
-  type: TypeConnection!
+  super_contest_effect: SuperContestEffect
+  target: MoveTargetConnection
+  type: TypeConnection
 }
 
 type ContestComboSets {
-  normal: ContestComboDetail!
-  super: ContestComboDetail!
+  normal: ContestComboDetail
+  super: ContestComboDetail
 }
 
 type ContestComboDetail {
@@ -55,124 +52,124 @@ type ContestComboDetail {
 }
 
 type MoveFlavorText {
-  flavor_text: String!
-  language: [MoveConnection!]!
-  version_group: [MoveConnection!]!
+  flavor_text: String
+  language: [MoveConnection]!
+  version_group: [MoveConnection]!
 }
 
 type MoveMetaData {
-  ailment: MoveAilmentConnection!
-  category: MoveConnection!
-  min_hits: Int!
-  max_hits: Int!
-  min_turns: Int!
-  max_turns: Int!
-  drain: Int!
-  healing: Int!
-  crit_rate: Int!
-  ailment_chance: Int!
-  flinch_chance: Int!
-  stat_chance: Int!
+  ailment: MoveAilmentConnection
+  category: MoveConnection
+  min_hits: Int
+  max_hits: Int
+  min_turns: Int
+  max_turns: Int
+  drain: Int
+  healing: Int
+  crit_rate: Int
+  ailment_chance: Int
+  flinch_chance: Int
+  stat_chance: Int
 }
 
 type MoveStatChange {
-  change: Int!
-  stat: StatConnection!
+  change: Int
+  stat: StatConnection
 }
 
 type PastMoveStatValues {
-  accuracy: Int!
-  effect_chance: Int!
-  power: Int!
-  pp: Int!
-  effect_entries: [VerboseEffect!]!
-  type: TypeConnection!
-  version_group: VersionGroupConnection!
+  accuracy: Int
+  effect_chance: Int
+  power: Int
+  pp: Int
+  effect_entries: [VerboseEffect]!
+  type: TypeConnection
+  version_group: VersionGroupConnection
 }
 
 type MoveAilment {
-  id: Int!
-  name: String!
-  moves: [MoveConnection!]!
-  names: [Name!]!
+  id: Int
+  name: String
+  moves: [MoveConnection]!
+  names: [Name]!
 }
 
 type MoveBattleStyle {
-  id: Int!
-  name: String!
-  names: [Name!]!
+  id: Int
+  name: String
+  names: [Name]!
 }
 
 type ModelName {
-  id: Int!
-  name: String!
-  moves: [MoveConnection]
-  descriptions: [Description!]!
+  id: Int
+  name: String
+  moves: [MoveConnection]!
+  descriptions: [Description]!
 }
 
 type MoveDamageClass {
-  id: Int!
-  name: String!
-  descriptions: [Description!]!
-  moves: [MoveConnection!]!
-  names: [Name!]!
+  id: Int
+  name: String
+  descriptions: [Description]!
+  moves: [MoveConnection]!
+  names: [Name]!
 }
 
 type MoveLearnMethod {
-  id: Int!
-  name: String!
-  descriptions: [Description!]!
-  names: [Name!]!
+  id: Int
+  name: String
+  descriptions: [Description]!
+  names: [Name]!
   version_groups: [VersionGroupConnection]!
 }
 
 type MoveTarget {
-  id: Int!
-  name: String!
-  descriptions: [Description!]!
-  moves: [MoveConnection!]!
-  names: [Name!]!
+  id: Int
+  name: String
+  descriptions: [Description]!
+  moves: [MoveConnection]!
+  names: [Name]!
 }
 
 # CONNECTORS
 type MoveConnection {
-  name: String!
-  url: String!
-  node: Move!
+  name: String
+  url: String
+  node: Move
 }
 
 type MoveAilmentConnection {
-  name: String!
-  url: String!
-  node: MoveAilment!
+  name: String
+  url: String
+  node: MoveAilment
 }
 
 type MoveBattleStyleConnection {
-  name: String!
-  url: String!
-  node: MoveBattleStyle!
+  name: String
+  url: String
+  node: MoveBattleStyle
 }
 
 type MoveCategoryConnection {
-  name: String!
-  url: String!
-  node: ModelName!
+  name: String
+  url: String
+  node: ModelName
 }
 
 type MoveDamageClassConnection {
-  name: String!
-  url: String!
-  node: MoveDamageClass!
+  name: String
+  url: String
+  node: MoveDamageClass
 }
 
 type MoveLearnMethodConnection {
-  name: String!
-  url: String!
-  node: MoveLearnMethod!
+  name: String
+  url: String
+  node: MoveLearnMethod
 }
 
 type MoveTargetConnection {
-  name: String!
-  url: String!
-  node: MoveTarget!
+  name: String
+  url: String
+  node: MoveTarget
 }

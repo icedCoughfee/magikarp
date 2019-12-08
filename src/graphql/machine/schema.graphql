@@ -1,18 +1,18 @@
 type Query {
-  getAllMachines(limit: Int, offset: Int): [MachineConnection!]!
+  getAllMachines(limit: Int, offset: Int): [MachineConnection]!
   getMachine(id: Int): Machine
 }
 
 type Machine {
-  id: Int!
-  item: ItemConnection!
-  move: MoveConnection!
-  version_group: VersionGroupConnection!
+  id: Int
+  item: ItemConnection
+  move: MoveConnection
+  version_group: VersionGroupConnection
 }
 
 # CONNECTORS
 type MachineConnection {
-  name: String!
-  url: String!
-  node: Machine!
+  name: String
+  url: String
+  node: Machine
 }

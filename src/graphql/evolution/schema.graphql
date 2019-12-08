@@ -1,62 +1,62 @@
 type Query {
-  getAllEvolutionChains(limit: Int, offset: Int): [EvolutionChainConnection!]!
+  getAllEvolutionChains(limit: Int, offset: Int): [EvolutionChainConnection]!
   getEvolutionChain(id: Int, name: String): EvolutionChain
   getAllEvolutionTriggers(
     limit: Int
     offset: Int
-  ): [EvolutionTriggerConnection!]!
+  ): [EvolutionTriggerConnection]!
   getEvolutionTrigger(id: Int, name: String): EvolutionTrigger
 }
 
 type EvolutionChain {
-  id: Int!
-  baby_trigger_item: ItemConnection!
-  chain: ChainLink!
+  id: Int
+  baby_trigger_item: ItemConnection
+  chain: ChainLink
 }
 
 type ChainLink {
-  is_baby: Boolean!
-  species: PokemonSpeciesConnection!
-  evolution_details: [EvolutionDetail!]!
-  evolves_to: [ChainLink!]!
+  is_baby: Boolean
+  species: PokemonSpeciesConnection
+  evolution_details: [EvolutionDetail]!
+  evolves_to: [ChainLink]!
 }
 
 type EvolutionDetail {
-  item: ItemConnection!
-  trigger: EvolutionTriggerConnection!
-  gender: Int!
-  held_item: ItemConnection!
-  known_move: MoveConnection!
-  known_move_type: TypeConnection!
-  location: LocationConnection!
-  min_level: Int!
-  min_happiness: Int!
-  min_beauty: Int!
-  min_affection: Int!
-  needs_overworld_rain: Boolean!
-  party_species: PokemonSpeciesConnection!
-  party_type: TypeConnection!
-  relative_physical_stats: Int!
-  time_of_day: String!
-  trade_species: PokemonSpeciesConnection!
-  turn_upside_down: Boolean!
+  item: ItemConnection
+  trigger: EvolutionTriggerConnection
+  gender: Int
+  held_item: ItemConnection
+  known_move: MoveConnection
+  known_move_type: TypeConnection
+  location: LocationConnection
+  min_level: Int
+  min_happiness: Int
+  min_beauty: Int
+  min_affection: Int
+  needs_overworld_rain: Boolean
+  party_species: PokemonSpeciesConnection
+  party_type: TypeConnection
+  relative_physical_stats: Int
+  time_of_day: String
+  trade_species: PokemonSpeciesConnection
+  turn_upside_down: Boolean
 }
 
 type EvolutionTrigger {
-  id: Int!
-  name: String!
+  id: Int
+  name: String
   names: [Name]!
-  pokemon_species: [PokemonSpeciesConnection!]!
+  pokemon_species: [PokemonSpeciesConnection]!
 }
 
 # CONNECTORS
 type EvolutionChainConnection {
-  url: String!
-  node: EvolutionChain!
+  url: String
+  node: EvolutionChain
 }
 
 type EvolutionTriggerConnection {
-  name: String!
-  url: String!
-  node: EvolutionTrigger!
+  name: String
+  url: String
+  node: EvolutionTrigger
 }

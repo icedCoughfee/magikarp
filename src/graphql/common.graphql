@@ -1,61 +1,61 @@
 type Name {
-  name: String!
-  language: LanguageConnection!
+  name: String
+  language: LanguageConnection
 }
 
 type Description {
-  description: String!
-  language: LanguageConnection!
+  description: String
+  language: LanguageConnection
 }
 
 type Effect {
-  effect: String!
-  language: LanguageConnection!
+  effect: String
+  language: LanguageConnection
 }
 
 type Encounter {
-  min_level: Int!
-  max_level: Int!
-  condition_values: [EncounterConditionValueConnection!]!
-  chance: Int!
-  method: EncounterMethodConnection!
+  min_level: Int
+  max_level: Int
+  condition_values: [EncounterConditionValueConnection]!
+  chance: Int
+  method: EncounterMethodConnection
 }
 
 type FlavorText {
-  flavor_text: String!
-  language: LanguageConnection!
-  version: VersionConnection!
+  flavor_text: String
+  language: LanguageConnection
+  version: VersionConnection
 }
 
 type GenerationGameIndex {
-  game_index: Int!
-  generation: GenerationConnection!
+  game_index: Int
+  generation: GenerationConnection
 }
 
 type MachineVersionDetail {
-  machine: MachineConnection!
-  version_group: VersionGroupConnection!
+  machine: MachineConnection
+  version_group: VersionGroupConnection
 }
 
 type VerboseEffect {
-  effect: String!
-  short_effect: String!
-  language: LanguageConnection!
+  effect: String
+  short_effect: String
+  language: LanguageConnection
 }
 
 type VersionEncounterDetail {
-  version: VersionConnection!
-  max_chance: Int!
-  encounter_details: Encounter!
+  version: VersionConnection
+  max_chance: Int
+  encounter_details: Encounter
 }
 
 type VersionGameIndex {
-  game_index: Int!
-  version: VersionConnection!
+  game_index: Int
+  version: VersionConnection
 }
 
 type VersionGroupFlavorText {
-  text: String!
-  language: LanguageConnection!
-  version_group: VersionGroupConnection!
+  text: String
+  language: LanguageConnection
+  version_group: VersionGroupConnection
 }

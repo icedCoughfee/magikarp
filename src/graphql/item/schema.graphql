@@ -1,105 +1,105 @@
 type Query {
-  getAllItems(limit: Int, offset: Int): [ItemConnection!]!
+  getAllItems(limit: Int, offset: Int): [ItemConnection]!
   getItem(id: Int, name: String): Item
-  getAllItemAttributes(limit: Int, offset: Int): [ItemAttributeConnection!]!
+  getAllItemAttributes(limit: Int, offset: Int): [ItemAttributeConnection]!
   getItemAttribute(id: Int, name: String): ItemAttribute
-  getAllItemCategories(limit: Int, offset: Int): [ItemCategoryConnection!]!
+  getAllItemCategories(limit: Int, offset: Int): [ItemCategoryConnection]!
   getItemCategory(id: Int, name: String): ItemCategory
-  getAllItemFlingEffects(limit: Int, offset: Int): [ItemFlingEffectConnection!]!
+  getAllItemFlingEffects(limit: Int, offset: Int): [ItemFlingEffectConnection]!
   getItemFlingEffect(id: Int, name: String): ItemFlingEffect
-  getAllItemPockets(limit: Int, offset: Int): [ItemPocketConnection!]!
+  getAllItemPockets(limit: Int, offset: Int): [ItemPocketConnection]!
   getItemPocket(id: Int, name: String): ItemPocket
 }
 
 type Item {
-  id: Int!
-  name: String!
-  cost: Int!
-  fling_power: Int!
-  fling_effect: ItemFlingEffectConnection!
-  attributes: [ItemAttributeConnection!]!
-  category: ItemCategoryConnection!
+  id: Int
+  name: String
+  cost: Int
+  fling_power: Int
+  fling_effect: ItemFlingEffectConnection
+  attributes: [ItemAttributeConnection]!
+  category: ItemCategoryConnection
   effect_entries: [VerboseEffect]!
-  flavor_text_entries: [VersionGroupFlavorText!]!
-  game_indices: [GenerationGameIndex!]!
-  names: [Name!]!
-  sprites: ItemSprites!
-  held_by_pokemon: [ItemHolderPokemon!]!
-  baby_trigger_for: EvolutionChain!
-  machines: [MachineVersionDetail!]!
+  flavor_text_entries: [VersionGroupFlavorText]!
+  game_indices: [GenerationGameIndex]!
+  names: [Name]!
+  sprites: ItemSprites
+  held_by_pokemon: [ItemHolderPokemon]!
+  baby_trigger_for: EvolutionChain
+  machines: [MachineVersionDetail]!
 }
 
 type ItemSprites {
-  default: String!
+  default: String
 }
 
 type ItemHolderPokemon {
-  pokemon: String!
-  version_details: [ItemHolderPokemonVersionDetail!]!
+  pokemon: String
+  version_details: [ItemHolderPokemonVersionDetail]!
 }
 
 type ItemHolderPokemonVersionDetail {
-  rarity: String!
-  version: VersionConnection!
+  rarity: String
+  version: VersionConnection
 }
 
 type ItemAttribute {
-  id: Int!
-  name: String!
-  items: [ItemConnection!]!
-  names: [Name!]!
-  descriptions: [Description!]!
+  id: Int
+  name: String
+  items: [ItemConnection]!
+  names: [Name]!
+  descriptions: [Description]!
 }
 
 type ItemCategory {
-  id: Int!
-  name: String!
-  items: [ItemConnection!]!
-  names: [Name!]!
-  pocket: ItemPocketConnection!
+  id: Int
+  name: String
+  items: [ItemConnection]!
+  names: [Name]!
+  pocket: ItemPocketConnection
 }
 
 type ItemFlingEffect {
-  id: Int!
-  name: String!
-  effect_entries: [Effect!]!
-  items: [ItemConnection!]!
+  id: Int
+  name: String
+  effect_entries: [Effect]!
+  items: [ItemConnection]!
 }
 
 type ItemPocket {
-  id: Int!
-  name: String!
-  categories: [ItemCategoryConnection!]!
-  names: [Name!]!
+  id: Int
+  name: String
+  categories: [ItemCategoryConnection]!
+  names: [Name]!
 }
 
 # CONNECTORS
 type ItemConnection {
-  name: String!
-  url: String!
-  node: Item!
+  name: String
+  url: String
+  node: Item
 }
 
 type ItemAttributeConnection {
-  name: String!
-  url: String!
-  node: ItemAttribute!
+  name: String
+  url: String
+  node: ItemAttribute
 }
 
 type ItemCategoryConnection {
-  name: String!
-  url: String!
-  node: ItemCategory!
+  name: String
+  url: String
+  node: ItemCategory
 }
 
 type ItemFlingEffectConnection {
-  name: String!
-  url: String!
-  node: ItemFlingEffect!
+  name: String
+  url: String
+  node: ItemFlingEffect
 }
 
 type ItemPocketConnection {
-  name: String!
-  url: String!
-  node: ItemPocket!
+  name: String
+  url: String
+  node: ItemPocket
 }

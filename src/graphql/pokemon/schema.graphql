@@ -1,390 +1,390 @@
 type Query {
-  getAllAbilities(limit: Int, offset: Int): [AbilityConnection!]!
+  getAllAbilities(limit: Int, offset: Int): [AbilityConnection]!
   getAbility(id: Int, name: String): Ability
-  getAllCharacteristics(limit: Int, offset: Int): [CharacteristicConnection!]!
+  getAllCharacteristics(limit: Int, offset: Int): [CharacteristicConnection]!
   getCharacteristic(id: Int, name: String): Characteristic
-  getAllEggGroups(limit: Int, offset: Int): [EggGroupConnection!]!
+  getAllEggGroups(limit: Int, offset: Int): [EggGroupConnection]!
   getEggGroup(id: Int, name: String): EggGroup
-  getAllGenders(limit: Int, offset: Int): [GenderConnection!]!
+  getAllGenders(limit: Int, offset: Int): [GenderConnection]!
   getGender(id: Int, name: String): Gender
-  getAllGrowthRates(limit: Int, offset: Int): [GrowthRateConnection!]!
+  getAllGrowthRates(limit: Int, offset: Int): [GrowthRateConnection]!
   getGrowthRate(id: Int, name: String): GrowthRate
-  getAllNatures(limit: Int, offset: Int): [NatureConnection!]!
+  getAllNatures(limit: Int, offset: Int): [NatureConnection]!
   getNature(id: Int, name: String): Nature
-  getAllPokeathlonStats(limit: Int, offset: Int): [PokeathlonStatConnection!]!
+  getAllPokeathlonStats(limit: Int, offset: Int): [PokeathlonStatConnection]!
   getPokeathlonStat(id: Int, name: String): PokeathlonStat
-  getAllPokemon(limit: Int, offset: Int): [PokemonConnection!]!
+  getAllPokemon(limit: Int, offset: Int): [PokemonConnection]!
   getPokemon(id: Int, name: String): Pokemon
-  getAllPokemonColors(limit: Int, offset: Int): [PokemonColorConnection!]!
+  getAllPokemonColors(limit: Int, offset: Int): [PokemonColorConnection]!
   getPokemonColor(id: Int, name: String): PokemonColor
-  getAllPokemonForms(limit: Int, offset: Int): [PokemonFormConnection!]!
+  getAllPokemonForms(limit: Int, offset: Int): [PokemonFormConnection]!
   getPokemonForm(id: Int, name: String): PokemonForm
-  getAllPokemonHabitats(limit: Int, offset: Int): [PokemonHabitatConnection!]!
+  getAllPokemonHabitats(limit: Int, offset: Int): [PokemonHabitatConnection]!
   getPokemonHabitat(id: Int, name: String): PokemonHabitat
-  getAllPokemonShapes(limit: Int, offset: Int): [PokemonShapeConnection!]!
+  getAllPokemonShapes(limit: Int, offset: Int): [PokemonShapeConnection]!
   getPokemonShape(id: Int, name: String): PokemonShape
-  getAllPokemonSpecies(limit: Int, offset: Int): [PokemonSpeciesConnection!]!
+  getAllPokemonSpecies(limit: Int, offset: Int): [PokemonSpeciesConnection]!
   getPokemonSpecies(id: Int, name: String): PokemonSpecies
 }
 
 type Ability {
-  id: Int!
-  name: String!
-  is_main_series: Boolean!
-  generation: GenerationConnection!
-  names: [Name!]!
-  effect_entries: [VerboseEffect!]!
-  effect_changes: [AbilityEffectChange!]!
+  id: Int
+  name: String
+  is_main_series: Boolean
+  generation: GenerationConnection
+  names: [Name]!
+  effect_entries: [VerboseEffect]!
+  effect_changes: [AbilityEffectChange]!
   flavor_text_entries: [AbilityFlavorText]!
   pokemon: [AbilityPokemon]!
 }
 
 type AbilityEffectChange {
-  effect_entries: [Effect!]!
-  version_group: VersionGroupConnection!
+  effect_entries: [Effect]!
+  version_group: VersionGroupConnection
 }
 
 type AbilityFlavorText {
-  flavor_text: String!
-  language: LanguageConnection!
-  version_group: VersionGroupConnection!
+  flavor_text: String
+  language: LanguageConnection
+  version_group: VersionGroupConnection
 }
 
 type AbilityPokemon {
-  is_hidden: Boolean!
-  slot: Int!
-  pokemon: PokemonConnection!
+  is_hidden: Boolean
+  slot: Int
+  pokemon: PokemonConnection
 }
 
 type Characteristic {
-  id: Int!
-  gene_modulo: Int!
-  possible_values: [Int!]!
+  id: Int
+  gene_modulo: Int
+  possible_values: [Int]!
   highest_stat: StatConnection
-  descriptions: [Description]
+  descriptions: [Description]!
 }
 
 type EggGroup {
-  id: Int!
-  name: String!
-  names: [Name!]!
-  pokemon_species: [PokemonSpeciesConnection!]!
+  id: Int
+  name: String
+  names: [Name]!
+  pokemon_species: [PokemonSpeciesConnection]!
 }
 
 type Gender {
-  id: Int!
-  name: String!
-  pokemon_species_details: [PokemonSpeciesGender!]!
-  required_for_evolution: [PokemonSpeciesConnection!]!
+  id: Int
+  name: String
+  pokemon_species_details: [PokemonSpeciesGender]!
+  required_for_evolution: [PokemonSpeciesConnection]!
 }
 
 type PokemonSpeciesGender {
-  rate: Int!
-  pokemon_species: [PokemonSpeciesConnection!]!
+  rate: Int
+  pokemon_species: [PokemonSpeciesConnection]!
 }
 
 type GrowthRate {
-  id: Int!
-  name: String!
-  formula: String!
-  descriptions: [Description!]!
+  id: Int
+  name: String
+  formula: String
+  descriptions: [Description]!
   levels: [GrowthRateExperienceLevel]!
-  pokemon_species: [PokemonSpeciesConnection!]!
+  pokemon_species: [PokemonSpeciesConnection]!
 }
 
 type GrowthRateExperienceLevel {
-  level: Int!
-  experience: Int!
+  level: Int
+  experience: Int
 }
 
 type Nature {
-  id: Int!
-  name: String!
+  id: Int
+  name: String
   decreased_stat: StatConnection
   increased_stat: StatConnection
-  hates_flavor: BerryFlavor!
-  likes_flavor: BerryFlavor!
-  pokeathlon_stat_changes: NatureStatChange!
-  move_battle_style_preferences: MoveBattleStylePreference!
-  names: [Name!]!
+  hates_flavor: BerryFlavor
+  likes_flavor: BerryFlavor
+  pokeathlon_stat_changes: NatureStatChange
+  move_battle_style_preferences: MoveBattleStylePreference
+  names: [Name]!
 }
 
 type NatureStatChange {
-  max_change: Int!
-  pokeathlon_stat: PokeathlonStatConnection!
+  max_change: Int
+  pokeathlon_stat: PokeathlonStatConnection
 }
 
 type MoveBattleStylePreference {
-  low_hp_preference: Int!
-  high_hp_preference: Int!
-  move_battle_style: MoveBattleStyleConnection!
+  low_hp_preference: Int
+  high_hp_preference: Int
+  move_battle_style: MoveBattleStyleConnection
 }
 
 type PokeathlonStat {
-  id: Int!
-  name: String!
-  names: [Name!]!
-  affecting_natures: NaturePokeathlonStatAffectSets!
+  id: Int
+  name: String
+  names: [Name]!
+  affecting_natures: NaturePokeathlonStatAffectSets
 }
 
 type NaturePokeathlonStatAffectSets {
-  increase: [NaturePokeathlonStatAffect!]!
-  decrease: [NaturePokeathlonStatAffect!]!
+  increase: [NaturePokeathlonStatAffect]!
+  decrease: [NaturePokeathlonStatAffect]!
 }
 
 type NaturePokeathlonStatAffect {
-  max_change: Int!
-  nature: NatureConnection!
+  max_change: Int
+  nature: NatureConnection
 }
 
 type Pokemon {
-  id: Int!
-  name: String!
-  base_experience: Int!
-  height: Int!
-  is_default: Boolean!
-  order: Int!
-  weight: Int!
-  abilities: [PokemonAbility!]!
-  forms: [PokemonFormConnection!]!
-  game_indices: [VersionGameIndex!]!
-  held_items: [PokemonHeldItem!]!
-  location_area_encounters: String!
-  moves: [PokemonMove!]!
-  sprites: PokemonSprites!
-  species: PokemonSpeciesConnection!
-  stats: [PokemonStat!]!
-  types: [PokemonType!]!
+  id: Int
+  name: String
+  base_experience: Int
+  height: Int
+  is_default: Boolean
+  order: Int
+  weight: Int
+  abilities: [PokemonAbility]!
+  forms: [PokemonFormConnection]!
+  game_indices: [VersionGameIndex]!
+  held_items: [PokemonHeldItem]!
+  location_area_encounters: String
+  moves: [PokemonMove]!
+  sprites: PokemonSprites
+  species: PokemonSpeciesConnection
+  stats: [PokemonStat]!
+  types: [PokemonType]!
 }
 
 type PokemonAbility {
-  is_hidden: Boolean!
-  slot: Int!
-  ability: AbilityConnection!
+  is_hidden: Boolean
+  slot: Int
+  ability: AbilityConnection
 }
 
 type PokemonType {
-  slot: Int!
-  type: TypeConnection!
+  slot: Int
+  type: TypeConnection
 }
 
 type PokemonHeldItem {
-  item: ItemConnection!
-  version_details: [PokemonHeldItemVersion!]!
+  item: ItemConnection
+  version_details: [PokemonHeldItemVersion]!
 }
 
 type PokemonHeldItemVersion {
-  version: VersionConnection!
-  rarity: Int!
+  version: VersionConnection
+  rarity: Int
 }
 
 type PokemonMove {
-  move: MoveConnection!
-  version_group_details: [PokemonMoveVersion!]!
+  move: MoveConnection
+  version_group_details: [PokemonMoveVersion]!
 }
 
 type PokemonMoveVersion {
-  move_learn_method: MoveLearnMethodConnection!
-  version_group: VersionGroupConnection!
-  level_learned_at: Int!
+  move_learn_method: MoveLearnMethodConnection
+  version_group: VersionGroupConnection
+  level_learned_at: Int
 }
 
 type PokemonStat {
-  stat: StatConnection!
-  effort: Int!
-  base_stat: Int!
+  stat: StatConnection
+  effort: Int
+  base_stat: Int
 }
 
 type PokemonSprites {
-  front_default: String!
-  front_shinyXXX: String!
-  front_female: String!
-  front_shiny_female: String!
-  back_default: String!
-  back_shiny: String!
-  back_female: String!
-  back_shiny_female: String!
+  front_default: String
+  front_shiny: String
+  front_female: String
+  front_shiny_female: String
+  back_default: String
+  back_shiny: String
+  back_female: String
+  back_shiny_female: String
 }
 
 type LocationAreaEncounter {
-  location_area: LocationAreaConnection!
-  version_details: [VersionEncounterDetail!]!
+  location_area: LocationAreaConnection
+  version_details: [VersionEncounterDetail]!
 }
 
 type PokemonColor {
-  id: Int!
-  name: String!
-  names: [Name!]!
-  pokemon_species: [PokemonSpeciesConnection!]!
+  id: Int
+  name: String
+  names: [Name]!
+  pokemon_species: [PokemonSpeciesConnection]!
 }
 
 type PokemonForm {
-  id: Int!
-  name: String!
-  order: Int!
-  form_order: Int!
-  is_default: Boolean!
-  is_battle_only: Boolean!
-  is_mega: Boolean!
-  form_name: String!
-  pokemon: PokemonConnection!
-  sprites: PokemonFormSprites!
-  version_group: VersionGroupConnection!
-  names: [Name!]!
-  form_names: [Name!]!
+  id: Int
+  name: String
+  order: Int
+  form_order: Int
+  is_default: Boolean
+  is_battle_only: Boolean
+  is_mega: Boolean
+  form_name: String
+  pokemon: PokemonConnection
+  sprites: PokemonFormSprites
+  version_group: VersionGroupConnection
+  names: [Name]!
+  form_names: [Name]!
 }
 
 type PokemonFormSprites {
-  front_default: String!
-  front_shiny: String!
-  back_default: String!
-  back_shiny: String!
+  front_default: String
+  front_shiny: String
+  back_default: String
+  back_shiny: String
 }
 
 type PokemonHabitat {
-  id: Int!
-  name: String!
-  names: [Name!]!
-  pokemon_species: [PokemonSpeciesConnection!]!
+  id: Int
+  name: String
+  names: [Name]!
+  pokemon_species: [PokemonSpeciesConnection]!
 }
 
 type PokemonShape {
-  id: Int!
-  name: String!
-  awesome_names: [AwesomeName!]!
-  names: [Name!]!
-  pokemon_species: [PokemonSpeciesConnection!]!
+  id: Int
+  name: String
+  awesome_names: [AwesomeName]!
+  names: [Name]!
+  pokemon_species: [PokemonSpeciesConnection]!
 }
 
 type AwesomeName {
-  awesome_name: String!
-  language: LanguageConnection!
+  awesome_name: String
+  language: LanguageConnection
 }
 
 type PokemonSpecies {
-  id: Int!
-  name: String!
-  order: Int!
-  gender_rate: Int!
-  capture_rate: Int!
-  base_happiness: Int!
-  is_baby: Boolean!
-  hatch_counter: Int!
-  has_gender_differences: Boolean!
-  forms_switchable: Boolean!
-  growth_rate: GrowthRateConnection!
-  pokedex_numbers: [PokemonSpeciesDexEntry!]!
-  egg_groups: [EggGroupConnection!]!
-  color: PokemonColorConnection!
-  shape: PokemonShapeConnection!
-  evolves_from_species: PokemonSpeciesConnection!
-  evolution_chain: EvolutionChain!
-  habitat: PokemonHabitatConnection!
-  generation: GenerationConnection!
-  names: [Name!]!
-  pal_park_encounters: [PalParkEncounterArea!]!
-  flavor_text_entries: [FlavorText!]!
+  id: Int
+  name: String
+  order: Int
+  gender_rate: Int
+  capture_rate: Int
+  base_happiness: Int
+  is_baby: Boolean
+  hatch_counter: Int
+  has_gender_differences: Boolean
+  forms_switchable: Boolean
+  growth_rate: GrowthRateConnection
+  pokedex_numbers: [PokemonSpeciesDexEntry]!
+  egg_groups: [EggGroupConnection]!
+  color: PokemonColorConnection
+  shape: PokemonShapeConnection
+  evolves_from_species: PokemonSpeciesConnection
+  evolution_chain: EvolutionChain
+  habitat: PokemonHabitatConnection
+  generation: GenerationConnection
+  names: [Name]!
+  pal_park_encounters: [PalParkEncounterArea]!
+  flavor_text_entries: [FlavorText]!
   form_descriptions: [Description]!
-  genera: [Genus!]!
-  varieties: [PokemonSpeciesVariety!]!
+  genera: [Genus]!
+  varieties: [PokemonSpeciesVariety]!
 }
 
 type Genus {
-  genus: String!
-  language: LanguageConnection!
+  genus: String
+  language: LanguageConnection
 }
 
 type PokemonSpeciesDexEntry {
-  entry_number: Int!
-  pokedex: PokedexConnection!
+  entry_number: Int
+  pokedex: PokedexConnection
 }
 
 type PalParkEncounterArea {
-  base_score: Int!
-  rate: Int!
-  area: PalParkAreaConnection!
+  base_score: Int
+  rate: Int
+  area: PalParkAreaConnection
 }
 
 type PokemonSpeciesVariety {
-  is_default: Boolean!
-  pokemon: PokemonConnection!
+  is_default: Boolean
+  pokemon: PokemonConnection
 }
 
 # CONNECTORS
 type AbilityConnection {
-  name: String!
-  url: String!
-  node: Ability!
+  name: String
+  url: String
+  node: Ability
 }
 
 type CharacteristicConnection {
-  name: String!
-  url: String!
-  node: Characteristic!
+  name: String
+  url: String
+  node: Characteristic
 }
 
 type EggGroupConnection {
-  name: String!
-  url: String!
-  node: EggGroup!
+  name: String
+  url: String
+  node: EggGroup
 }
 
 type GenderConnection {
-  name: String!
-  url: String!
-  node: Gender!
+  name: String
+  url: String
+  node: Gender
 }
 
 type GrowthRateConnection {
-  name: String!
-  url: String!
-  node: GrowthRate!
+  name: String
+  url: String
+  node: GrowthRate
 }
 
 type NatureConnection {
-  name: String!
-  url: String!
-  node: Nature!
+  name: String
+  url: String
+  node: Nature
 }
 
 type PokeathlonStatConnection {
-  name: String!
-  url: String!
-  node: PokeathlonStat!
+  name: String
+  url: String
+  node: PokeathlonStat
 }
 
 type PokemonConnection {
-  name: String!
-  url: String!
-  node: Pokemon!
+  name: String
+  url: String
+  node: Pokemon
 }
 
 type PokemonColorConnection {
-  name: String!
-  url: String!
-  node: PokemonColor!
+  name: String
+  url: String
+  node: PokemonColor
 }
 
 type PokemonFormConnection {
-  name: String!
-  url: String!
-  node: PokemonForm!
+  name: String
+  url: String
+  node: PokemonForm
 }
 
 type PokemonHabitatConnection {
-  name: String!
-  url: String!
-  node: PokemonHabitat!
+  name: String
+  url: String
+  node: PokemonHabitat
 }
 
 type PokemonShapeConnection {
-  name: String!
-  url: String!
-  node: PokemonShape!
+  name: String
+  url: String
+  node: PokemonShape
 }
 
 type PokemonSpeciesConnection {
-  name: String!
-  url: String!
-  node: PokemonSpecies!
+  name: String
+  url: String
+  node: PokemonSpecies
 }

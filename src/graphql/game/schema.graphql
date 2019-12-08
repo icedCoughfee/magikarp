@@ -1,81 +1,81 @@
 type Query {
-  getAllGenerations(limit: Int, offset: Int): [GenerationConnection!]!
+  getAllGenerations(limit: Int, offset: Int): [GenerationConnection]!
   getGeneration(id: Int, name: String): Generation
-  getAllPokedexes(limit: Int, offset: Int): [PokedexConnection!]!
+  getAllPokedexes(limit: Int, offset: Int): [PokedexConnection]!
   getPokedex(id: Int, name: String): Pokedex
-  getAllVersions(limit: Int, offset: Int): [VersionConnection!]!
+  getAllVersions(limit: Int, offset: Int): [VersionConnection]!
   getVersion(id: Int, name: String): Version
-  getAllVersionGroups(limit: Int, offset: Int): [VersionGroupConnection!]!
+  getAllVersionGroups(limit: Int, offset: Int): [VersionGroupConnection]!
   getVersionGroup(id: Int, name: String): VersionGroup
 }
 
 type Generation {
-  id: Int!
-  name: String!
-  abilities: [AbilityConnection!]!
-  names: [Name!]!
-  main_region: RegionConnection!
-  moves: [MoveConnection!]!
-  pokemon_species: [PokemonSpeciesConnection!]!
-  types: [TypeConnection!]!
-  version_groups: [VersionGroupConnection!]!
+  id: Int
+  name: String
+  abilities: [AbilityConnection]!
+  names: [Name]!
+  main_region: RegionConnection
+  moves: [MoveConnection]!
+  pokemon_species: [PokemonSpeciesConnection]!
+  types: [TypeConnection]!
+  version_groups: [VersionGroupConnection]!
 }
 
 type Pokedex {
-  id: Int!
-  name: String!
-  is_main_series: Boolean!
-  descriptions: [Description!]!
-  names: [Name!]!
+  id: Int
+  name: String
+  is_main_series: Boolean
+  descriptions: [Description]!
+  names: [Name]!
   pokemon_entries: [PokemonEntry]!
-  region: RegionConnection!
+  region: RegionConnection
   version_groups: [VersionGroupConnection]!
 }
 
 type PokemonEntry {
-  entry_number: Int!
-  pokemon_species: PokemonSpeciesConnection!
+  entry_number: Int
+  pokemon_species: PokemonSpeciesConnection
 }
 
 type Version {
-  id: Int!
-  name: String!
-  names: [Name!]!
-  version_group: VersionGroupConnection!
+  id: Int
+  name: String
+  names: [Name]!
+  version_group: VersionGroupConnection
 }
 
 type VersionGroup {
-  id: Int!
-  name: String!
-  order: Int!
-  generation: GenerationConnection!
+  id: Int
+  name: String
+  order: Int
+  generation: GenerationConnection
   move_learn_methods: [MoveLearnMethodConnection]!
-  pokedexes: [PokedexConnection!]!
-  regions: [RegionConnection!]!
-  versions: [VersionConnection!]!
+  pokedexes: [PokedexConnection]!
+  regions: [RegionConnection]!
+  versions: [VersionConnection]!
 }
 
 # CONNECTORS
 type GenerationConnection {
-  name: String!
-  url: String!
-  node: Generation!
+  name: String
+  url: String
+  node: Generation
 }
 
 type PokedexConnection {
-  name: String!
-  url: String!
-  node: Pokedex!
+  name: String
+  url: String
+  node: Pokedex
 }
 
 type VersionConnection {
-  name: String!
-  url: String!
-  node: Version!
+  name: String
+  url: String
+  node: Version
 }
 
 type VersionGroupConnection {
-  name: String!
-  url: String!
-  node: VersionGroup!
+  name: String
+  url: String
+  node: VersionGroup
 }
