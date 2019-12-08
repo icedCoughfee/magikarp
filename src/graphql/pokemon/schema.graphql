@@ -105,7 +105,7 @@ type Nature {
   hates_flavor: BerryFlavor
   likes_flavor: BerryFlavor
   pokeathlon_stat_changes: NatureStatChange
-  move_battle_style_preferences: MoveBattleStylePreference
+  move_battle_style_preferences: [MoveBattleStylePreference]!
   names: [Name]!
 }
 
