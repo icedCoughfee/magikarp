@@ -102,8 +102,8 @@ type Nature {
   name: String
   decreased_stat: StatConnection
   increased_stat: StatConnection
-  hates_flavor: BerryFlavor
-  likes_flavor: BerryFlavor
+  hates_flavor: BerryFlavorConnection
+  likes_flavor: BerryFlavorConnection
   pokeathlon_stat_changes: NatureStatChange
   move_battle_style_preferences: [MoveBattleStylePreference]!
   names: [Name]!
