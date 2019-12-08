@@ -1,0 +1,2638 @@
+{
+	"info": {
+		"_postman_id": "668e5b5b-4c6b-4201-8482-fad01ab2d6b4",
+		"name": "Magikarp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Berry",
+			"item": [
+				{
+					"name": "All Berries",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getAllBerries {\r\n    node {\r\n      id\r\n      name\r\n      growth_time\r\n      max_harvest\r\n      natural_gift_power\r\n      size\r\n      smoothness\r\n      soil_dryness\r\n      firmness {\r\n        name\r\n        url\r\n      }\r\n      flavors {\r\n        potency\r\n        flavor {\r\n          name\r\n          url\r\n        }\r\n      }\r\n      item {\r\n        name\r\n        url\r\n      }\r\n      natural_gift_type {\r\n        name\r\n        url\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Berry",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getBerry(id: 1) {\r\n    id \r\n    name\r\n    growth_time\r\n    max_harvest\r\n    natural_gift_power\r\n    size\r\n    smoothness\r\n    soil_dryness\r\n    firmness{\r\n\t\t\tname\r\n      url\r\n    }\r\n    flavors{\r\n      potency\r\n      flavor{\r\n        name\r\n        url\r\n      }\r\n    }\r\n    item{\r\n    \tname\r\n      url\r\n    }\r\n    natural_gift_type{\r\n      name\r\n      url\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						},
+						"description": "Query by id or name"
+					},
+					"response": []
+				},
+				{
+					"name": "All Berry Firmness",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getAllBerryFirmness {\r\n    node {\r\n      id\r\n      name\r\n      berries {\r\n        name\r\n        url\r\n      }\r\n      names {\r\n        name\r\n        language {\r\n          name\r\n          url\r\n        }\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Berry Firmness",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query{\r\n  getBerryFirmness(id: 1){\r\n    id\r\n    name\r\n    berries{\r\n      name\r\n      url\r\n    }\r\n    names{\r\n      name\r\n      language{\r\n        name\r\n        url\r\n      }\r\n    }\r\n  }\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						},
+						"description": "Query by id or name"
+					},
+					"response": []
+				},
+				{
+					"name": "All Berry Flavors",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getAllBerryFlavors {\r\n    node {\r\n      id\r\n      name\r\n      berries {\r\n        berry {\r\n          name\r\n          url\r\n        }\r\n        potency\r\n      }\r\n      contest_type {\r\n        name\r\n        url\r\n      }\r\n      names {\r\n        name\r\n        language {\r\n          name\r\n          url\r\n        }\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Berry Flavor",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getBerryFlavor(id: 1){\r\n    id\r\n    name\r\n    berries{\r\n      berry{\r\n        name\r\n        url\r\n      }\r\n      potency\r\n    }\r\n    contest_type{\r\n      name\r\n      url\r\n    }\r\n    names{\r\n      name\r\n      language{\r\n        name\r\n        url\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						},
+						"description": "Query by id or name"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Contest",
+			"item": [
+				{
+					"name": "All Contest Types",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getAllContestTypes {\r\n    node {\r\n      id\r\n      name\r\n      berry_flavor {\r\n        name\r\n        url\r\n      }\r\n      names {\r\n        name\r\n        color\r\n        language {\r\n          name\r\n          url\r\n        }\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Contest Type",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getContestType(id: 1){\r\n    id\r\n    name\r\n    berry_flavor{\r\n      name\r\n      url\r\n    }\r\n    names{\r\n      name\r\n      color\r\n      language{\r\n        name\r\n        url\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						},
+						"description": "Query by id or name"
+					},
+					"response": []
+				},
+				{
+					"name": "All Contest Effects",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getAllContestEffects {\r\n    node {\r\n      id\r\n      appeal\r\n      jam\r\n      effect_entries {\r\n        effect\r\n        language {\r\n          url\r\n          name\r\n        }\r\n      }\r\n      flavor_text_entries {\r\n        flavor_text\r\n        language {\r\n          name\r\n          url\r\n        }\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Contest Effect",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getContestEffect(id:1){\r\n    id\r\n    appeal\r\n    jam\r\n    effect_entries{\r\n      effect\r\n      language{\r\n        url \r\n        name\r\n      }\r\n    }\r\n    flavor_text_entries{\r\n      flavor_text\r\n      language{\r\n        name\r\n        url\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						},
+						"description": "Query by id or name"
+					},
+					"response": []
+				},
+				{
+					"name": "All Super Contest Effects",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getAllSuperContestEffects {\r\n    node {\r\n      id\r\n      appeal\r\n      flavor_text_entries {\r\n        flavor_text\r\n        language {\r\n          name\r\n          url\r\n        }\r\n      }\r\n      moves {\r\n        name\r\n        url\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Super Contest Effect",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getSuperContestEffect(id: 1) {\r\n    id\r\n    appeal\r\n    flavor_text_entries {\r\n      flavor_text\r\n      language {\r\n        name\r\n        url\r\n      }\r\n    }\r\n    moves {\r\n      name\r\n      url\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						},
+						"description": "Query by id or name"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Encounter",
+			"item": [
+				{
+					"name": "All Encounter Methods",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getAllEncounterMethods {\r\n    node {\r\n      id\r\n      name\r\n      order\r\n      names {\r\n        name\r\n        language {\r\n          name\r\n          url\r\n        }\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Encounter Method",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getEncounterMethod(id: 1){\r\n    id\r\n    name\r\n    order\r\n    names{\r\n      name\r\n      language{\r\n        name\r\n      \turl\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						},
+						"description": "Query by id or name"
+					},
+					"response": []
+				},
+				{
+					"name": "All Encounter Conditions",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getAllEncounterConditions {\r\n    node {\r\n      id\r\n      name\r\n      names {\r\n        name\r\n        language {\r\n          name\r\n          url\r\n        }\r\n      }\r\n      values {\r\n        name\r\n        url\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Encounter Condition",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getEncounterCondition(id: 1) {\r\n    id\r\n    name\r\n    names {\r\n      name\r\n      language {\r\n        name\r\n        url\r\n      }\r\n    }\r\n    values {\r\n      name\r\n      url\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						},
+						"description": "Query by id or name"
+					},
+					"response": []
+				},
+				{
+					"name": "All Encounter Condition Values",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getAllEncounterConditionValues {\r\n    node {\r\n     id\r\n      name\r\n      condition{\r\n        name\r\n        url\r\n      }\r\n      names{\r\n        name\r\n        language{\r\n          name\r\n          url\r\n        }\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Encounter Condition Value",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getEncounterConditionValue(id:1) {\r\n    id\r\n    name\r\n    condition {\r\n      name\r\n      url\r\n    }\r\n    names {\r\n      name\r\n      language {\r\n        name\r\n        url\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						},
+						"description": "Query by id or name"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Evolution",
+			"item": [
+				{
+					"name": "All Evolution Chains",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getAllEvolutionChains {\r\n    node {\r\n      id\r\n      baby_trigger_item {\r\n        name\r\n        url\r\n      }\r\n      chain {\r\n        is_baby\r\n        species {\r\n          name\r\n          url\r\n        }\r\n        evolution_details {\r\n          item {\r\n            name\r\n            url\r\n          }\r\n          trigger {\r\n            name\r\n            url\r\n          }\r\n          gender\r\n          held_item {\r\n            name\r\n            url\r\n          }\r\n          known_move {\r\n            name\r\n            url\r\n          }\r\n          known_move_type {\r\n            name\r\n            url\r\n          }\r\n          location {\r\n            name\r\n            url\r\n          }\r\n          min_level\r\n          min_happiness\r\n          min_beauty\r\n          min_affection\r\n          needs_overworld_rain\r\n          party_species {\r\n            name\r\n            url\r\n          }\r\n          party_type {\r\n            name\r\n            url\r\n          }\r\n          relative_physical_stats\r\n          time_of_day\r\n          trade_species {\r\n            name\r\n            url\r\n          }\r\n          turn_upside_down\r\n        }\r\n        evolves_to {\r\n          is_baby\r\n          species {\r\n            name\r\n            url\r\n          }\r\n        }\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Evolution Chain",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getEvolutionChain(id:1) {\r\n    id\r\n    baby_trigger_item{\r\n      name\r\n      url\r\n    }\r\n    chain{\r\n      is_baby\r\n      species{\r\n        name\r\n        url\r\n      }\r\n      evolution_details{\r\n        item{\r\n          name\r\n          url\r\n        }\r\n        trigger{\r\n          name\r\n          url\r\n        }\r\n        gender\r\n        held_item{\r\n          name\r\n          url\r\n        }\r\n        known_move{\r\n          name\r\n          url\r\n        }\r\n        known_move_type{\r\n          name\r\n          url\r\n        }\r\n        location{\r\n          name\r\n          url\r\n        }\r\n        min_level\r\n        min_happiness\r\n        min_beauty\r\n        min_affection\r\n        needs_overworld_rain\r\n        party_species{\r\n          name\r\n          url\r\n        }\r\n        party_type{\r\n          name\r\n          url\r\n        }\r\n        relative_physical_stats\r\n        time_of_day\r\n        trade_species{\r\n          name\r\n          url\r\n        }\r\n        turn_upside_down\r\n      }\r\n      evolves_to{\r\n          is_baby\r\n        species{\r\n          name\r\n          url\r\n        }\r\n        }\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						},
+						"description": "Query by id or name"
+					},
+					"response": []
+				},
+				{
+					"name": "All Evolution Triggers",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getAllEvolutionTriggers {\r\n    node {\r\n      id\r\n      name\r\n      names {\r\n        name\r\n        language {\r\n          name\r\n          url\r\n        }\r\n      }\r\n      pokemon_species {\r\n        name\r\n        url\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Evolution Trigger",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getEvolutionTrigger(id: 1){\r\n    id\r\n    name\r\n    names{\r\n      name\r\n      language{\r\n        name\r\n        url\r\n      }\r\n    }\r\n    pokemon_species{\r\n      name\r\n      url\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						},
+						"description": "Query by id or name"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Game",
+			"item": [
+				{
+					"name": "All Generations",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getAllGenerations {\r\n    node {\r\n      id\r\n      name\r\n      abilities {\r\n        url\r\n        name\r\n      }\r\n      main_region {\r\n        url\r\n        name\r\n      }\r\n      moves {\r\n        url\r\n        name\r\n      }\r\n      names {\r\n        name\r\n        language {\r\n          url\r\n          name\r\n        }\r\n      }\r\n      pokemon_species {\r\n        url\r\n        name\r\n      }\r\n      types {\r\n        url\r\n        name\r\n      }\r\n      version_groups {\r\n        url\r\n        name\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Generation",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getGeneration(id: 1) {\r\n    id\r\n    name\r\n    abilities {\r\n      url\r\n      name\r\n    }\r\n    main_region {\r\n      url\r\n      name\r\n    }\r\n    moves {\r\n      url\r\n      name\r\n    }\r\n    names {\r\n      name\r\n      language {\r\n        url\r\n        name\r\n      }\r\n    }\r\n    pokemon_species {\r\n      url\r\n      name\r\n    }\r\n    types {\r\n      url\r\n      name\r\n    }\r\n    version_groups {\r\n      url\r\n      name\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						},
+						"description": "Query by id or name"
+					},
+					"response": []
+				},
+				{
+					"name": "All Pokedexes",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getAllPokedexes {\r\n    node {\r\n      id\r\n      name\r\n      is_main_series\r\n      descriptions {\r\n        description\r\n        language {\r\n          name\r\n          url\r\n        }\r\n      }\r\n      names {\r\n        name\r\n        language {\r\n          name\r\n          url\r\n        }\r\n      }\r\n      pokemon_entries {\r\n        entry_number\r\n        pokemon_species {\r\n          name\r\n          url\r\n        }\r\n      }\r\n      region {\r\n        name\r\n        url\r\n      }\r\n      version_groups {\r\n        name\r\n        url\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pokedex",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getPokedex(id: 1) {\r\n    id\r\n    name\r\n    is_main_series\r\n    descriptions {\r\n      description\r\n      language {\r\n        name\r\n        url\r\n      }\r\n    }\r\n    names {\r\n      name\r\n      language {\r\n        name\r\n        url\r\n      }\r\n    }\r\n    pokemon_entries {\r\n      entry_number\r\n      pokemon_species {\r\n        name\r\n        url\r\n      }\r\n    }\r\n    region {\r\n      name\r\n      url\r\n    }\r\n    version_groups {\r\n      name\r\n      url\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						},
+						"description": "Query by id or name"
+					},
+					"response": []
+				},
+				{
+					"name": "All Versions",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getAllVersions {\r\n    node {\r\n      id\r\n      name\r\n      names {\r\n        name\r\n        language {\r\n          name\r\n          url\r\n        }\r\n      }\r\n      version_group {\r\n        name\r\n        url\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Version",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query{\r\n  getVersion(id: 1){\r\n    id\r\n    name\r\n    names{\r\n      name\r\n      language{\r\n        name\r\n        url\r\n      }\r\n    }\r\n    version_group{\r\n      name\r\n      url\r\n    }\r\n  }\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						},
+						"description": "Query by id or name"
+					},
+					"response": []
+				},
+				{
+					"name": "All Version Groups",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getAllVersionGroups {\r\n    node {\r\n      id\r\n      name\r\n    \torder\r\n      generation{\r\n        name\r\n        url\r\n      }\r\n      move_learn_methods{\r\n        name\r\n        url\r\n      }\r\n      pokedexes{\r\n        name\r\n        url\r\n      }\r\n      regions{\r\n        name\r\n        url\r\n      }\r\n      versions{\r\n        name\r\n        url\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Version Group",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getVersionGroup(id: 1) {\r\n    id\r\n    name\r\n    order\r\n    generation {\r\n      name\r\n      url\r\n    }\r\n    move_learn_methods {\r\n      name\r\n      url\r\n    }\r\n    pokedexes {\r\n      name\r\n      url\r\n    }\r\n    regions {\r\n      name\r\n      url\r\n    }\r\n    versions {\r\n      name\r\n      url\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						},
+						"description": "Query by id or name"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Item",
+			"item": [
+				{
+					"name": "All Items",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getAllItems {\r\n    node {\r\n      id\r\n      name\r\n      cost\r\n      fling_power\r\n      fling_effect {\r\n        name\r\n        url\r\n      }\r\n      attributes {\r\n        name\r\n        url\r\n      }\r\n      category {\r\n        name\r\n        url\r\n      }\r\n      effect_entries {\r\n        effect\r\n        short_effect\r\n        language {\r\n          name\r\n          url\r\n        }\r\n      }\r\n      flavor_text_entries {\r\n        text\r\n        language {\r\n          name\r\n          url\r\n        }\r\n        version_group {\r\n          name\r\n          url\r\n        }\r\n      }\r\n      game_indices {\r\n        game_index\r\n        generation {\r\n          name\r\n          url\r\n        }\r\n      }\r\n      names {\r\n        name\r\n        language {\r\n          name\r\n          url\r\n        }\r\n      }\r\n      sprites {\r\n        default\r\n      }\r\n      held_by_pokemon {\r\n        pokemon\r\n        version_details {\r\n          rarity\r\n          version {\r\n            name\r\n            url\r\n          }\r\n        }\r\n      }\r\n      baby_trigger_for {\r\n        id\r\n        baby_trigger_item {\r\n          name\r\n          url\r\n        }\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Item",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getItem(id: 1) {\r\n    id\r\n    name\r\n    cost\r\n    fling_power\r\n    fling_effect {\r\n      name\r\n      url\r\n    }\r\n    attributes {\r\n      name\r\n      url\r\n    }\r\n    category {\r\n      name\r\n      url\r\n    }\r\n    effect_entries {\r\n      effect\r\n      short_effect\r\n      language {\r\n        name\r\n        url\r\n      }\r\n    }\r\n    flavor_text_entries {\r\n      text\r\n      language {\r\n        name\r\n        url\r\n      }\r\n      version_group {\r\n        name\r\n        url\r\n      }\r\n    }\r\n    game_indices {\r\n      game_index\r\n      generation {\r\n        name\r\n        url\r\n      }\r\n    }\r\n    names {\r\n      name\r\n      language {\r\n        name\r\n        url\r\n      }\r\n    }\r\n    sprites {\r\n      default\r\n    }\r\n    held_by_pokemon {\r\n      pokemon\r\n      version_details {\r\n        rarity\r\n        version {\r\n          name\r\n          url\r\n        }\r\n      }\r\n    }\r\n    baby_trigger_for {\r\n      id\r\n      baby_trigger_item {\r\n        name\r\n        url\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						},
+						"description": "Query by id or name"
+					},
+					"response": []
+				},
+				{
+					"name": "All Item Attributes",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getAllItemAttributes {\r\n    node {\r\n      id\r\n      name\r\n      items {\r\n        name\r\n        url\r\n      }\r\n      names {\r\n        name\r\n        language {\r\n          name\r\n          url\r\n        }\r\n      }\r\n      descriptions {\r\n        description\r\n        language {\r\n          name\r\n          url\r\n        }\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Item Attribute",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getItemAttribute(id: 1) {\r\n    id\r\n    name\r\n    items {\r\n      name\r\n      url\r\n    }\r\n    names {\r\n      name\r\n      language {\r\n        name\r\n        url\r\n      }\r\n    }\r\n    descriptions {\r\n      description\r\n      language {\r\n        name\r\n        url\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						},
+						"description": "Query by id or name"
+					},
+					"response": []
+				},
+				{
+					"name": "All Item Categories",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getAllItemCategories {\r\n    node {\r\n      id\r\n      name\r\n      items {\r\n        name\r\n        url\r\n      }\r\n      names {\r\n        name\r\n        language {\r\n          name\r\n          url\r\n        }\r\n      }\r\n      pocket {\r\n        name\r\n        url\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Item Category",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getItemCategory(id: 1) {\r\n    id\r\n    name\r\n    items {\r\n      name\r\n      url\r\n    }\r\n    names {\r\n      name\r\n      language {\r\n        name\r\n        url\r\n      }\r\n    }\r\n    pocket {\r\n      name\r\n      url\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						},
+						"description": "Query by id or name"
+					},
+					"response": []
+				},
+				{
+					"name": "All Item Fling Effects",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getAllItemFlingEffects {\r\n    node {\r\n      id\r\n      name\r\n      effect_entries {\r\n        effect\r\n        language {\r\n          name\r\n          url\r\n        }\r\n      }\r\n      items {\r\n        name\r\n        url\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Item Fling Effect",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getItemFlingEffect(id: 1) {\r\n    id\r\n    name\r\n    effect_entries {\r\n      effect\r\n      language {\r\n        name\r\n        url\r\n      }\r\n    }\r\n    items {\r\n      name\r\n      url\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						},
+						"description": "Query by id or name"
+					},
+					"response": []
+				},
+				{
+					"name": "All Item Pockets",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getAllItemPockets {\r\n    node {\r\n      id\r\n      name\r\n      categories {\r\n        name\r\n        url\r\n      }\r\n      names {\r\n        name\r\n        language {\r\n          name\r\n          url\r\n        }\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Item Pocket",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getItemPocket(id: 1) {\r\n    id\r\n    name\r\n \t\tcategories{\r\n      name\r\n      url\r\n    }\r\n    names{\r\n      name\r\n      language{\r\n        name\r\n        url\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						},
+						"description": "Query by id or name"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Language",
+			"item": [
+				{
+					"name": "All Languages",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getAllLanguages {\r\n    node {\r\n      id\r\n      name\r\n      official\r\n      iso639\r\n      iso3166\r\n      names {\r\n        name\r\n        language {\r\n          url\r\n          name\r\n        }\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Language",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getLanguage(id: 1) {\r\n    id\r\n    name\r\n    official\r\n    iso639\r\n    iso3166\r\n    names {\r\n      name\r\n      language {\r\n        url\r\n        name\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						},
+						"description": "Query by id or name"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Location",
+			"item": [
+				{
+					"name": "All Locations",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getAllLocations {\r\n    node {\r\n      id\r\n      name\r\n      region {\r\n        name\r\n        url\r\n      }\r\n      names {\r\n        name\r\n        language {\r\n          url\r\n          name\r\n        }\r\n      }\r\n      game_indices {\r\n        game_index\r\n        generation {\r\n          url\r\n          name\r\n        }\r\n      }\r\n      areas {\r\n        url\r\n        name\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Location",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getLocation(id: 1) {\r\n    id\r\n    name\r\n    region {\r\n      name\r\n      url\r\n    }\r\n    names {\r\n      name\r\n      language {\r\n        url\r\n        name\r\n      }\r\n    }\r\n    game_indices {\r\n      game_index\r\n      generation {\r\n        url\r\n        name\r\n      }\r\n    }\r\n    areas {\r\n      url\r\n      name\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						},
+						"description": "Query by id or name"
+					},
+					"response": []
+				},
+				{
+					"name": "All Location Areas",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n getAllLocationAreas {\r\n    node {\r\n      id\r\n      name\r\n      game_index\r\n      encounter_method_rates {\r\n        encounter_method {\r\n          url\r\n          name\r\n        }\r\n        version_details {\r\n          rate\r\n          version {\r\n            url\r\n            name\r\n          }\r\n        }\r\n      }\r\n      location {\r\n        url\r\n        name\r\n      }\r\n\r\n      names {\r\n        name\r\n        language {\r\n          url\r\n          name\r\n        }\r\n      }\r\n      pokemon_encounters {\r\n        pokemon {\r\n          url\r\n          name\r\n        }\r\n        version_details {\r\n          encounter_details {\r\n            min_level\r\n            max_level\r\n            condition_values {\r\n              url\r\n              name\r\n            }\r\n            chance\r\n            method {\r\n              url\r\n              name\r\n            }\r\n          }\r\n          version {\r\n            url\r\n            name\r\n          }\r\n          max_chance\r\n        }\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Location Area",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getLocationArea(id: 1) {\r\n    id\r\n    name\r\n    game_index\r\n    encounter_method_rates {\r\n      encounter_method {\r\n        url\r\n        name\r\n      }\r\n      version_details {\r\n        rate\r\n        version {\r\n          url\r\n          name\r\n        }\r\n      }\r\n    }\r\n    location {\r\n      url\r\n      name\r\n    }\r\n\r\n    names {\r\n      name\r\n      language {\r\n        url\r\n        name\r\n      }\r\n    }\r\n    pokemon_encounters {\r\n      pokemon {\r\n        url\r\n        name\r\n      }\r\n      version_details {\r\n        encounter_details {\r\n          min_level\r\n          max_level\r\n          condition_values {\r\n            url\r\n            name\r\n          }\r\n          chance\r\n          method {\r\n            url\r\n            name\r\n          }\r\n        }\r\n        version {\r\n          url\r\n          name\r\n        }\r\n        max_chance\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						},
+						"description": "Query by id or name"
+					},
+					"response": []
+				},
+				{
+					"name": "All Pal Park Areas",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getAllPalParkAreas {\r\n    node {\r\n      id\r\n      name\r\n      names {\r\n        name\r\n        language {\r\n          name\r\n          url\r\n        }\r\n      }\r\n      pokemon_encounters {\r\n        base_score\r\n        rate\r\n        pokemon_species {\r\n          name\r\n          url\r\n        }\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pal Park Area",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getPalParkArea(id: 1) {\r\n    id\r\n    name\r\n    names {\r\n      name\r\n      language {\r\n        name\r\n        url\r\n      }\r\n    }\r\n    pokemon_encounters {\r\n      base_score\r\n      rate\r\n      pokemon_species {\r\n        name\r\n        url\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						},
+						"description": "Query by id or name"
+					},
+					"response": []
+				},
+				{
+					"name": "All Regions",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getAllRegions {\r\n    node {\r\n      id\r\n      name\r\n      locations {\r\n        name\r\n        url\r\n      }\r\n      main_generation {\r\n        name\r\n        url\r\n      }\r\n      names {\r\n        name\r\n        language {\r\n          name\r\n          url\r\n        }\r\n      }\r\n      pokedexes {\r\n        name\r\n        url\r\n      }\r\n      version_groups {\r\n        name\r\n        url\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Region",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getRegion(id: 1) {\r\n      id\r\n      name\r\n      locations {\r\n        name\r\n        url\r\n      }\r\n      main_generation {\r\n        name\r\n        url\r\n      }\r\n      names {\r\n        name\r\n        language {\r\n          name\r\n          url\r\n        }\r\n      }\r\n      pokedexes {\r\n        name\r\n        url\r\n      }\r\n      version_groups {\r\n        name\r\n        url\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						},
+						"description": "Query by id or name"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Machine",
+			"item": [
+				{
+					"name": "All Machines",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getAllMachines {\r\n    node {\r\n      id\r\n      item {\r\n        name\r\n        url\r\n      }\r\n      move {\r\n        name\r\n        url\r\n      }\r\n      version_group {\r\n        name\r\n        url\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Machine",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getMachine(id: 1) {\r\n    id\r\n    item {\r\n      name\r\n      url\r\n    }\r\n    move {\r\n      name\r\n      url\r\n    }\r\n    version_group {\r\n      name\r\n      url\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						},
+						"description": "Query by id or name"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Move",
+			"item": [
+				{
+					"name": "All Moves",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getAllMoves {\r\n    node {\r\n      id\r\n      name\r\n      accuracy\r\n      effect_chance\r\n      pp\r\n      priority\r\n      power\r\n      contest_combos {\r\n        normal {\r\n          use_before {\r\n            name\r\n            url\r\n          }\r\n          use_after {\r\n            name\r\n            url\r\n          }\r\n        }\r\n        super {\r\n          use_before {\r\n            name\r\n            url\r\n          }\r\n          use_after {\r\n            name\r\n            url\r\n          }\r\n        }\r\n      }\r\n      contest_type {\r\n        url\r\n      }\r\n      contest_effect {\r\n        url\r\n      }\r\n      damage_class {\r\n        name\r\n        url\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Move",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getMove(id: 2) {\r\n    id\r\n    name\r\n    accuracy\r\n    effect_chance\r\n    pp\r\n    priority\r\n    power\r\n    contest_combos {\r\n      normal {\r\n        use_before {\r\n          name\r\n          url\r\n        }\r\n        use_after {\r\n          name\r\n          url\r\n        }\r\n      }\r\n      super {\r\n        use_before {\r\n          name\r\n          url\r\n        }\r\n        use_after {\r\n          name\r\n          url\r\n        }\r\n      }\r\n    }\r\n    contest_type {\r\n      url\r\n    }\r\n    contest_effect {\r\n     \turl\r\n    }\r\n    damage_class {\r\n      name\r\n      url\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						},
+						"description": "Query by id or name"
+					},
+					"response": []
+				},
+				{
+					"name": "All Move Ailments",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getAllMoveAilments {\r\n    node {\r\n      id\r\n      name\r\n      moves {\r\n        name\r\n        url\r\n      }\r\n      names {\r\n        name\r\n        language {\r\n          name\r\n          url\r\n        }\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Move Ailment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getMoveAilment(id: 1) {\r\n    id\r\n    name\r\n    moves {\r\n      name\r\n      url\r\n    }\r\n    names {\r\n      name\r\n      language {\r\n        name\r\n        url\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						},
+						"description": "Query by id or name"
+					},
+					"response": []
+				},
+				{
+					"name": "All Move Battle Styles",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getAllMoveBattleStyles {\r\n    node {\r\n      id\r\n      name\r\n      names {\r\n        name\r\n        language {\r\n          name\r\n          url\r\n        }\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Move Battle Style",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getMoveBattleStyle(id: 1) {\r\n    id\r\n    name\r\n    names {\r\n      name\r\n      language {\r\n        name\r\n        url\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						},
+						"description": "Query by id or name"
+					},
+					"response": []
+				},
+				{
+					"name": "All Move Categories",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getAllMoveCategories {\r\n    node {\r\n      id\r\n      name\r\n      moves {\r\n        name\r\n        url\r\n      }\r\n      descriptions {\r\n        description\r\n        language {\r\n          name\r\n          url\r\n        }\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Move Category",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getMoveCategory(id: 1) {\r\n    id\r\n    name\r\n    moves {\r\n      name\r\n      url\r\n    }\r\n    descriptions {\r\n      description\r\n      language {\r\n        name\r\n        url\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						},
+						"description": "Query by id or name"
+					},
+					"response": []
+				},
+				{
+					"name": "All Move Damage Classes",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getAllMoveDamageClasses {\r\n    node {\r\n      id\r\n      name\r\n      descriptions {\r\n        description\r\n        language {\r\n          name\r\n          url\r\n        }\r\n      }\r\n      moves {\r\n        name\r\n        url\r\n      }\r\n      names {\r\n        name\r\n        language {\r\n          name\r\n          url\r\n        }\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Move Damage Class",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getMoveDamageClass(id: 1) {\r\n    id\r\n    name\r\n    descriptions {\r\n      description\r\n      language {\r\n        name\r\n        url\r\n      }\r\n    }\r\n    moves {\r\n      name\r\n      url\r\n    }\r\n    names {\r\n      name\r\n      language {\r\n        name\r\n        url\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						},
+						"description": "Query by id or name"
+					},
+					"response": []
+				},
+				{
+					"name": "All Move Learn Methods",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getAllMoveLearnMethods {\r\n    node {\r\n      id\r\n      name\r\n      descriptions {\r\n        description\r\n        language {\r\n          name\r\n          url\r\n        }\r\n      }\r\n      names {\r\n        name\r\n        language {\r\n          name\r\n          url\r\n        }\r\n      }\r\n      version_groups {\r\n        name\r\n        url\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Move Learn Method",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getMoveLearnMethod(id: 1) {\r\n    id\r\n    name\r\n    descriptions {\r\n      description\r\n      language {\r\n        name\r\n        url\r\n      }\r\n    }\r\n    names {\r\n      name\r\n      language {\r\n        name\r\n        url\r\n      }\r\n    }\r\n    version_groups {\r\n      name\r\n      url\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						},
+						"description": "Query by id or name"
+					},
+					"response": []
+				},
+				{
+					"name": "All Move Targets",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getAllMoveTargets {\r\n    node {\r\n      id\r\n      name\r\n      descriptions {\r\n        description\r\n        language {\r\n          name\r\n          url\r\n        }\r\n      }\r\n      moves {\r\n        name\r\n        url\r\n      }\r\n      names {\r\n        name\r\n        language {\r\n          name\r\n          url\r\n        }\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Move Target",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getMoveTarget(id: 1) {\r\n    id\r\n    name\r\n    descriptions {\r\n      description\r\n      language {\r\n        name\r\n        url\r\n      }\r\n    }\r\n    moves {\r\n      name\r\n      url\r\n    }\r\n    names {\r\n      name\r\n      language {\r\n        name\r\n        url\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						},
+						"description": "Query by id or name"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Pokemon",
+			"item": [
+				{
+					"name": "All Abilities",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getAllAbilities {\r\n    node {\r\n      id\r\n      name\r\n      is_main_series\r\n      generation {\r\n        name\r\n        url\r\n      }\r\n      names {\r\n        name\r\n        language {\r\n          name\r\n          url\r\n        }\r\n      }\r\n      effect_entries {\r\n        effect\r\n        short_effect\r\n        language {\r\n          name\r\n          url\r\n        }\r\n      }\r\n      effect_changes {\r\n        effect_entries {\r\n          effect\r\n          language {\r\n            name\r\n            url\r\n          }\r\n        }\r\n        version_group {\r\n          name\r\n          url\r\n        }\r\n      }\r\n      flavor_text_entries {\r\n        flavor_text\r\n        language {\r\n          name\r\n          url\r\n        }\r\n        version_group {\r\n          name\r\n          url\r\n        }\r\n      }\r\n      pokemon {\r\n        is_hidden\r\n        slot\r\n        pokemon {\r\n          name\r\n          url\r\n        }\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ability",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getAbility(id: 1) {\r\n    id\r\n    name\r\n    is_main_series\r\n    generation {\r\n      name\r\n      url\r\n    }\r\n    names {\r\n      name\r\n      language {\r\n        name\r\n        url\r\n      }\r\n    }\r\n    effect_entries {\r\n      effect\r\n      short_effect\r\n      language {\r\n        name\r\n        url\r\n      }\r\n    }\r\n    effect_changes {\r\n      effect_entries {\r\n        effect\r\n        language {\r\n          name\r\n          url\r\n        }\r\n      }\r\n      version_group {\r\n        name\r\n        url\r\n      }\r\n    }\r\n    flavor_text_entries {\r\n      flavor_text\r\n      language {\r\n        name\r\n        url\r\n      }\r\n      version_group {\r\n        name\r\n        url\r\n      }\r\n    }\r\n    pokemon {\r\n      is_hidden\r\n      slot\r\n      pokemon {\r\n        name\r\n        url\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						},
+						"description": "Query by id or name"
+					},
+					"response": []
+				},
+				{
+					"name": "All Characteristics",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getAllCharacteristics {\r\n    node {\r\n      id\r\n    \tgene_modulo\r\n      possible_values\r\n      highest_stat{\r\n        name\r\n        url\r\n      }\r\n      descriptions{\r\n        description\r\n        language{\r\n          name\r\n          url\r\n        }\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Characteristic",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getCharacteristic(id: 1) {\r\n      id\r\n      gene_modulo\r\n      possible_values\r\n      highest_stat {\r\n        name\r\n        url\r\n      }\r\n      descriptions {\r\n        description\r\n        language {\r\n          name\r\n          url\r\n        }\r\n      \r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						},
+						"description": "Query by id or name"
+					},
+					"response": []
+				},
+				{
+					"name": "All Egg Groups",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getAllEggGroups {\r\n    node {\r\n      id\r\n      name\r\n      names {\r\n        name\r\n        language {\r\n          name\r\n          url\r\n        }\r\n      }\r\n      pokemon_species {\r\n        name\r\n        url\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Egg Group",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getEggGroup(id: 1) {\r\n    id\r\n    name\r\n    names {\r\n      name\r\n      language {\r\n        name\r\n        url\r\n      }\r\n    }\r\n    pokemon_species {\r\n      name\r\n      url\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						},
+						"description": "Query by id or name"
+					},
+					"response": []
+				},
+				{
+					"name": "All Genders",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getAllGenders {\r\n    node {\r\n      id\r\n      name\r\n      pokemon_species_details {\r\n        rate\r\n        pokemon_species {\r\n          name\r\n          url\r\n        }\r\n      }\r\n      required_for_evolution {\r\n        name\r\n        url\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Gender",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getGender(id: 1) {\r\n    id\r\n    name\r\n    pokemon_species_details {\r\n      rate\r\n      pokemon_species {\r\n        name\r\n        url\r\n      }\r\n    }\r\n    required_for_evolution {\r\n      name\r\n      url\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						},
+						"description": "Query by id or name"
+					},
+					"response": []
+				},
+				{
+					"name": "All Growth Rates",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getAllGrowthRates {\r\n    node {\r\n      id\r\n      name\r\n      formula\r\n      descriptions {\r\n        description\r\n        language {\r\n          name\r\n          url\r\n        }\r\n      }\r\n      pokemon_species {\r\n        name\r\n        url\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Growth Rate",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getGrowthRate(id: 1) {\r\n    id\r\n    name\r\n    formula\r\n    descriptions {\r\n      description\r\n      language {\r\n        name\r\n        url\r\n      }\r\n    }\r\n    pokemon_species {\r\n      name\r\n      url\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						},
+						"description": "Query by id or name"
+					},
+					"response": []
+				},
+				{
+					"name": "All Natures",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getAllNatures {\r\n    node {\r\n      id\r\n      name\r\n      decreased_stat {\r\n        name\r\n        url\r\n      }\r\n      increased_stat {\r\n        name\r\n        url\r\n      }\r\n      hates_flavor {\r\n        name\r\n        url\r\n      }\r\n      likes_flavor {\r\n        name\r\n        url\r\n      }\r\n      pokeathlon_stat_changes {\r\n        max_change\r\n        pokeathlon_stat {\r\n          name\r\n          url\r\n        }\r\n      }\r\n      move_battle_style_preferences {\r\n        low_hp_preference\r\n        high_hp_preference\r\n        move_battle_style {\r\n          name\r\n          url\r\n        }\r\n      }\r\n      names {\r\n        name\r\n        language {\r\n          name\r\n          url\r\n        }\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Nature",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getNature(id: 2) {\r\n    id\r\n    name\r\n    decreased_stat {\r\n      name\r\n      url\r\n    }\r\n    increased_stat {\r\n      name\r\n      url\r\n    }\r\n    hates_flavor {\r\n      name\r\n      url\r\n    }\r\n    likes_flavor {\r\n      name\r\n      url\r\n    }\r\n    pokeathlon_stat_changes {\r\n      max_change\r\n      pokeathlon_stat {\r\n        name\r\n        url\r\n      }\r\n    }\r\n    move_battle_style_preferences {\r\n      low_hp_preference\r\n      high_hp_preference\r\n      move_battle_style {\r\n        name\r\n        url\r\n      }\r\n    }\r\n    names {\r\n      name\r\n      language {\r\n        name\r\n        url\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						},
+						"description": "Query by id or name"
+					},
+					"response": []
+				},
+				{
+					"name": "All Pokeathlon Stats",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getAllPokeathlonStats {\r\n    node {\r\n      id\r\n      name\r\n      affecting_natures {\r\n        increase {\r\n          max_change\r\n          nature {\r\n            name\r\n            url\r\n          }\r\n        }\r\n        decrease {\r\n          max_change\r\n          nature {\r\n            name\r\n            url\r\n          }\r\n        }\r\n      }\r\n      names {\r\n        name\r\n        language {\r\n          name\r\n          url\r\n        }\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pokeathlon Stat",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getPokeathlonStat(id: 1) {\r\n    id\r\n    name\r\n    affecting_natures {\r\n      increase {\r\n        max_change\r\n        nature {\r\n          name\r\n          url\r\n        }\r\n      }\r\n      decrease {\r\n        max_change\r\n        nature {\r\n          name\r\n          url\r\n        }\r\n      }\r\n    }\r\n    names {\r\n      name\r\n      language {\r\n        name\r\n        url\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						},
+						"description": "Query by id or name"
+					},
+					"response": []
+				},
+				{
+					"name": "All Pokemon",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getAllPokemon {\r\n    node {\r\n      id\r\n      name\r\n\t\t\tbase_experience\r\n      height\r\n      is_default\r\n      order\r\n      weight\r\n      abilities{\r\n        is_hidden\r\n        slot\r\n        ability{\r\n          name\r\n          url\r\n        }\r\n      }\r\n      forms{\r\n          name\r\n          url\r\n        }\r\n      game_indices{\r\n        game_index\r\n        version{\r\n          name\r\n          url\r\n        }\r\n      }\r\n      held_items{\r\n        item{\r\n          name\r\n          url\r\n        }\r\n        version_details{\r\n          version{\r\n          name\r\n          url\r\n        }\r\n          rarity\r\n        }\r\n      }\r\n      location_area_encounters\r\n      moves{\r\n        move{\r\n          name\r\n          url\r\n        }\r\n        version_group_details{\r\n          move_learn_method{\r\n          name\r\n          url\r\n        }\r\n          version_group{\r\n          name\r\n          url\r\n        }\r\n          level_learned_at\r\n        }\r\n      }\r\n      sprites{\r\n        front_default\r\n        front_shiny\r\n        front_female\r\n        front_shiny_female\r\n        back_default\r\n        back_shiny\r\n        back_female\r\n        back_shiny_female\r\n      }\r\n      stats{\r\n        stat{\r\n          name\r\n          url\r\n        }\r\n        effort\r\n        base_stat\r\n      }\r\n      types{\r\n        slot\r\n        type{\r\n          name\r\n          url\r\n        }\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pokemon",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getPokemon(id: 1) {\r\n    id\r\n    name\r\n    base_experience\r\n    height\r\n    is_default\r\n    order\r\n    weight\r\n    abilities {\r\n      is_hidden\r\n      slot\r\n      ability {\r\n        name\r\n        url\r\n      }\r\n    }\r\n    forms {\r\n      name\r\n      url\r\n    }\r\n    game_indices {\r\n      game_index\r\n      version {\r\n        name\r\n        url\r\n      }\r\n    }\r\n    held_items {\r\n      item {\r\n        name\r\n        url\r\n      }\r\n      version_details {\r\n        version {\r\n          name\r\n          url\r\n        }\r\n        rarity\r\n      }\r\n    }\r\n    location_area_encounters\r\n    moves {\r\n      move {\r\n        name\r\n        url\r\n      }\r\n      version_group_details {\r\n        move_learn_method {\r\n          name\r\n          url\r\n        }\r\n        version_group {\r\n          name\r\n          url\r\n        }\r\n        level_learned_at\r\n      }\r\n    }\r\n    sprites {\r\n      front_default\r\n      front_shiny\r\n      front_female\r\n      front_shiny_female\r\n      back_default\r\n      back_shiny\r\n      back_female\r\n      back_shiny_female\r\n    }\r\n    stats {\r\n      stat {\r\n        name\r\n        url\r\n      }\r\n      effort\r\n      base_stat\r\n    }\r\n    types {\r\n      slot\r\n      type {\r\n        name\r\n        url\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						},
+						"description": "Query by id or name"
+					},
+					"response": []
+				},
+				{
+					"name": "All Pokemon Colors",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getAllPokemonColors {\r\n    node {\r\n      id\r\n      name\r\n      names {\r\n        name\r\n        language {\r\n          name\r\n          url\r\n        }\r\n      }\r\n      pokemon_species {\r\n        name\r\n        url\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pokemon Color",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getPokemonColor(id: 1) {\r\n    id\r\n    name\r\n    names {\r\n      name\r\n      language {\r\n        name\r\n        url\r\n      }\r\n    }\r\n    pokemon_species {\r\n      name\r\n      url\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						},
+						"description": "Query by id or name"
+					},
+					"response": []
+				},
+				{
+					"name": "All Pokemon Forms",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getAllPokemonForms {\r\n    node {\r\n      id\r\n      name\r\n      order\r\n      form_order\r\n      is_default\r\n      is_battle_only\r\n      is_mega\r\n      form_name\r\n      pokemon {\r\n        name\r\n        url\r\n      }\r\n      sprites {\r\n        front_default\r\n        front_shiny\r\n        back_default\r\n        back_shiny\r\n      }\r\n      version_group {\r\n        name\r\n        url\r\n      }\r\n\r\n      names {\r\n        name\r\n        language {\r\n          name\r\n          url\r\n        }\r\n      }\r\n      form_names {\r\n        name\r\n        language {\r\n          name\r\n          url\r\n        }\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pokemon Form",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getPokemonForm(id: 1) {\r\n    id\r\n    name\r\n    order\r\n    form_order\r\n    is_default\r\n    is_battle_only\r\n    is_mega\r\n    form_name\r\n    pokemon {\r\n      name\r\n      url\r\n    }\r\n    sprites {\r\n      front_default\r\n      front_shiny\r\n      back_default\r\n      back_shiny\r\n    }\r\n    version_group {\r\n      name\r\n      url\r\n    }\r\n\r\n    names {\r\n      name\r\n      language {\r\n        name\r\n        url\r\n      }\r\n    }\r\n    form_names {\r\n      name\r\n      language {\r\n        name\r\n        url\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						},
+						"description": "Query by id or name"
+					},
+					"response": []
+				},
+				{
+					"name": "All Pokemon Habitats",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getAllPokemonHabitats {\r\n    node {\r\n      id\r\n      name\r\n      names {\r\n        name\r\n        language {\r\n          name\r\n          url\r\n        }\r\n      }\r\n      pokemon_species {\r\n        name\r\n        url\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pokemon Habitat",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getPokemonHabitat(id: 1) {\r\n    id\r\n    name\r\n    names {\r\n      name\r\n      language {\r\n        name\r\n        url\r\n      }\r\n    }\r\n    pokemon_species {\r\n      name\r\n      url\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						},
+						"description": "Query by id or name"
+					},
+					"response": []
+				},
+				{
+					"name": "All Pokemon Shapes",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getAllPokemonShapes {\r\n    node {\r\n      id\r\n      name\r\n      awesome_names {\r\n        awesome_name\r\n        language {\r\n          name\r\n          url\r\n        }\r\n      }\r\n      names {\r\n        name\r\n        language {\r\n          name\r\n          url\r\n        }\r\n      }\r\n      pokemon_species {\r\n        name\r\n        url\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pokemon Shape",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getPokemonShape(id: 1) {\r\n    id\r\n    name\r\n    awesome_names {\r\n      awesome_name\r\n      language {\r\n        name\r\n        url\r\n      }\r\n    }\r\n    names {\r\n      name\r\n      language {\r\n        name\r\n        url\r\n      }\r\n    }\r\n    pokemon_species {\r\n      name\r\n      url\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						},
+						"description": "Query by id or name"
+					},
+					"response": []
+				},
+				{
+					"name": "All Pokemon Species",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getAllPokemonSpecies {\r\n    node {\r\n      id\r\n      name\r\n      order\r\n      gender_rate\r\n      capture_rate\r\n      base_happiness\r\n      is_baby\r\n      hatch_counter\r\n      has_gender_differences\r\n      forms_switchable\r\n      growth_rate {\r\n        name\r\n        url\r\n      }\r\n      pokedex_numbers {\r\n        entry_number\r\n        pokedex {\r\n          name\r\n          url\r\n        }\r\n      }\r\n      egg_groups {\r\n        name\r\n        url\r\n      }\r\n      color {\r\n        name\r\n        url\r\n      }\r\n      shape {\r\n        name\r\n        url\r\n      }\r\n      evolves_from_species {\r\n        name\r\n        url\r\n      }\r\n      evolution_chain {\r\n        id\r\n        baby_trigger_item {\r\n          name\r\n          url\r\n        }\r\n        chain {\r\n          species {\r\n            name\r\n            url\r\n          }\r\n        }\r\n      }\r\n      habitat {\r\n        name\r\n        url\r\n      }\r\n      generation {\r\n        name\r\n        url\r\n      }\r\n\r\n      names {\r\n        name\r\n        language {\r\n          name\r\n          url\r\n        }\r\n      }\r\n      pal_park_encounters {\r\n        base_score\r\n        rate\r\n        area {\r\n          name\r\n          url\r\n        }\r\n      }\r\n      flavor_text_entries {\r\n        flavor_text\r\n        language {\r\n          name\r\n          url\r\n        }\r\n        version {\r\n          name\r\n          url\r\n        }\r\n      }\r\n      form_descriptions {\r\n        description\r\n        language {\r\n          name\r\n          url\r\n        }\r\n      }\r\n      genera {\r\n        genus\r\n        language {\r\n          name\r\n          url\r\n        }\r\n      }\r\n      varieties {\r\n        is_default\r\n        pokemon {\r\n          name\r\n          url\r\n        }\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pokemon Species",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getPokemonSpecies(id: 1) {\r\n    id\r\n    name\r\n    order\r\n    gender_rate\r\n    capture_rate\r\n    base_happiness\r\n    is_baby\r\n    hatch_counter\r\n    has_gender_differences\r\n    forms_switchable\r\n    growth_rate {\r\n      name\r\n      url\r\n    }\r\n    pokedex_numbers {\r\n      entry_number\r\n      pokedex {\r\n        name\r\n        url\r\n      }\r\n    }\r\n    egg_groups {\r\n      name\r\n      url\r\n    }\r\n    color {\r\n      name\r\n      url\r\n    }\r\n    shape {\r\n      name\r\n      url\r\n    }\r\n    evolves_from_species {\r\n      name\r\n      url\r\n    }\r\n    evolution_chain {\r\n      id\r\n      baby_trigger_item {\r\n        name\r\n        url\r\n      }\r\n      chain {\r\n        species {\r\n          name\r\n          url\r\n        }\r\n      }\r\n    }\r\n    habitat {\r\n      name\r\n      url\r\n    }\r\n    generation {\r\n      name\r\n      url\r\n    }\r\n\r\n    names {\r\n      name\r\n      language {\r\n        name\r\n        url\r\n      }\r\n    }\r\n    pal_park_encounters {\r\n      base_score\r\n      rate\r\n      area {\r\n        name\r\n        url\r\n      }\r\n    }\r\n    flavor_text_entries {\r\n      flavor_text\r\n      language {\r\n        name\r\n        url\r\n      }\r\n      version {\r\n        name\r\n        url\r\n      }\r\n    }\r\n    form_descriptions {\r\n      description\r\n      language {\r\n        name\r\n        url\r\n      }\r\n    }\r\n    genera {\r\n      genus\r\n      language {\r\n        name\r\n        url\r\n      }\r\n    }\r\n    varieties {\r\n      is_default\r\n      pokemon {\r\n        name\r\n        url\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						},
+						"description": "Query by id or name"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Stat",
+			"item": [
+				{
+					"name": "All Stats",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getAllStats {\r\n    node {\r\n      id\r\n      name\r\n      game_index\r\n      is_battle_only\r\n      affecting_moves {\r\n        increase {\r\n          change\r\n          move {\r\n            name\r\n            url\r\n          }\r\n        }\r\n        decrease {\r\n          change\r\n          move {\r\n            name\r\n            url\r\n          }\r\n        }\r\n      }\r\n      affecting_natures {\r\n        increase {\r\n          name\r\n          url\r\n        }\r\n        decrease {\r\n          name\r\n          url\r\n        }\r\n      }\r\n      characteristics {\r\n        name\r\n        url\r\n      }\r\n      move_damage_class {\r\n        name\r\n        url\r\n      }\r\n      names {\r\n        name\r\n        language {\r\n          name\r\n          url\r\n        }\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Stat",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getStat(id: 1) {\r\n    id\r\n    name\r\n    game_index\r\n    is_battle_only\r\n    affecting_moves {\r\n      increase {\r\n        change\r\n        move {\r\n          name\r\n          url\r\n        }\r\n      }\r\n      decrease {\r\n        change\r\n        move {\r\n          name\r\n          url\r\n        }\r\n      }\r\n    }\r\n    affecting_natures {\r\n      increase {\r\n        name\r\n        url\r\n      }\r\n      decrease {\r\n        name\r\n        url\r\n      }\r\n    }\r\n    characteristics {\r\n      name\r\n      url\r\n    }\r\n    move_damage_class {\r\n      name\r\n      url\r\n    }\r\n    names {\r\n      name\r\n      language {\r\n        name\r\n        url\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						},
+						"description": "Query by id or name"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Type",
+			"item": [
+				{
+					"name": "All Types",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getAllTypes {\r\n    node {\r\n      id\r\n      name\r\n      damage_relations {\r\n        no_damage_to {\r\n          name\r\n          url\r\n        }\r\n        half_damage_to {\r\n          name\r\n          url\r\n        }\r\n        double_damage_to {\r\n          name\r\n          url\r\n        }\r\n        no_damage_from {\r\n          name\r\n          url\r\n        }\r\n        half_damage_from {\r\n          name\r\n          url\r\n        }\r\n        double_damage_from {\r\n          name\r\n          url\r\n        }\r\n      }\r\n      game_indices {\r\n        game_index\r\n        generation {\r\n          name\r\n          url\r\n        }\r\n      }\r\n      generation {\r\n        name\r\n        url\r\n      }\r\n      move_damage_class {\r\n        name\r\n        url\r\n      }\r\n      names {\r\n        name\r\n        language {\r\n          name\r\n          url\r\n        }\r\n      }\r\n      moves {\r\n        name\r\n        url\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Type",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getType(id: 1) {\r\n    id\r\n    name\r\n    damage_relations {\r\n      no_damage_to {\r\n        name\r\n        url\r\n      }\r\n      half_damage_to {\r\n        name\r\n        url\r\n      }\r\n      double_damage_to {\r\n        name\r\n        url\r\n      }\r\n      no_damage_from {\r\n        name\r\n        url\r\n      }\r\n      half_damage_from {\r\n        name\r\n        url\r\n      }\r\n      double_damage_from {\r\n        name\r\n        url\r\n      }\r\n    }\r\n    game_indices {\r\n      game_index\r\n      generation {\r\n        name\r\n        url\r\n      }\r\n    }\r\n    generation {\r\n      name\r\n      url\r\n    }\r\n    move_damage_class {\r\n      name\r\n      url\r\n    }\r\n    names {\r\n      name\r\n      language {\r\n        name\r\n        url\r\n      }\r\n    }\r\n    moves {\r\n      name\r\n      url\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						},
+						"description": "Query by id or name"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

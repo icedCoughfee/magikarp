@@ -20,3 +20,15 @@ Nodemon is set with the verbose option for development but can be turned off by 
 ```sh
 { verbose: false }
 ```
+
+## Postman
+
+Start the GraphQL server and Import _Magikarp.postman_collection.json_ into [Postman](https://www.getpostman.com/) to get started with Magikarp's GraphQL calls. The combined schema created by [schemaglue](https://www.npmjs.com/package/schemaglue) is built by running the GraphQL server with either of the following commands and is created under exports as _magikarp-schema.graphql_, which can be imported into Postman for auto-completion.
+
+```sh
+npm run dev
+```
+
+```sh
+npm start
+```
