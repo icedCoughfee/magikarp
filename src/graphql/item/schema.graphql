@@ -34,7 +34,7 @@ type ItemSprites {
 }
 
 type ItemHolderPokemon {
-  pokemon: String
+  pokemon: PokemonConnection
   version_details: [ItemHolderPokemonVersionDetail]!
 }
 
