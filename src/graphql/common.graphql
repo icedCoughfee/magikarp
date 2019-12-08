@@ -46,7 +46,7 @@ type VerboseEffect {
 type VersionEncounterDetail {
   version: VersionConnection
   max_chance: Int
-  encounter_details: Encounter
+  encounter_details: [Encounter]!
 }
 
 type VersionGameIndex {
