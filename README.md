@@ -4,7 +4,7 @@ Magikarp is a GraphQL API wrapper for the public [PokeAPI](https://pokeapi.co/) 
 
 > This project is purely to learn GraphQL and to support future front-end projects that query the PokeAPI
 
-## Usage
+## Getting Started
 
 ```sh
 git clone git@github.com:icedCoughfee/magikarp.git
