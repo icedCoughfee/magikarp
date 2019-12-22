@@ -278,7 +278,7 @@ type PokemonSpecies {
   color: PokemonColorConnection
   shape: PokemonShapeConnection
   evolves_from_species: PokemonSpeciesConnection
-  evolution_chain: EvolutionChain
+  evolution_chain: EvolutionChainConnection
   habitat: PokemonHabitatConnection
   generation: GenerationConnection
   names: [Name]!
