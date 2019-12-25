@@ -6,8 +6,14 @@
   "scripts": {
     "start": "node src/index.js",
     "dev": "nodemon --config configs/nodemon.json src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "clean": "rm -rf exports"
+    "clean": "rm -rf exports",
+    "fix:other": "npm run prettier --write",
+    "fix:code": "npm run test:code --fix",
+    "fix": "npm run fix:code && npm run fix:other",
+    "prettier": "prettier \"**/*.{json,md,scss,yaml,yml}\"",
+    "test:other": "npm run prettier --list-different",
+    "test:code": "eslint --ignore-path .gitignore --ignore-path .prettierignore --ext .js,.jsx .",
+    "test": "npm run test:other && npm run test:code"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +27,9 @@
     "winston": "^3.2.1"
   },
   "devDependencies": {
-    "eslint": "^6.8.0"
+    "eslint": "6.8.0",
+    "eslint-config-prettier": "6.7.0",
+    "eslint-plugin-prettier": "3.1.2",
+    "prettier": "1.19.1"
   }
 }
