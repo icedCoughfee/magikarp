@@ -1,59 +1,52 @@
-const {
-    getNode,
-    getAllConnections,
-    getByIdOrName
-} = require("../utils/resolverHelper");
+const {getAllConnections, getByIdOrName} = require('../utils/resolverHelper');
+const {generateTrivialResolvers} = require('../utils/resolverGenerator');
+
+const connections = [
+  'MoveConnection',
+  'MoveAilmentConnection',
+  'MoveBattleStyleConnection',
+  'MoveCategoryConnection',
+  'MoveDamageClassConnection',
+  'MoveLearnMethodConnection',
+  'MoveTargetConnection'
+];
 
 exports.resolver = {
-    Query: {
-        getAllMoves: (parent, args) => getAllConnections("/move", args),
-        getMove: (parent, args) => {
-            return getByIdOrName("/move", args);
-        },
-        getAllMoveAilments: (parent, args) => getAllConnections("/move-ailment", args),
-        getMoveAilment: (parent, args) => {
-            return getByIdOrName("/move-ailment", args);
-        },
-        getAllMoveBattleStyles: (parent, args) => getAllConnections("/move-battle-style", args),
-        getMoveBattleStyle: (parent, args) => {
-            return getByIdOrName("/move-battle-style", args);
-        },
-        getAllMoveCategories: (parent, args) => getAllConnections("/move-category", args),
-        getMoveCategory: (parent, args) => {
-            return getByIdOrName("/move-category", args);
-        },
-        getAllMoveDamageClasses: (parent, args) => getAllConnections("/move-damage-class", args),
-        getMoveDamageClass: (parent, args) => {
-            return getByIdOrName("/move-damage-class", args);
-        },
-        getAllMoveLearnMethods: (parent, args) => getAllConnections("/move-learn-method", args),
-        getMoveLearnMethod: (parent, args) => {
-            return getByIdOrName("/move-learn-method", args);
-        },
-        getAllMoveTargets: (parent, args) => getAllConnections("/move-target", args),
-        getMoveTarget: (parent, args) => {
-            return getByIdOrName("/move-target", args);
-        }
+  Query: {
+    getAllMoves: (parent, args) => getAllConnections('/move', args),
+    getMove: (parent, args) => {
+      return getByIdOrName('/move', args);
     },
-    MoveConnection: {
-        node: obj => getNode(obj)
+    getAllMoveAilments: (parent, args) =>
+      getAllConnections('/move-ailment', args),
+    getMoveAilment: (parent, args) => {
+      return getByIdOrName('/move-ailment', args);
     },
-    MoveAilmentConnection: {
-        node: obj => getNode(obj)
+    getAllMoveBattleStyles: (parent, args) =>
+      getAllConnections('/move-battle-style', args),
+    getMoveBattleStyle: (parent, args) => {
+      return getByIdOrName('/move-battle-style', args);
     },
-    MoveBattleStyleConnection: {
-        node: obj => getNode(obj)
+    getAllMoveCategories: (parent, args) =>
+      getAllConnections('/move-category', args),
+    getMoveCategory: (parent, args) => {
+      return getByIdOrName('/move-category', args);
     },
-    MoveCategoryConnection: {
-        node: obj => getNode(obj)
+    getAllMoveDamageClasses: (parent, args) =>
+      getAllConnections('/move-damage-class', args),
+    getMoveDamageClass: (parent, args) => {
+      return getByIdOrName('/move-damage-class', args);
     },
-    MoveDamageClassConnection: {
-        node: obj => getNode(obj)
+    getAllMoveLearnMethods: (parent, args) =>
+      getAllConnections('/move-learn-method', args),
+    getMoveLearnMethod: (parent, args) => {
+      return getByIdOrName('/move-learn-method', args);
     },
-    MoveLearnMethodConnection: {
-        node: obj => getNode(obj)
-    },
-    MoveTargetConnection: {
-        node: obj => getNode(obj)
+    getAllMoveTargets: (parent, args) =>
+      getAllConnections('/move-target', args),
+    getMoveTarget: (parent, args) => {
+      return getByIdOrName('/move-target', args);
     }
-}
+  },
+  ...generateTrivialResolvers(connections)
+};

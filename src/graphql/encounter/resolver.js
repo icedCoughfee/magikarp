@@ -1,32 +1,29 @@
-const {
-    getNode,
-    getAllConnections,
-    getByIdOrName
-} = require("../utils/resolverHelper");
+const {getAllConnections, getByIdOrName} = require('../utils/resolverHelper');
+const {generateTrivialResolvers} = require('../utils/resolverGenerator');
+
+const connections = [
+  'EncounterMethodConnection',
+  'EncounterConditionConnection',
+  'EncounterConditionValueConnection',
+];
 
 exports.resolver = {
-    Query: {
-        getAllEncounterMethods: (parent, args) => getAllConnections("/encounter-method", args),
-        getEncounterMethod: (parent, args) => {
-            return getByIdOrName("/encounter-method", args);
-        },
-        getAllEncounterConditions: (parent, args) => getAllConnections("/encounter-condition", args),
-        getEncounterCondition: (parent, args) => {
-            return getByIdOrName("/encounter-condition", args);
-        },
-        getAllEncounterConditionValues: (parent, args) =>
-            getAllConnections("/encounter-condition-value", args),
-        getEncounterConditionValue: (parent, args) => {
-            return getByIdOrName("/encounter-condition-value", args);
-        }
+  Query: {
+    getAllEncounterMethods: (parent, args) =>
+      getAllConnections('/encounter-method', args),
+    getEncounterMethod: (parent, args) => {
+      return getByIdOrName('/encounter-method', args);
     },
-    EncounterMethodConnection: {
-        node: obj => getNode(obj)
+    getAllEncounterConditions: (parent, args) =>
+      getAllConnections('/encounter-condition', args),
+    getEncounterCondition: (parent, args) => {
+      return getByIdOrName('/encounter-condition', args);
     },
-    EncounterConditionConnection: {
-        node: obj => getNode(obj)
+    getAllEncounterConditionValues: (parent, args) =>
+      getAllConnections('/encounter-condition-value', args),
+    getEncounterConditionValue: (parent, args) => {
+      return getByIdOrName('/encounter-condition-value', args);
     },
-    EncounterConditionValueConnection: {
-        node: obj => getNode(obj)
-    }
-}
+  },
+  ...generateTrivialResolvers(connections),
+};

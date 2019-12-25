@@ -1,42 +1,37 @@
-const {
-    getNode,
-    getAllConnections,
-    getByIdOrName
-} = require("../utils/resolverHelper");
+const {getAllConnections, getByIdOrName} = require('../utils/resolverHelper');
+const {generateTrivialResolvers} = require('../utils/resolverGenerator');
+
+const connections = [
+  'LocationConnection',
+  'LocationAreaConnection',
+  'PalParkAreaConnection',
+  'RegionConnection',
+];
 
 exports.resolver = {
-    Query: {
-        getAllLocations: (parent, args) => getAllConnections("/location", args),
-        getLocation: (parent, args) => {
-            return getByIdOrName("/location", args);
-        },
-        getAllLocationAreas: (parent, args) => getAllConnections("/location-area", args),
-        getLocationArea: (parent, args) => {
-            return getByIdOrName("/location-area", args);
-        },
-        getAllPalParkAreas: (parent, args) => getAllConnections("/pal-park-area", args),
-        getPalParkArea: (parent, args) => {
-            return getByIdOrName("/pal-park-area", args);
-        },
-        getAllRegions: (parent, args) => getAllConnections("/region", args),
-        getRegion: (parent, args) => {
-            return getByIdOrName("/region", args);
-        },
-        getAllMachines: (parent, args) => getAllConnections("/machine", args),
-        getMachine: (parent, args) => {
-            return getByIdOrName("/machine", args);
-        }
+  Query: {
+    getAllLocations: (parent, args) => getAllConnections('/location', args),
+    getLocation: (parent, args) => {
+      return getByIdOrName('/location', args);
     },
-    LocationConnection: {
-        node: obj => getNode(obj)
+    getAllLocationAreas: (parent, args) =>
+      getAllConnections('/location-area', args),
+    getLocationArea: (parent, args) => {
+      return getByIdOrName('/location-area', args);
     },
-    LocationAreaConnection: {
-        node: obj => getNode(obj)
+    getAllPalParkAreas: (parent, args) =>
+      getAllConnections('/pal-park-area', args),
+    getPalParkArea: (parent, args) => {
+      return getByIdOrName('/pal-park-area', args);
     },
-    PalParkAreaConnection: {
-        node: obj => getNode(obj)
+    getAllRegions: (parent, args) => getAllConnections('/region', args),
+    getRegion: (parent, args) => {
+      return getByIdOrName('/region', args);
     },
-    RegionConnection: {
-        node: obj => getNode(obj)
+    getAllMachines: (parent, args) => getAllConnections('/machine', args),
+    getMachine: (parent, args) => {
+      return getByIdOrName('/machine', args);
     },
-}
+  },
+  ...generateTrivialResolvers(connections),
+};
