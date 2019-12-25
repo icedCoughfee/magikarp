@@ -12,6 +12,14 @@ const getNode = obj => {
     }
 };
 
+// resolve all connection references
+const getAllNodes = async (urlPath, args) => {
+    const connections = await getAllConnections(urlPath, args)
+    return connections.map(async (c) => {
+        return await getNode(c)
+    });
+}
+
 // calls that return Connections (reference list {name, url})
 const getAllConnections = (urlPath, args) => {
     let pagination = "";
@@ -53,5 +61,6 @@ const getByIdOrName = (urlPath, args) => {
 module.exports = {
     getNode,
     getAllConnections,
+    getAllNodes,
     getByIdOrName
 }
